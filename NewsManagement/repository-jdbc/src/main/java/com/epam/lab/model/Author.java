@@ -5,6 +5,9 @@ public class Author {
     private String authorName;
     private String authorSurname;
 
+    public Author() {
+    }
+
     public Author(long authorId, String authorName, String authorSurname) {
         this.authorId = authorId;
         this.authorName = authorName;
@@ -64,4 +67,5 @@ public class Author {
         sb.append('}');
         return sb.toString();
     }
+
 }

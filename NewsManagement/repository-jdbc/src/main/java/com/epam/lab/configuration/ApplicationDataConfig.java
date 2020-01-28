@@ -12,7 +12,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
 @ComponentScan("com.epam.lab")
-@PropertySource("classpath.database.properties")
+@PropertySource("database.properties")
 public class ApplicationDataConfig {
 
     @Autowired
@@ -32,4 +32,5 @@ public class ApplicationDataConfig {
         driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));
         return driverManagerDataSource;
     }
+
 }
