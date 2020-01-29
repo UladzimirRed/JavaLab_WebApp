@@ -21,22 +21,22 @@ public class AuthorDaoImpl implements AuthorDao {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
     public Author getAuthorById(long id) {
-        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_AUTHOR, new Object[] { id }, new AuthorMapper());
+        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_AUTHOR_BY_ID, new Object[] { id }, new AuthorMapper());
     }
 
-    public List<Author> getAllPerson() {
+    public List<Author> getAllAuthors() {
         return jdbcTemplate.query(SqlRequest.SQL_FIND_ALL_AUTHORS, new AuthorMapper());
     }
 
     public boolean deleteAuthor(Author author) {
-        return false;
+        return jdbcTemplate.update(SqlRequest.SQL_DELETE_AUTHOR, author.getAuthorId()) > 0;
     }
 
     public boolean updateAuthor(Author author) {
-        return false;
+        return jdbcTemplate.update(SqlRequest.SQL_UPDATE_AUTHOR, author.getAuthorName(), author.getAuthorSurname(), author.getAuthorId()) > 0;
     }
 
     public boolean createAuthor(Author author) {
-        return false;
+        return jdbcTemplate.update(SqlRequest.SQL_INSERT_AUTHOR, author.getAuthorName(), author.getAuthorSurname()) > 0;
     }
 }
