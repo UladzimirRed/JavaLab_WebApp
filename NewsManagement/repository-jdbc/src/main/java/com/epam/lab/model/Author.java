@@ -1,6 +1,6 @@
 package com.epam.lab.model;
 
-public class Author {
+public class Author extends Entity{
     private long authorId;
     private String authorName;
     private String authorSurname;

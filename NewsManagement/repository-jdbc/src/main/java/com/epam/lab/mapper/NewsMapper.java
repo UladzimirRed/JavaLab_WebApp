@@ -1,5 +1,6 @@
-package com.epam.lab.model;
+package com.epam.lab.mapper;
 
+import com.epam.lab.model.News;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

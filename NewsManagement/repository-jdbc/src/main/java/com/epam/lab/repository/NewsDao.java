@@ -4,10 +4,10 @@ import com.epam.lab.model.News;
 
 import java.util.List;
 
-public interface NewsDao {
-    News getNewsById(long id);
-    List<News> getAllNews();
-    boolean deleteNews(News news);
-    boolean updateNews(News news);
-    boolean createNews(News news);
+public interface NewsDao extends BaseDao<News>{
+    News getEntityById(long id);
+    List<News> getAllEntities();
+    boolean deleteEntity(News news);
+    boolean updateEntity(News news);
+    boolean createEntity(News news);
 }

@@ -2,18 +2,20 @@ package com.epam.lab.configuration;
 
 import javax.sql.DataSource;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @Configuration
 @ComponentScan("com.epam.lab")
 @PropertySource("database.properties")
-public class ApplicationDataConfig {
+public class JdbcConfiguration {
 
     @Autowired
     Environment environment;
@@ -24,13 +26,17 @@ public class ApplicationDataConfig {
     private final String PASSWORD = "dbPassword";
 
     @Bean
-    DataSource dataSource(){
-        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setUrl(environment.getProperty(URL));
-        driverManagerDataSource.setUsername(environment.getProperty(USER));
-        driverManagerDataSource.setPassword(environment.getProperty(PASSWORD));
-        driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));
-        return driverManagerDataSource;
+    public JdbcTemplate jdbcTemplate(){
+        return new JdbcTemplate(dataSource());
     }
 
+    @Bean
+    public DataSource dataSource(){
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(environment.getProperty(URL));
+        config.setUsername(environment.getProperty(USER));
+        config.setPassword(environment.getProperty(PASSWORD));
+        config.setDriverClassName(environment.getProperty(DRIVER));
+        return new HikariDataSource(config);
+    }
 }

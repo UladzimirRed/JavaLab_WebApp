@@ -1,44 +1,51 @@
 package com.epam.lab.xxx;
 
-import com.epam.lab.configuration.ApplicationDataConfig;
+import com.epam.lab.configuration.JdbcConfiguration;
 import com.epam.lab.model.Author;
 import com.epam.lab.model.News;
+import com.epam.lab.model.Tag;
+import com.epam.lab.model.User;
 import com.epam.lab.repository.AuthorDao;
 import com.epam.lab.repository.NewsDao;
+import com.epam.lab.repository.TagDao;
+import com.epam.lab.repository.UserDao;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.Timestamp;
 import java.time.Instant;
 
 public class Main {
+
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationDataConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
         AuthorDao authorDao = context.getBean(AuthorDao.class);
         NewsDao newsDao = context.getBean(NewsDao.class);
+        UserDao userDao = context.getBean(UserDao.class);
+        TagDao tagDao = context.getBean(TagDao.class);
 
 //        System.out.println("\nCreating person: ");
 //        Author author = new Author("Marvin", "Carroll");
-//        authorDao.createAuthor(author);
+//        authorDao.createEntity(author);
 
         System.out.println("\nGet person with id 1");
-        Author authorById = authorDao.getAuthorById(1L);
+        Author authorById = authorDao.getEntityById(1L);
         System.out.println(authorById);
 
-        //        Author author1 = authorDao.getAuthorById(4L);
+        //        Author author1 = authorDao.getEntityById(4L);
 //        author1.setAuthorName("Margot ");
 //        author1.setAuthorSurname("Archer");
-//        authorDao.updateAuthor(author1);
+//        authorDao.updateEntity(author1);
 //        System.out.println("\nList of person is:");
-//        for (Author a : authorDao.getAllAuthors()) {
+//        for (Author a : authorDao.getAllEntities()) {
 //            System.out.println(a);
 //        }
 
 //        System.out.println("\nDeleting author with ID 6");
-//        Author author1 = authorDao.getAuthorById(6L);
-//        authorDao.deleteAuthor(author1);
+//        Author author1 = authorDao.getEntityById(6L);
+//        authorDao.deleteEntity(author1);
 
         System.out.println("\nList of authors is: ");
-        for (Author a : authorDao.getAllAuthors()){
+        for (Author a : authorDao.getAllEntities()){
             System.out.println(a);
         }
 
@@ -73,27 +80,51 @@ public class Main {
 //        /*Create news*/
 //        System.out.println("\nCreating news: ");
 //        News news = new News(title3, shortText3, fullText3, Timestamp.from(Instant.now()), Timestamp.from(Instant.now()));
-//        newsDao.createNews(news);
+//        newsDao.createEntity(news);
 
         /*Get news by id*/
-        News newsById = newsDao.getNewsById(1L);
+        News newsById = newsDao.getEntityById(1L);
         System.out.println("\nNews by id 1 is: \n" + newsById);
 
-        /*Update news*/
-        System.out.println("\nUpdate news with ID 3");
-        News news1 = newsDao.getNewsById(4L);
-        news1.setModificationDate(Timestamp.from(Instant.now()));
-        newsDao.updateNews(news1);
+//        /*Update news*/
+//        System.out.println("\nUpdate news with ID 3");
+//        News news1 = newsDao.getNewsById(4L);
+//        news1.setModificationDate(Timestamp.from(Instant.now()));
+//        newsDao.updateEntity(news1);
 
 //        /*Delete news*/
 //        System.out.println("\nDeleting news with ID 2");
-//        News news2 = newsDao.getNewsById(2L);
-//        newsDao.deleteNews(news2);
+//        News news2 = newsDao.getEntityById(2L);
+//        newsDao.deleteEntity(news2);
 
         /*Show all news*/
         System.out.println("\nList of news: ");
-        for (News n : newsDao.getAllNews()){
+        for (News n : newsDao.getAllEntities()){
             System.out.println(n);
+        }
+
+
+
+//        /*Create user*/
+//        System.out.println("\nCreating user: ");
+//        User user = new User("userName3", "userSurname3", "login3", "password3");
+//        userDao.createEntity(user);
+
+        /*Show all users*/
+        System.out.println("\nList of users: ");
+        for (User u : userDao.getAllEntities()){
+            System.out.println(u);
+        }
+
+        /*Create tag*/
+        System.out.println("\nCreating tags: ");
+        Tag tag = new Tag("politics");
+        tagDao.createEntity(tag);
+
+        /*Show all tags*/
+        System.out.println("\nList of tags: ");
+        for (Tag t : tagDao.getAllEntities()){
+            System.out.println(t);
         }
 
         context.close();
