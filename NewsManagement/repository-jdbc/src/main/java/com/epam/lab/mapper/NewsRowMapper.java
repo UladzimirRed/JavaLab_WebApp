@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class NewsMapper implements RowMapper<News> {
+public class NewsRowMapper implements RowMapper<News> {
     @Override
     public News mapRow(ResultSet resultSet, int i) throws SQLException {
         News news = new News();

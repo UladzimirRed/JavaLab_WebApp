@@ -1,6 +1,6 @@
 package com.epam.lab.xxx;
 
-import com.epam.lab.configuration.JdbcConfiguration;
+import com.epam.lab.configuration.JdbcContextConfig;
 import com.epam.lab.model.Author;
 import com.epam.lab.model.News;
 import com.epam.lab.model.Tag;
@@ -11,13 +11,10 @@ import com.epam.lab.repository.TagDao;
 import com.epam.lab.repository.UserDao;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.sql.Timestamp;
-import java.time.Instant;
-
 public class Main {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JdbcContextConfig.class);
         AuthorDao authorDao = context.getBean(AuthorDao.class);
         NewsDao newsDao = context.getBean(NewsDao.class);
         UserDao userDao = context.getBean(UserDao.class);

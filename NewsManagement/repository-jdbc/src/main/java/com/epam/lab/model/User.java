@@ -1,6 +1,6 @@
 package com.epam.lab.model;
 
-public class User extends Entity{
+public class User extends AbstractEntity {
     private long userId;
     private String userName;
     private String userSurname;

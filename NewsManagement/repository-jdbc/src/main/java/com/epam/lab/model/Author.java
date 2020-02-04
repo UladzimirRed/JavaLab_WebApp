@@ -1,6 +1,12 @@
 package com.epam.lab.model;
 
-public class Author extends Entity{
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+
+@Entity
+public class Author extends AbstractEntity{
     private long authorId;
     private String authorName;
     private String authorSurname;
@@ -8,17 +14,8 @@ public class Author extends Entity{
     public Author() {
     }
 
-    public Author(long authorId, String authorName, String authorSurname) {
-        this.authorId = authorId;
-        this.authorName = authorName;
-        this.authorSurname = authorSurname;
-    }
-
-    public Author(String authorName, String authorSurname) {
-        this.authorName = authorName;
-        this.authorSurname = authorSurname;
-    }
-
+    @Id
+    @GeneratedValue
     public long getAuthorId() {
         return authorId;
     }
@@ -27,6 +24,7 @@ public class Author extends Entity{
         this.authorId = authorId;
     }
 
+    @Column(nullable = false)
     public String getAuthorName() {
         return authorName;
     }
@@ -35,6 +33,7 @@ public class Author extends Entity{
         this.authorName = authorName;
     }
 
+    @Column(nullable = false)
     public String getAuthorSurname() {
         return authorSurname;
     }

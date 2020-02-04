@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class TagMapper implements RowMapper<Tag> {
+public class TagRowMapper implements RowMapper<Tag> {
     @Override
     public Tag mapRow(ResultSet resultSet, int i) throws SQLException {
         Tag tag = new Tag();

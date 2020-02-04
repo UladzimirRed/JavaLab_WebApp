@@ -1,7 +1,7 @@
 package com.epam.lab.repository.impl;
 
 import com.epam.lab.model.News;
-import com.epam.lab.mapper.NewsMapper;
+import com.epam.lab.mapper.NewsRowMapper;
 import com.epam.lab.repository.NewsDao;
 import com.epam.lab.repository.SqlRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +23,12 @@ public class NewsDaoImpl implements NewsDao {
 
     @Override
     public News getEntityById(long id) {
-        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_NEWS_BY_ID, new Object[] {id}, new NewsMapper());
+        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_NEWS_BY_ID, new Object[] {id}, new NewsRowMapper());
     }
 
     @Override
     public List<News> getAllEntities() {
-        return jdbcTemplate.query(SqlRequest.SQL_FIND_ALL_NEWS, new NewsMapper());
+        return jdbcTemplate.query(SqlRequest.SQL_FIND_ALL_NEWS, new NewsRowMapper());
     }
 
     @Override

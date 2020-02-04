@@ -2,7 +2,7 @@ package com.epam.lab.model;
 
 import java.sql.Timestamp;
 
-public class News extends Entity{
+public class News extends AbstractEntity {
     private long newsId;
     private String title;
     private String shortText;

@@ -1,6 +1,6 @@
 package com.epam.lab.model;
 
-public class Tag extends Entity {
+public class Tag extends AbstractEntity {
     private long tagId;
     private String tagName;
 

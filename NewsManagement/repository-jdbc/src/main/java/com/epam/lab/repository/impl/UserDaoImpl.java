@@ -1,7 +1,7 @@
 package com.epam.lab.repository.impl;
 
 import com.epam.lab.model.User;
-import com.epam.lab.mapper.UserMapper;
+import com.epam.lab.mapper.UserRowMapper;
 import com.epam.lab.repository.SqlRequest;
 import com.epam.lab.repository.UserDao;
 import com.epam.lab.util.EncryptPassword;
@@ -24,12 +24,12 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getEntityById(long id) {
-        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_USER_BY_ID, new Object[] {id}, new UserMapper());
+        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_USER_BY_ID, new Object[] {id}, new UserRowMapper());
     }
 
     @Override
     public List<User> getAllEntities() {
-        return jdbcTemplate.query(SqlRequest.SQL_FIND_ALL_USERS, new UserMapper());
+        return jdbcTemplate.query(SqlRequest.SQL_FIND_ALL_USERS, new UserRowMapper());
     }
 
     @Override

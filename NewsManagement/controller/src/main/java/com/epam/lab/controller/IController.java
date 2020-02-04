@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/NewsManagement")
+@RequestMapping(value = "/test")
 
 public class IController {
     @GetMapping

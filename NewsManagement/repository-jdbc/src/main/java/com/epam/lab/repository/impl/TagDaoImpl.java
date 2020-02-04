@@ -1,8 +1,6 @@
 package com.epam.lab.repository.impl;
 
-import com.epam.lab.mapper.NewsMapper;
-import com.epam.lab.mapper.TagMapper;
-import com.epam.lab.mapper.UserMapper;
+import com.epam.lab.mapper.TagRowMapper;
 import com.epam.lab.model.Tag;
 import com.epam.lab.repository.SqlRequest;
 import com.epam.lab.repository.TagDao;
@@ -24,12 +22,12 @@ public class TagDaoImpl implements TagDao {
 
     @Override
     public Tag getEntityById(long id) {
-        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_TAG_BY_ID, new Object[] {id}, new TagMapper());
+        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_TAG_BY_ID, new Object[] {id}, new TagRowMapper());
     }
 
     @Override
     public List<Tag> getAllEntities() {
-        return jdbcTemplate.query(SqlRequest.SQL_FIND_ALL_TAGS, new TagMapper());
+        return jdbcTemplate.query(SqlRequest.SQL_FIND_ALL_TAGS, new TagRowMapper());
     }
 
     @Override
