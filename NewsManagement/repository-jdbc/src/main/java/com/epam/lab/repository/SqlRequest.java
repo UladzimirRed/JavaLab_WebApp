@@ -26,4 +26,6 @@ public class SqlRequest {
     public static final String SQL_UPDATE_TAG = "update tags set tag_name = ? where id = ?";
     public static final String SQL_DELETE_TAG = "delete from tags where id =?";
     public static final String SQL_INSERT_TAG = "insert into tags (tag_name) values (?)";
+
+    public static final String SQL_FIND_AUTHOR_ID_BY_NEWS_ID = "select author_id from news_author where news_id = ?";
 }

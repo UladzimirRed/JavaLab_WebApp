@@ -21,7 +21,7 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
-    public Author getEntityById(long id) {
+    public Author getEntityById(Long id) {
         return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_AUTHOR_BY_ID, new Object[] { id }, new AuthorRowMapper());
     }
 
@@ -31,8 +31,8 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
-    public boolean deleteEntity(Author author) {
-        return jdbcTemplate.update(SqlRequest.SQL_DELETE_AUTHOR, author.getAuthorId()) > 0;
+    public boolean deleteEntity(Long id) {
+        return jdbcTemplate.update(SqlRequest.SQL_DELETE_AUTHOR, id) > 0;
     }
 
     @Override

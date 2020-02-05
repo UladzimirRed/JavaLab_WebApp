@@ -6,9 +6,9 @@ import com.epam.lab.model.AbstractEntity;
 import java.util.List;
 
 public interface BaseDao<T extends AbstractEntity> {
-    T getEntityById(long id);
+    T getEntityById(Long id);
     List<T> getAllEntities();
-    boolean deleteEntity(T t);
+    boolean deleteEntity(Long id);
     boolean updateEntity(T t);
     boolean createEntity(T t);
 }

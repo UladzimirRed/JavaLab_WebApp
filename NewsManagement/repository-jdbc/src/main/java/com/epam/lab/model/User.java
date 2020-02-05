@@ -1,30 +1,29 @@
 package com.epam.lab.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User extends AbstractEntity {
-    private long userId;
+    private Long userId;
     private String userName;
     private String userSurname;
     private String login;
     private String password;
 
-    public User() {
-    }
-
-    public User(String userName, String userSurname, String login, String password) {
-        this.userName = userName;
-        this.userSurname = userSurname;
-        this.login = login;
-        this.password = password;
-    }
-
-    public long getUserId() {
+    @Id
+    @GeneratedValue
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
+    @Column(nullable = false)
     public String getUserName() {
         return userName;
     }
@@ -33,6 +32,7 @@ public class User extends AbstractEntity {
         this.userName = userName;
     }
 
+    @Column(nullable = false)
     public String getUserSurname() {
         return userSurname;
     }
@@ -41,6 +41,7 @@ public class User extends AbstractEntity {
         this.userSurname = userSurname;
     }
 
+    @Column(nullable = false)
     public String getLogin() {
         return login;
     }
@@ -49,6 +50,7 @@ public class User extends AbstractEntity {
         this.login = login;
     }
 
+    @Column(nullable = false)
     public String getPassword() {
         return password;
     }
@@ -84,9 +86,9 @@ public class User extends AbstractEntity {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("User{");
-        sb.append("id=").append(userId);
-        sb.append(", userName='").append(userName).append('\'');
-        sb.append(", userSurname='").append(userSurname).append('\'');
+        sb.append("user id=").append(userId);
+        sb.append(", user name='").append(userName).append('\'');
+        sb.append(", user surname='").append(userSurname).append('\'');
         sb.append(", login='").append(login).append('\'');
         sb.append('}');
         return sb.toString();

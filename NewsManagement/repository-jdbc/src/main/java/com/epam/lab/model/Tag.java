@@ -1,24 +1,26 @@
 package com.epam.lab.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Tag extends AbstractEntity {
-    private long tagId;
+    private Long tagId;
     private String tagName;
 
-    public Tag() {
-    }
-
-    public Tag(String tagName) {
-        this.tagName = tagName;
-    }
-
-    public long getTagId() {
+    @Id
+    @GeneratedValue
+    public Long getTagId() {
         return tagId;
     }
 
-    public void setTagId(long tagId) {
+    public void setTagId(Long tagId) {
         this.tagId = tagId;
     }
 
+    @Column(nullable = false)
     public String getTagName() {
         return tagName;
     }
@@ -48,8 +50,8 @@ public class Tag extends AbstractEntity {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Tag{");
-        sb.append("tagId=").append(tagId);
-        sb.append(", tagName='").append(tagName).append('\'');
+        sb.append("tag id=").append(tagId);
+        sb.append(", tag name='").append(tagName).append('\'');
         sb.append('}');
         return sb.toString();
     }

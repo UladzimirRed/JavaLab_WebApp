@@ -1,22 +1,18 @@
-package com.epam.lab.model;
+package com.epam.lab.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.sql.Timestamp;
+import java.util.List;
 
-@Entity
-public class News extends AbstractEntity {
+public class NewsDto {
     private Long newsId;
     private String title;
     private String shortText;
     private String fullText;
     private Timestamp creationDate;
     private Timestamp modificationDate;
+    private AuthorDto authorDto;
+    private List<TagDto> tags;
 
-    @Id
-    @GeneratedValue
     public Long getNewsId() {
         return newsId;
     }
@@ -25,7 +21,6 @@ public class News extends AbstractEntity {
         this.newsId = newsId;
     }
 
-    @Column(nullable = false)
     public String getTitle() {
         return title;
     }
@@ -34,7 +29,6 @@ public class News extends AbstractEntity {
         this.title = title;
     }
 
-    @Column(nullable = false)
     public String getShortText() {
         return shortText;
     }
@@ -43,7 +37,6 @@ public class News extends AbstractEntity {
         this.shortText = shortText;
     }
 
-    @Column(nullable = false)
     public String getFullText() {
         return fullText;
     }
@@ -52,7 +45,6 @@ public class News extends AbstractEntity {
         this.fullText = fullText;
     }
 
-    @Column(nullable = false)
     public Timestamp getCreationDate() {
         return creationDate;
     }
@@ -61,7 +53,6 @@ public class News extends AbstractEntity {
         this.creationDate = creationDate;
     }
 
-    @Column(nullable = false)
     public Timestamp getModificationDate() {
         return modificationDate;
     }
@@ -70,42 +61,51 @@ public class News extends AbstractEntity {
         this.modificationDate = modificationDate;
     }
 
+    public AuthorDto getAuthorDto() {
+        return authorDto;
+    }
+
+    public void setAuthorDto(AuthorDto authorDto) {
+        this.authorDto = authorDto;
+    }
+
+    public List<TagDto> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<TagDto> tags) {
+        this.tags = tags;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        News news = (News) o;
+        NewsDto newsDto = (NewsDto) o;
 
-        if (newsId != news.newsId) return false;
-        if (title != null ? !title.equals(news.title) : news.title != null) return false;
-        if (shortText != null ? !shortText.equals(news.shortText) : news.shortText != null) return false;
-        if (fullText != null ? !fullText.equals(news.fullText) : news.fullText != null) return false;
-        if (creationDate != null ? !creationDate.equals(news.creationDate) : news.creationDate != null) return false;
-        return modificationDate != null ? modificationDate.equals(news.modificationDate) : news.modificationDate == null;
+        if (newsId != null ? !newsId.equals(newsDto.newsId) : newsDto.newsId != null) return false;
+        if (title != null ? !title.equals(newsDto.title) : newsDto.title != null) return false;
+        if (shortText != null ? !shortText.equals(newsDto.shortText) : newsDto.shortText != null) return false;
+        if (fullText != null ? !fullText.equals(newsDto.fullText) : newsDto.fullText != null) return false;
+        if (creationDate != null ? !creationDate.equals(newsDto.creationDate) : newsDto.creationDate != null)
+            return false;
+        if (modificationDate != null ? !modificationDate.equals(newsDto.modificationDate) : newsDto.modificationDate != null)
+            return false;
+        if (authorDto != null ? !authorDto.equals(newsDto.authorDto) : newsDto.authorDto != null) return false;
+        return tags != null ? tags.equals(newsDto.tags) : newsDto.tags == null;
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (newsId ^ (newsId >>> 32));
+        int result = newsId != null ? newsId.hashCode() : 0;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (shortText != null ? shortText.hashCode() : 0);
         result = 31 * result + (fullText != null ? fullText.hashCode() : 0);
         result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
         result = 31 * result + (modificationDate != null ? modificationDate.hashCode() : 0);
+        result = 31 * result + (authorDto != null ? authorDto.hashCode() : 0);
+        result = 31 * result + (tags != null ? tags.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("News{");
-        sb.append("news id=").append(newsId);
-        sb.append(", \ntitle='").append(title).append('\'');
-        sb.append(", \nshortText='").append(shortText).append('\'');
-        sb.append(", \nfullText='").append(fullText).append('\'');
-        sb.append(", \ncreationDate=").append(creationDate);
-        sb.append(", \nmodificationDate=").append(modificationDate);
-        sb.append('}');
-        return sb.toString();
     }
 }

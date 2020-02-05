@@ -7,20 +7,18 @@ import javax.persistence.Entity;
 
 @Entity
 public class Author extends AbstractEntity{
-    private long authorId;
+    private Long authorId;
     private String authorName;
     private String authorSurname;
 
-    public Author() {
-    }
 
     @Id
     @GeneratedValue
-    public long getAuthorId() {
+    public Long getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(long authorId) {
+    public void setAuthorId(Long authorId) {
         this.authorId = authorId;
     }
 
@@ -71,5 +69,4 @@ public class Author extends AbstractEntity{
         sb.append('}');
         return sb.toString();
     }
-
 }

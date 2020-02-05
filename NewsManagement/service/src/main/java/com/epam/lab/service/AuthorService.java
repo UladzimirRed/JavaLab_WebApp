@@ -1,12 +1,13 @@
 package com.epam.lab.service;
 
 import com.epam.lab.dto.AuthorDto;
-import com.epam.lab.model.Author;
 
 import java.util.List;
 
 public interface AuthorService {
-    List<Author> showAllAuthors ();
-    Author showAuthorById(long id);
-    Author saveAuthor(Author author);
+    List<AuthorDto> showAllAuthors ();
+    AuthorDto showAuthorById(Long id);
+    boolean saveAuthor(AuthorDto authorDto);
+    boolean editAuthor(AuthorDto authorDto);
+    boolean removeAuthor(Long id);
 }

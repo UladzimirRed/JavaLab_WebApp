@@ -14,19 +14,19 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Main {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JdbcContextConfig.class);
-        AuthorDao authorDao = context.getBean(AuthorDao.class);
-        NewsDao newsDao = context.getBean(NewsDao.class);
-        UserDao userDao = context.getBean(UserDao.class);
-        TagDao tagDao = context.getBean(TagDao.class);
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JdbcContextConfig.class);
+//        AuthorDao authorDao = context.getBean(AuthorDao.class);
+//        NewsDao newsDao = context.getBean(NewsDao.class);
+//        UserDao userDao = context.getBean(UserDao.class);
+//        TagDao tagDao = context.getBean(TagDao.class);
 
 //        System.out.println("\nCreating person: ");
 //        Author author = new Author("Marvin", "Carroll");
 //        authorDao.createEntity(author);
 
-        System.out.println("\nGet person with id 1");
-        Author authorById = authorDao.getEntityById(1L);
-        System.out.println(authorById);
+//        System.out.println("\nGet person with id 1");
+//        Author authorById = authorDao.getEntityById(1L);
+//        System.out.println(authorById);
 
         //        Author author1 = authorDao.getEntityById(4L);
 //        author1.setAuthorName("Margot ");
@@ -41,47 +41,47 @@ public class Main {
 //        Author author1 = authorDao.getEntityById(6L);
 //        authorDao.deleteEntity(author1);
 
-        System.out.println("\nList of authors is: ");
-        for (Author a : authorDao.getAllEntities()){
-            System.out.println(a);
-        }
+//        System.out.println("\nList of authors is: ");
+//        for (Author a : authorDao.getAllEntities()){
+//            System.out.println(a);
+//        }
 
 
 
 
-        String title = "Hundreds of fishermen stranded on gigantic ice floe";
-        String shortText = "Over 500 ice fishermen have been saved in an emergency operation " +
-                "when a fissure occurred about 2 kilometers from the coast, stranding them. " +
-                "People tried using smaller pieces of ice as rafts to row back to shore." ;
-        String fullText = "Emergency services in Russia rescued over 500 ice fishermen after they became trapped on a giant " +
-                "sheet of floating ice that broke-off an island in far-eastern Siberia, officials said." +
-                "The rescue mission took place off the coast of the island of Sakhalin in the Sea of Okhotsk, just north of Japan. " +
-                "The operation lasted approximately seven hours.";
-
-        String title2 = "Coronavirus: Timeline of the deadly virus in China and worldwide";
-        String shortText2 = "In less than a month, the flu-like 2019-nCoV virus exploded into a major health emergency, " +
-                "killing 132 people and infecting nearly 6,000. More than 50 million Chinese are on lockdown as scientists scramble for a vaccine.";
-        String fullText2 = "On January 28, Japan and the US are the first countries to evacuate some of their citizens from Wuhan. " +
-                "Four of the Japanese passengers are taken to the hospital with fevers on arrival. " +
-                "Australia and New Zealand say they will also send planes to bring their citizens home. " +
-                "Global cases mount to nearly 6,000 infections, more than the 2002-03 SARS outbreak that killed roughly 800 people.";
-
-        String title3 = "Germany, Europe react to Trump's Middle East peace plan";
-        String shortText3 = "Following Trump's release of his Israeli-Palestinian plan, world leaders have responded " +
-                "to his proposal of a two-state solution with Israeli settlements. The plan calls for a minimum four-year freeze in settlements.";
-        String fullText3 = "Leaders from around the world have responded with mixed reactions to US President Donald Trump's long-awaited Middle East plan unveiled on Tuesday. " +
-                "The proposal was released alongside Israeli leader Benjamin Netanyahu in Washington. Palestinian leaders said they were not invited to attend the talks and preemptively rejected the plan." +
-                "Trump's proposal made concessions to Palestinians — but under terms that they have previously ruled out, such as accepting West Bank settlements. " +
-                "Europe and the UN were lukewarm and cautious after the peace plan was released.";
+//        String title = "Hundreds of fishermen stranded on gigantic ice floe";
+//        String shortText = "Over 500 ice fishermen have been saved in an emergency operation " +
+//                "when a fissure occurred about 2 kilometers from the coast, stranding them. " +
+//                "People tried using smaller pieces of ice as rafts to row back to shore." ;
+//        String fullText = "Emergency services in Russia rescued over 500 ice fishermen after they became trapped on a giant " +
+//                "sheet of floating ice that broke-off an island in far-eastern Siberia, officials said." +
+//                "The rescue mission took place off the coast of the island of Sakhalin in the Sea of Okhotsk, just north of Japan. " +
+//                "The operation lasted approximately seven hours.";
+//
+//        String title2 = "Coronavirus: Timeline of the deadly virus in China and worldwide";
+//        String shortText2 = "In less than a month, the flu-like 2019-nCoV virus exploded into a major health emergency, " +
+//                "killing 132 people and infecting nearly 6,000. More than 50 million Chinese are on lockdown as scientists scramble for a vaccine.";
+//        String fullText2 = "On January 28, Japan and the US are the first countries to evacuate some of their citizens from Wuhan. " +
+//                "Four of the Japanese passengers are taken to the hospital with fevers on arrival. " +
+//                "Australia and New Zealand say they will also send planes to bring their citizens home. " +
+//                "Global cases mount to nearly 6,000 infections, more than the 2002-03 SARS outbreak that killed roughly 800 people.";
+//
+//        String title3 = "Germany, Europe react to Trump's Middle East peace plan";
+//        String shortText3 = "Following Trump's release of his Israeli-Palestinian plan, world leaders have responded " +
+//                "to his proposal of a two-state solution with Israeli settlements. The plan calls for a minimum four-year freeze in settlements.";
+//        String fullText3 = "Leaders from around the world have responded with mixed reactions to US President Donald Trump's long-awaited Middle East plan unveiled on Tuesday. " +
+//                "The proposal was released alongside Israeli leader Benjamin Netanyahu in Washington. Palestinian leaders said they were not invited to attend the talks and preemptively rejected the plan." +
+//                "Trump's proposal made concessions to Palestinians — but under terms that they have previously ruled out, such as accepting West Bank settlements. " +
+//                "Europe and the UN were lukewarm and cautious after the peace plan was released.";
 
 //        /*Create news*/
 //        System.out.println("\nCreating news: ");
 //        News news = new News(title3, shortText3, fullText3, Timestamp.from(Instant.now()), Timestamp.from(Instant.now()));
 //        newsDao.createEntity(news);
 
-        /*Get news by id*/
-        News newsById = newsDao.getEntityById(1L);
-        System.out.println("\nNews by id 1 is: \n" + newsById);
+//        /*Get news by id*/
+//        News newsById = newsDao.getEntityById(1L);
+//        System.out.println("\nNews by id 1 is: \n" + newsById);
 
 //        /*Update news*/
 //        System.out.println("\nUpdate news with ID 3");
@@ -94,11 +94,11 @@ public class Main {
 //        News news2 = newsDao.getEntityById(2L);
 //        newsDao.deleteEntity(news2);
 
-        /*Show all news*/
-        System.out.println("\nList of news: ");
-        for (News n : newsDao.getAllEntities()){
-            System.out.println(n);
-        }
+//        /*Show all news*/
+//        System.out.println("\nList of news: ");
+//        for (News n : newsDao.getAllEntities()){
+//            System.out.println(n);
+//        }
 
 
 
@@ -107,23 +107,23 @@ public class Main {
 //        User user = new User("userName3", "userSurname3", "login3", "password3");
 //        userDao.createEntity(user);
 
-        /*Show all users*/
-        System.out.println("\nList of users: ");
-        for (User u : userDao.getAllEntities()){
-            System.out.println(u);
-        }
+//        /*Show all users*/
+//        System.out.println("\nList of users: ");
+//        for (User u : userDao.getAllEntities()){
+//            System.out.println(u);
+//        }
 
-        /*Create tag*/
-        System.out.println("\nCreating tags: ");
-        Tag tag = new Tag("politics");
-        tagDao.createEntity(tag);
+//        /*Create tag*/
+//        System.out.println("\nCreating tags: ");
+//        Tag tag = new Tag("politics");
+//        tagDao.createEntity(tag);
 
-        /*Show all tags*/
-        System.out.println("\nList of tags: ");
-        for (Tag t : tagDao.getAllEntities()){
-            System.out.println(t);
-        }
+//        /*Show all tags*/
+//        System.out.println("\nList of tags: ");
+//        for (Tag t : tagDao.getAllEntities()){
+//            System.out.println(t);
+//        }
 
-        context.close();
+//        context.close();
     }
 }

@@ -12,6 +12,7 @@ public class AuthorModelMapper {
 
     public AuthorDto convertToDto (Author author){
         AuthorDto authorDto = modelMapper.map(author, AuthorDto.class);
+        authorDto.setAuthorId(author.getAuthorId());
         authorDto.setAuthorName(author.getAuthorName());
         authorDto.setAuthorSurname(author.getAuthorSurname());
         return authorDto;

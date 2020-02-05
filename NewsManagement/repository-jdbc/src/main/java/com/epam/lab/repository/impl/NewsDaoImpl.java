@@ -1,17 +1,18 @@
 package com.epam.lab.repository.impl;
 
+import com.epam.lab.mapper.AuthorIdRowMapper;
 import com.epam.lab.model.News;
 import com.epam.lab.mapper.NewsRowMapper;
 import com.epam.lab.repository.NewsDao;
 import com.epam.lab.repository.SqlRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
 
-@Component
+@Repository
 public class NewsDaoImpl implements NewsDao {
 
     JdbcTemplate jdbcTemplate;
@@ -22,7 +23,7 @@ public class NewsDaoImpl implements NewsDao {
     }
 
     @Override
-    public News getEntityById(long id) {
+    public News getEntityById(Long id) {
         return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_NEWS_BY_ID, new Object[] {id}, new NewsRowMapper());
     }
 
@@ -32,8 +33,8 @@ public class NewsDaoImpl implements NewsDao {
     }
 
     @Override
-    public boolean deleteEntity(News news) {
-        return jdbcTemplate.update(SqlRequest.SQL_DELETE_NEWS, news.getNewsId()) > 0;
+    public boolean deleteEntity(Long id) {
+        return jdbcTemplate.update(SqlRequest.SQL_DELETE_NEWS, id) > 0;
     }
 
     @Override
@@ -47,5 +48,9 @@ public class NewsDaoImpl implements NewsDao {
     public boolean createEntity(News news) {
         return jdbcTemplate.update(SqlRequest.SQL_INSERT_NEWS,
                 news.getTitle(), news.getShortText(), news.getFullText(), news.getCreationDate(), news.getModificationDate()) > 0;
+    }
+
+    public Long findAuthorIdByNewsId(Long id){
+        return (Long) jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_AUTHOR_ID_BY_NEWS_ID, new Object[] {id}, new AuthorIdRowMapper());
     }
 }

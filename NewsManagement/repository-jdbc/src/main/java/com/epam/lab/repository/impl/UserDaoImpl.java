@@ -7,12 +7,12 @@ import com.epam.lab.repository.UserDao;
 import com.epam.lab.util.EncryptPassword;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
 
-@Component
+@Repository
 public class UserDaoImpl implements UserDao {
 
     JdbcTemplate jdbcTemplate;
@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getEntityById(long id) {
+    public User getEntityById(Long id) {
         return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_USER_BY_ID, new Object[] {id}, new UserRowMapper());
     }
 
@@ -33,8 +33,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean deleteEntity(User user) {
-        return jdbcTemplate.update(SqlRequest.SQL_DELETE_USER, user.getUserId()) > 0;
+    public boolean deleteEntity(Long id) {
+        return jdbcTemplate.update(SqlRequest.SQL_DELETE_USER, id) > 0;
     }
 
     @Override

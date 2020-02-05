@@ -5,9 +5,9 @@ import com.epam.lab.model.Author;
 import java.util.List;
 
 public interface AuthorDao extends BaseDao<Author>{
-    Author getEntityById(long id);
+    Author getEntityById(Long id);
     List<Author> getAllEntities();
-    boolean deleteEntity(Author author);
+    boolean deleteEntity(Long id);
     boolean updateEntity(Author author);
     boolean createEntity(Author author);
 }
