@@ -28,4 +28,10 @@ public class SqlRequest {
     public static final String SQL_INSERT_TAG = "insert into tags (tag_name) values (?)";
 
     public static final String SQL_FIND_AUTHOR_ID_BY_NEWS_ID = "select author_id from news_author where news_id = ?";
+    public static final String SQL_FIND_TAGS_ID_BY_NEWS_ID = "select tag_id from news_tag where news_id = ?";
+
+    public static final String SQL_LINK_AUTHOR_ID_WITH_NEWS_ID = "insert into news_author (author_id, news_id) values (?, ?)";
+    public static final String SQL_LINK_TAGS_ID_WITH_NEWS_ID = "insert into news_tag (tag_id, news_id) values (?, ?)";
+    public static final String SQL_UNLINK_AUTHOR_ID_WITH_NEWS_ID = "delete from news_author where news_id = ?";
+    public static final String SQL_UNLINK_TAG_ID_WITH_NEWS_ID = "delete from news_tag where news_id = ?";
 }

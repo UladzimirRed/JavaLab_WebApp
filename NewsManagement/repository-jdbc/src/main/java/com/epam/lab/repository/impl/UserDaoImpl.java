@@ -14,8 +14,7 @@ import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     public UserDaoImpl(DataSource dataSource){

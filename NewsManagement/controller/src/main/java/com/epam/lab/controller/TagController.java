@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/tags")
 public class TagController {
-    private final TagService tagService;
+    private TagService tagService;
 
     @Autowired
     public TagController(TagService tagService){
@@ -19,12 +19,12 @@ public class TagController {
     }
 
     @PostMapping
-    public boolean createAuthor(@RequestBody TagDto tagDto) {
+    public boolean createTag(@RequestBody TagDto tagDto) {
         return tagService.saveTag(tagDto);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public TagDto getAuthor(@PathVariable("id") long id) {
+    public TagDto getTag(@PathVariable("id") long id) {
         return tagService.showTagById(id);
     }
 
@@ -34,12 +34,12 @@ public class TagController {
     }
 
     @PutMapping(value = "{id}")
-    public boolean updateAuthor(@RequestBody TagDto tagDto) {
+    public boolean updateTag(@RequestBody TagDto tagDto) {
         return tagService.editTag(tagDto);
     }
 
     @DeleteMapping(value = "{id}")
-    public boolean deleteAuthor(@PathVariable("id") long id) {
+    public boolean deleteTag(@PathVariable("id") long id) {
         return tagService.removeTag(id);
     }
 }

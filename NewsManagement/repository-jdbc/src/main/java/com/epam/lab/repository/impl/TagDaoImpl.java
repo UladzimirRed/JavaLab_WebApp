@@ -12,8 +12,7 @@ import java.util.List;
 
 @Repository
 public class TagDaoImpl implements TagDao {
-
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     public TagDaoImpl(JdbcTemplate jdbcTemplate) {

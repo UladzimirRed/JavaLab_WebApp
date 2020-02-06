@@ -12,12 +12,14 @@ import java.util.stream.Collectors;
 
 @Service
 public class TagServiceImpl implements TagService {
-
-    @Autowired
     private TagDao tagDao;
+    private TagModelMapper tagModelMapper;
 
     @Autowired
-    TagModelMapper tagModelMapper;
+    public TagServiceImpl(TagDao tagDao, TagModelMapper tagModelMapper) {
+        this.tagDao = tagDao;
+        this.tagModelMapper = tagModelMapper;
+    }
 
     @Override
     public List<TagDto> showAllTags() {

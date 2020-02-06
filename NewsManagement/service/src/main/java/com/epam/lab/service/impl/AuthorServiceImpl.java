@@ -12,12 +12,14 @@ import java.util.stream.Collectors;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
-
-    @Autowired
     private AuthorDao authorDao;
+    private AuthorModelMapper authorModelMapper;
 
     @Autowired
-    private AuthorModelMapper authorModelMapper;
+    public AuthorServiceImpl(AuthorDao authorDao, AuthorModelMapper authorModelMapper) {
+        this.authorDao = authorDao;
+        this.authorModelMapper = authorModelMapper;
+    }
 
     @Override
     public List<AuthorDto> showAllAuthors() {

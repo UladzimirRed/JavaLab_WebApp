@@ -3,7 +3,6 @@ package com.epam.lab.configuration;
 import com.epam.lab.mapper.AuthorModelMapper;
 import com.epam.lab.mapper.NewsModelMapper;
 import com.epam.lab.mapper.TagModelMapper;
-import com.epam.lab.model.News;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,16 +17,16 @@ public class ServiceContextConfig {
 
     @Bean
     public AuthorModelMapper authorModelMapper(){
-        return new AuthorModelMapper();
+        return new AuthorModelMapper(modelMapper());
     }
 
     @Bean
     public TagModelMapper tagModelMapper(){
-        return new TagModelMapper();
+        return new TagModelMapper(modelMapper());
     }
 
     @Bean
     public NewsModelMapper newsModelMapper(){
-        return new NewsModelMapper();
+        return new NewsModelMapper(modelMapper(), authorModelMapper(), tagModelMapper());
     }
 }

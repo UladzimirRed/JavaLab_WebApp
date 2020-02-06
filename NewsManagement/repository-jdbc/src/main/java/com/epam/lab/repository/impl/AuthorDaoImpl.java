@@ -12,8 +12,7 @@ import java.util.List;
 
 @Repository
 public class AuthorDaoImpl implements AuthorDao {
-
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     public AuthorDaoImpl(JdbcTemplate jdbcTemplate) {

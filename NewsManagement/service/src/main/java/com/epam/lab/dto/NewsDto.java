@@ -1,5 +1,7 @@
 package com.epam.lab.dto;
 
+import com.epam.lab.model.Tag;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -11,7 +13,7 @@ public class NewsDto {
     private Timestamp creationDate;
     private Timestamp modificationDate;
     private AuthorDto authorDto;
-    private List<TagDto> tags;
+    private List<Tag> tags;
 
     public Long getNewsId() {
         return newsId;
@@ -69,11 +71,11 @@ public class NewsDto {
         this.authorDto = authorDto;
     }
 
-    public List<TagDto> getTags() {
+    public List<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List<TagDto> tags) {
+    public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
 
