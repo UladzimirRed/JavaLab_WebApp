@@ -20,8 +20,8 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
-    public Author getEntityById(Long id) {
-        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_AUTHOR_BY_ID, new Object[] { id }, new AuthorRowMapper());
+    public Author getEntityById(Long authorId) {
+        return jdbcTemplate.query(SqlRequest.SQL_FIND_AUTHOR_BY_ID, new Object[] { authorId }, new AuthorRowMapper()).stream().findAny().orElse(null);
     }
 
     @Override
@@ -30,8 +30,8 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
-    public boolean deleteEntity(Long id) {
-        return jdbcTemplate.update(SqlRequest.SQL_DELETE_AUTHOR, id) > 0;
+    public boolean deleteEntity(Long authorId) {
+        return jdbcTemplate.update(SqlRequest.SQL_DELETE_AUTHOR, authorId) > 0;
     }
 
     @Override
@@ -43,4 +43,11 @@ public class AuthorDaoImpl implements AuthorDao {
     public boolean createEntity(Author author) {
         return jdbcTemplate.update(SqlRequest.SQL_INSERT_AUTHOR, author.getAuthorName(), author.getAuthorSurname()) > 0;
     }
+
+    @Override
+    public Author getAuthorByNewsId(Long newsId) {
+        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_AUTHOR_BY_NEWS_ID, new Object[]{newsId}, new AuthorRowMapper());
+    }
+
+
 }

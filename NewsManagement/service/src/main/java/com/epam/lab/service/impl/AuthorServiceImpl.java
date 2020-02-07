@@ -1,9 +1,10 @@
 package com.epam.lab.service.impl;
 
 import com.epam.lab.dto.AuthorDto;
-import com.epam.lab.mapper.AuthorModelMapper;
+import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorDao;
 import com.epam.lab.service.AuthorService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,32 +14,32 @@ import java.util.stream.Collectors;
 @Service
 public class AuthorServiceImpl implements AuthorService {
     private AuthorDao authorDao;
-    private AuthorModelMapper authorModelMapper;
+    private ModelMapper modelMapper;
 
     @Autowired
-    public AuthorServiceImpl(AuthorDao authorDao, AuthorModelMapper authorModelMapper) {
+    public AuthorServiceImpl(AuthorDao authorDao, ModelMapper modelMapper) {
         this.authorDao = authorDao;
-        this.authorModelMapper = authorModelMapper;
+        this.modelMapper = modelMapper;
     }
 
     @Override
     public List<AuthorDto> showAllAuthors() {
-        return authorDao.getAllEntities().stream().map(authorModelMapper::convertToDto).collect(Collectors.toList());
+        return authorDao.getAllEntities().stream().map(source -> modelMapper.map(source, AuthorDto.class)).collect(Collectors.toList());
     }
 
     @Override
     public AuthorDto showAuthorById(Long id) {
-        return authorModelMapper.convertToDto(authorDao.getEntityById(id));
+        return modelMapper.map(authorDao.getEntityById(id), AuthorDto.class);
     }
 
     @Override
     public boolean saveAuthor(AuthorDto authorDto) {
-        return authorDao.createEntity(authorModelMapper.convertToEntity(authorDto));
+        return authorDao.createEntity(modelMapper.map(authorDto, Author.class));
     }
 
     @Override
     public boolean editAuthor(AuthorDto authorDto) {
-        return authorDao.updateEntity(authorModelMapper.convertToEntity(authorDto));
+        return authorDao.updateEntity(modelMapper.map(authorDto, Author.class));
     }
 
     @Override

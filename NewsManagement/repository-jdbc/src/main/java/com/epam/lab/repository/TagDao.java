@@ -10,4 +10,5 @@ public interface TagDao extends BaseDao<Tag> {
     boolean deleteEntity(Long id);
     boolean updateEntity(Tag tag);
     boolean createEntity(Tag tag);
+    List<Tag> getTagsByNewsId(Long newsId);
 }

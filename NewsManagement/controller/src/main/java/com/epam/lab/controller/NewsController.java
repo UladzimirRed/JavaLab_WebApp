@@ -1,10 +1,13 @@
 package com.epam.lab.controller;
 
 import com.epam.lab.dto.NewsDto;
+import com.epam.lab.exception.ServiceException;
 import com.epam.lab.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/news")
@@ -20,6 +23,17 @@ public class NewsController {
     public boolean createNews(@RequestBody NewsDto newsDto){
         return newsService.saveNews(newsDto);
     }
+
+    @GetMapping
+    public List<NewsDto> getAllNews(){
+        return newsService.showAllNews();
+    }
+
+    @PutMapping(value = "{id}")
+    public NewsDto updateNews(@RequestBody NewsDto newsDto) throws ServiceException {
+        return newsService.editNews(newsDto);
+    }
+
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public NewsDto getNews(@PathVariable("id") Long id){

@@ -3,11 +3,13 @@ package com.epam.lab.service;
 import com.epam.lab.dto.NewsDto;
 import com.epam.lab.exception.ServiceException;
 
+
 import java.util.List;
 
 public interface NewsService {
-    NewsDto showNewsById(Long id);
+    List<NewsDto> showAllNews();
+    NewsDto showNewsById(Long newsId);
     boolean saveNews(NewsDto newsDto);
-    boolean editNews(NewsDto newsDto);
-    boolean removeNews(Long id);
+    NewsDto editNews(NewsDto newsDto) throws ServiceException;
+    boolean removeNews(Long newsId);
 }

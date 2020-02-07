@@ -31,9 +31,25 @@ public class NewsModelMapper {
         newsDto.setFullText(news.getFullText());
         newsDto.setCreationDate(news.getCreationDate());
         newsDto.setModificationDate(news.getModificationDate());
-        newsDto.setAuthorDto(authorModelMapper.convertToDto(author));
+        newsDto.setAuthorDto(modelMapper.map(author, AuthorDto.class));
         newsDto.setTags(tags);
         return newsDto;
+    }
+
+    public NewsDto convertToDto (News news, Author author){
+        NewsDto newsDto = modelMapper.map(news, NewsDto.class);
+//        newsDto.setNewsId(news.getNewsId());
+        newsDto.setTitle(news.getTitle());
+        newsDto.setShortText(news.getShortText());
+        newsDto.setFullText(news.getFullText());
+        newsDto.setCreationDate(news.getCreationDate());
+        newsDto.setModificationDate(news.getModificationDate());
+        newsDto.setAuthorDto(modelMapper.map(author, AuthorDto.class));
+        return newsDto;
+    }
+
+    public NewsDto convertToDto (News news) {
+        return modelMapper.map(news, NewsDto.class);
     }
 
     public News convertToEntity(NewsDto newsDto){
@@ -45,4 +61,5 @@ public class NewsModelMapper {
         news.setModificationDate(news.getModificationDate());
         return news;
     }
+
 }

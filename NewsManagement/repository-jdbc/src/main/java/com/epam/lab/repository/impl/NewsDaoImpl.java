@@ -6,7 +6,6 @@ import com.epam.lab.repository.NewsDao;
 import com.epam.lab.repository.SqlRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SingleColumnRowMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -46,27 +45,32 @@ public class NewsDaoImpl implements NewsDao {
     @Override
     public boolean createEntity(News news) {
         return jdbcTemplate.update(SqlRequest.SQL_INSERT_NEWS,
-                news.getTitle(), news.getShortText(), news.getFullText(), news.getCreationDate(), news.getModificationDate()) > 0;
+                news.getTitle(), news.getShortText(), news.getFullText()) > 0;
     }
 
     @Override
-    public Long findAuthorIdByNewsId(Long id) {
-        return jdbcTemplate.query(SqlRequest.SQL_FIND_AUTHOR_ID_BY_NEWS_ID, new Object[]{id}, new SingleColumnRowMapper<>(Long.class))
-                .stream().findAny().orElse(null);
+    public boolean updateTitle(String title, Long newsId) {
+        return jdbcTemplate.update(SqlRequest.SQL_UPDATE_TITLE, title, newsId) > 0;
     }
 
     @Override
-    public List<Long> findTagsIdByNewsId(Long id) {
-        return jdbcTemplate.query(SqlRequest.SQL_FIND_TAGS_ID_BY_NEWS_ID, new Object[]{id}, (rs, rowNum) -> rs.getLong("tag_id"));
+    public boolean updateShortText(String shortText, Long newsId) {
+        return jdbcTemplate.update(SqlRequest.SQL_UPDATE_SHORT_TEXT, shortText, newsId) > 0;
     }
 
     @Override
-    public boolean linkAuthorIdWithNewsId(Long authorId, Long newsId) {
+    public boolean updateFullText(String fullText, Long newsId) {
+        return jdbcTemplate.update(SqlRequest.SQL_UPDATE_FULL_TEXT, fullText, newsId) > 0;
+    }
+
+
+    @Override
+    public boolean linkAuthorWithNews(Long authorId, Long newsId) {
         return jdbcTemplate.update(SqlRequest.SQL_LINK_AUTHOR_ID_WITH_NEWS_ID, authorId, newsId) > 0;
     }
 
     @Override
-    public boolean linkTagIdWithNewsId(Long tagId, Long newsId) {
+    public boolean linkTagWithNews(Long tagId, Long newsId) {
         return jdbcTemplate.update(SqlRequest.SQL_LINK_TAGS_ID_WITH_NEWS_ID, tagId, newsId) > 0;
     }
 

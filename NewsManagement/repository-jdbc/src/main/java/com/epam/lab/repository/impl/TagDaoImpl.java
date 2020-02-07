@@ -21,7 +21,7 @@ public class TagDaoImpl implements TagDao {
 
     @Override
     public Tag getEntityById(Long id) {
-        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_TAG_BY_ID, new Object[] {id}, new TagRowMapper());
+        return jdbcTemplate.query(SqlRequest.SQL_FIND_TAG_BY_ID, new Object[] {id}, new TagRowMapper()).stream().findAny().orElse(null);
     }
 
     @Override
@@ -42,5 +42,10 @@ public class TagDaoImpl implements TagDao {
     @Override
     public boolean createEntity(Tag tag) {
         return jdbcTemplate.update(SqlRequest.SQL_INSERT_TAG, tag.getTagName()) > 0;
+    }
+
+    @Override
+    public List<Tag> getTagsByNewsId(Long newsId) {
+        return jdbcTemplate.query(SqlRequest.SQL_FIND_TAGS_BY_NEWS_ID, new Object[]{newsId}, new TagRowMapper());
     }
 }
