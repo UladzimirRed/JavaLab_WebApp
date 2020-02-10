@@ -24,12 +24,12 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public List<AuthorDto> showAllAuthors() {
-        return authorDao.getAllEntities().stream().map(source -> modelMapper.map(source, AuthorDto.class)).collect(Collectors.toList());
+        return authorDao.getAllEntities().stream().map(author -> modelMapper.map(author, AuthorDto.class)).collect(Collectors.toList());
     }
 
     @Override
-    public AuthorDto showAuthorById(Long id) {
-        return modelMapper.map(authorDao.getEntityById(id), AuthorDto.class);
+    public AuthorDto showAuthorById(Long authorId) {
+        return modelMapper.map(authorDao.getEntityById(authorId), AuthorDto.class);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public boolean removeAuthor(Long id) {
-        return authorDao.deleteEntity(id);
+    public boolean removeAuthor(Long authorId) {
+        return authorDao.deleteEntity(authorId);
     }
 }

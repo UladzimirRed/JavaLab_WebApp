@@ -13,19 +13,16 @@ import java.util.List;
 
 public class NewsModelMapper {
     private ModelMapper modelMapper;
-    private AuthorModelMapper authorModelMapper;
-    private TagModelMapper tagModelMapper;
+
 
     @Autowired
     public NewsModelMapper(ModelMapper modelMapper, AuthorModelMapper authorModelMapper, TagModelMapper tagModelMapper) {
         this.modelMapper = modelMapper;
-        this.authorModelMapper = authorModelMapper;
-        this.tagModelMapper = tagModelMapper;
     }
 
     public NewsDto convertToDto (News news, Author author, List<Tag> tags){
         NewsDto newsDto = modelMapper.map(news, NewsDto.class);
-//        newsDto.setNewsId(news.getNewsId());
+        newsDto.setNewsId(news.getNewsId());
         newsDto.setTitle(news.getTitle());
         newsDto.setShortText(news.getShortText());
         newsDto.setFullText(news.getFullText());
@@ -38,7 +35,7 @@ public class NewsModelMapper {
 
     public NewsDto convertToDto (News news, Author author){
         NewsDto newsDto = modelMapper.map(news, NewsDto.class);
-//        newsDto.setNewsId(news.getNewsId());
+        newsDto.setNewsId(news.getNewsId());
         newsDto.setTitle(news.getTitle());
         newsDto.setShortText(news.getShortText());
         newsDto.setFullText(news.getFullText());

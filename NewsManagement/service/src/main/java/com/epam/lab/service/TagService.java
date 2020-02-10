@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface TagService {
     List<TagDto> showAllTags();
-    TagDto showTagById(Long id);
+    TagDto showTagById(Long tagId);
     boolean saveTag(TagDto tagDto);
     boolean editTag(TagDto tagDto);
-    boolean removeTag(Long id);
+    boolean removeTag(Long tagId);
 }

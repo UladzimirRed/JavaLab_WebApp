@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class NewsDaoImpl implements NewsDao {
@@ -72,6 +73,22 @@ public class NewsDaoImpl implements NewsDao {
     @Override
     public boolean linkTagWithNews(Long tagId, Long newsId) {
         return jdbcTemplate.update(SqlRequest.SQL_LINK_TAGS_ID_WITH_NEWS_ID, tagId, newsId) > 0;
+    }
+
+    @Override
+    public List<News> getEntityBySearchCriteria(Long authorId, List<Long> tagsId) {
+        String forTag= "";
+        String forAuthor = "";
+
+        if (authorId != null){
+            forAuthor = "on news_id = id ";
+        }
+        if (tagsId != null){
+            forTag = "join news_tag on news_tag.news_id = id where tag_id in (" + tagsId.stream().map(Object::toString).collect(Collectors.joining(",")) + ")";
+        }
+        return jdbcTemplate.query("select id, title, short_text, full_text, creation_date, modification_date from news " +
+                "join news_author " + forAuthor + " " + forTag + " and author_id = " + authorId.toString() +
+                " group by news.id, author_id", new NewsRowMapper());
     }
 
     @Override

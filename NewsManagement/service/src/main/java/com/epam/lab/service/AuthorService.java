@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface AuthorService {
     List<AuthorDto> showAllAuthors ();
-    AuthorDto showAuthorById(Long id);
+    AuthorDto showAuthorById(Long authorId);
     boolean saveAuthor(AuthorDto authorDto);
     boolean editAuthor(AuthorDto authorDto);
-    boolean removeAuthor(Long id);
+    boolean removeAuthor(Long authorId);
 }

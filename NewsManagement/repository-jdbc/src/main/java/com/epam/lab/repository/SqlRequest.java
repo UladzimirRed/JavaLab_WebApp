@@ -5,7 +5,7 @@ public class SqlRequest {
     public static final String SQL_FIND_ALL_AUTHORS = "select * from authors";
     public static final String SQL_UPDATE_AUTHOR = "update authors set author_name = ?, author_surname = ? where id = ?";
     public static final String SQL_DELETE_AUTHOR = "delete from authors where id = ?";
-    public static final String SQL_INSERT_AUTHOR = "insert into authors(author_name, author_surname) values (?, ?)";
+    public static final String SQL_INSERT_AUTHOR = "insert into authors(author_name1, author_surname) values (?, ?)";
 
     public static final String SQL_FIND_NEWS_BY_ID = "select * from news where id = ?";
     public static final String SQL_FIND_ALL_NEWS = "select * from news";
@@ -34,11 +34,6 @@ public class SqlRequest {
             "from authors join news_author on id = author_id where news_id = ?";
     public static final String SQL_FIND_TAGS_BY_NEWS_ID = "select id, tag_name " +
             "from tags join news_tag on tag_id = id where news_id = ?";
-
-
-
-    public static final String SQL_FIND_AUTHOR_ID_BY_NEWS_ID = "select author_id from news_author where news_id = ?";
-    public static final String SQL_FIND_TAGS_ID_BY_NEWS_ID = "select tag_id from news_tag where news_id = ?";
 
     public static final String SQL_LINK_AUTHOR_ID_WITH_NEWS_ID = "insert into news_author (author_id, news_id) values (?, ?)";
     public static final String SQL_LINK_TAGS_ID_WITH_NEWS_ID = "insert into news_tag (tag_id, news_id) values (?, ?)";

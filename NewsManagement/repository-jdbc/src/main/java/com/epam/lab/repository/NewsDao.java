@@ -15,8 +15,7 @@ public interface NewsDao extends BaseDao<News>{
     boolean updateFullText(String fullText, Long newsId);
     boolean linkAuthorWithNews(Long authorId, Long newsId);
     boolean linkTagWithNews(Long tagId, Long newsId);
-
-
+    List<News> getEntityBySearchCriteria (Long authorId, List<Long> tagsId);
 
     boolean unlinkAuthorIdFromNewsId(Long newsId);
     boolean unlinkTagIdFromNewsId(Long newsId);

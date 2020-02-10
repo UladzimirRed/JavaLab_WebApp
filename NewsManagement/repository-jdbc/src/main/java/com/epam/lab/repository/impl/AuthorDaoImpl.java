@@ -48,6 +48,4 @@ public class AuthorDaoImpl implements AuthorDao {
     public Author getAuthorByNewsId(Long newsId) {
         return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_AUTHOR_BY_NEWS_ID, new Object[]{newsId}, new AuthorRowMapper());
     }
-
-
 }

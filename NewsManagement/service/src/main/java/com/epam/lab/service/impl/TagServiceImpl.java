@@ -1,9 +1,10 @@
 package com.epam.lab.service.impl;
 
 import com.epam.lab.dto.TagDto;
-import com.epam.lab.mapper.TagModelMapper;
+import com.epam.lab.model.Tag;
 import com.epam.lab.repository.TagDao;
 import com.epam.lab.service.TagService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,36 +14,35 @@ import java.util.stream.Collectors;
 @Service
 public class TagServiceImpl implements TagService {
     private TagDao tagDao;
-    private TagModelMapper tagModelMapper;
+    private ModelMapper modelMapper;
 
     @Autowired
-    public TagServiceImpl(TagDao tagDao, TagModelMapper tagModelMapper) {
+    public TagServiceImpl(TagDao tagDao, ModelMapper modelMapper) {
         this.tagDao = tagDao;
-        this.tagModelMapper = tagModelMapper;
+        this.modelMapper = modelMapper;
     }
 
     @Override
     public List<TagDto> showAllTags() {
-        return tagDao.getAllEntities().stream().map(tagModelMapper::convertToDto).collect(Collectors.toList());
+        return tagDao.getAllEntities().stream().map(tag -> modelMapper.map(tag, TagDto.class)).collect(Collectors.toList());
     }
 
     @Override
-    public TagDto showTagById(Long id) {
-        return tagModelMapper.convertToDto(tagDao.getEntityById(id));
+    public TagDto showTagById(Long tagId) {
+        return modelMapper.map(tagDao.getEntityById(tagId), TagDto.class);
     }
 
     @Override
     public boolean saveTag(TagDto tagDto) {
-        return tagDao.createEntity(tagModelMapper.convertToEntity(tagDto));
+        return tagDao.createEntity(modelMapper.map(tagDto, Tag.class));
     }
 
     @Override
     public boolean editTag(TagDto tagDto) {
-        return tagDao.updateEntity(tagModelMapper.convertToEntity(tagDto));
-    }
+        return tagDao.updateEntity(modelMapper.map(tagDto, Tag.class));   }
 
     @Override
-    public boolean removeTag(Long id) {
-        return tagDao.deleteEntity(id);
+    public boolean removeTag(Long tagId) {
+        return tagDao.deleteEntity(tagId);
     }
 }

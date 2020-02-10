@@ -3,7 +3,6 @@ package com.epam.lab.controller;
 import com.epam.lab.dto.TagDto;
 import com.epam.lab.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,12 +22,12 @@ public class TagController {
         return tagService.saveTag(tagDto);
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public TagDto getTag(@PathVariable("id") long id) {
-        return tagService.showTagById(id);
+    @GetMapping(value = "/{id}")
+    public TagDto getTag(@PathVariable("id") Long tagId) {
+        return tagService.showTagById(tagId);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping()
     public List<TagDto> getAllTags() {
         return tagService.showAllTags();
     }
@@ -39,7 +38,7 @@ public class TagController {
     }
 
     @DeleteMapping(value = "{id}")
-    public boolean deleteTag(@PathVariable("id") long id) {
-        return tagService.removeTag(id);
+    public boolean deleteTag(@PathVariable("id") Long tagId) {
+        return tagService.removeTag(tagId);
     }
 }

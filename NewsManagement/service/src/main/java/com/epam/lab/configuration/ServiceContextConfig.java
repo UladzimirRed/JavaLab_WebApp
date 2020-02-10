@@ -1,13 +1,15 @@
 package com.epam.lab.configuration;
 
-import com.epam.lab.mapper.AuthorModelMapper;
-import com.epam.lab.mapper.NewsModelMapper;
-import com.epam.lab.mapper.TagModelMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.sql.DataSource;
 
 @Configuration
+@EnableTransactionManagement
 public class ServiceContextConfig {
 
     @Bean
@@ -16,17 +18,7 @@ public class ServiceContextConfig {
     }
 
     @Bean
-    public AuthorModelMapper authorModelMapper(){
-        return new AuthorModelMapper(modelMapper());
-    }
-
-    @Bean
-    public TagModelMapper tagModelMapper(){
-        return new TagModelMapper(modelMapper());
-    }
-
-    @Bean
-    public NewsModelMapper newsModelMapper(){
-        return new NewsModelMapper(modelMapper(), authorModelMapper(), tagModelMapper());
+    public DataSourceTransactionManager txManager(DataSource dataSource){
+        return new DataSourceTransactionManager(dataSource);
     }
 }

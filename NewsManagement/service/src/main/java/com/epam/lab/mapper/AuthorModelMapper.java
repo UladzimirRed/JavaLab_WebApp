@@ -15,16 +15,16 @@ public class AuthorModelMapper {
 
     public AuthorDto convertToDto (Author author){
         AuthorDto authorDto = modelMapper.map(author, AuthorDto.class);
-//        authorDto.setAuthorId(author.getAuthorId());
-//        authorDto.setAuthorName(author.getAuthorName());
-//        authorDto.setAuthorSurname(author.getAuthorSurname());
+        authorDto.setAuthorId(author.getAuthorId());
+        authorDto.setAuthorName(author.getAuthorName());
+        authorDto.setAuthorSurname(author.getAuthorSurname());
         return authorDto;
     }
 
     public Author convertToEntity(AuthorDto authorDto){
         Author author = modelMapper.map(authorDto, Author.class);
-//        author.setAuthorName(authorDto.getAuthorName());
-//        author.setAuthorSurname(authorDto.getAuthorSurname());
+        author.setAuthorName(authorDto.getAuthorName());
+        author.setAuthorSurname(authorDto.getAuthorSurname());
         return author;
     }
 }
