@@ -1,0 +1,10 @@
+INSERT INTO authors (author_name, author_surname) VALUES ('Zoe', 'Roberts');
+INSERT INTO authors (author_name, author_surname) VALUES ('Barry', 'Wade');
+INSERT INTO authors (author_name, author_surname) VALUES ('Taylor', 'Rose');
+INSERT INTO authors (author_name, author_surname) VALUES ('Margot', 'Archer');
+INSERT INTO authors (author_name, author_surname) VALUES ('Marvin', 'Carroll');
+INSERT INTO authors (author_name, author_surname) VALUES ('John', 'Brown');
+INSERT INTO authors (author_name, author_surname) VALUES ('Vivian', 'Sims');
+INSERT INTO authors (author_name, author_surname) VALUES ('Abdallah', 'Sparks');
+INSERT INTO authors (author_name, author_surname) VALUES ('Alan', 'Hoffman');
+INSERT INTO authors (author_name, author_surname) VALUES ('Daniele', 'Ratliff');

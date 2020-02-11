@@ -113,11 +113,29 @@ public class NewsServiceImpl implements NewsService {
     @Override
     @Transactional
     public List<NewsDto> searchByCriteria(NewsSearchCriteria newsSearchCriteria){
-        List<News> news = newsDao.getEntityBySearchCriteria(newsSearchCriteria.getAuthorId(), newsSearchCriteria.getTagsId());
-        // FIXME: 2/10/2020 nullpointerexception if postman doesn't transfer any of parameters.
+        Long authorId = newsSearchCriteria.getAuthorId();
+        List<Long> tagsId = newsSearchCriteria.getTagsId();
+        String forTag= "";
+        String havingForTags = "";
+        String forAuthor = "";
+        if (authorId != null){
+            forAuthor = "and author_id = " + authorId.toString();
+        }
+        if (tagsId != null){
+            forTag = " join news_tag on news_tag.news_id = id where tag_id in (" + tagsId.stream().map(Object::toString).collect(Collectors.joining(",")) + ") ";
+            havingForTags = " having count(tag_id) = " + tagsId.size();
+        }
+        String sql = "select id, title, short_text, full_text, creation_date, modification_date from news " +
+                "join news_author on news_id = id " + forTag + forAuthor +
+                " group by news.id, author_id" + havingForTags;
+        List<News> news = newsDao.getEntityBySearchCriteria(sql);
         List<NewsDto> newsDtos = news.stream().map(source -> modelMapper.map(source, NewsDto.class)).collect(Collectors.toList());
-        newsDtos.forEach(newsDto -> newsDto.setAuthorDto(modelMapper.map(authorDao.getEntityById(newsSearchCriteria.getAuthorId()), AuthorDto.class)));
-        newsDtos.forEach(newsDto -> newsDto.setTags(tagDao.getTagsByNewsId(newsDto.getNewsId())));
+        if(newsSearchCriteria.getAuthorId() != null) {
+            newsDtos.forEach(newsDto -> newsDto.setAuthorDto(modelMapper.map(authorDao.getEntityById(newsSearchCriteria.getAuthorId()), AuthorDto.class)));
+        }
+        if (newsSearchCriteria.getTagsId() != null) {
+            newsDtos.forEach(newsDto -> newsDto.setTags(tagDao.getTagsByNewsId(newsDto.getNewsId())));
+        }
         return newsDtos;
     }
 

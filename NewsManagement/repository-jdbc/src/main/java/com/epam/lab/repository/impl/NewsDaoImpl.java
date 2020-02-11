@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,13 +16,14 @@ public class NewsDaoImpl implements NewsDao {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public NewsDaoImpl(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate(dataSource);
+    public NewsDaoImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public News getEntityById(Long id) {
-        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_NEWS_BY_ID, new Object[]{id}, new NewsRowMapper());
+    public News getEntityById(Long newsId) {
+        return jdbcTemplate.query(SqlRequest.SQL_FIND_NEWS_BY_ID, new Object[]{newsId},
+                new NewsRowMapper()).stream().findAny().orElse(null);
     }
 
     @Override
@@ -32,8 +32,8 @@ public class NewsDaoImpl implements NewsDao {
     }
 
     @Override
-    public boolean deleteEntity(Long id) {
-        return jdbcTemplate.update(SqlRequest.SQL_DELETE_NEWS, id) > 0;
+    public boolean deleteEntity(Long newsId) {
+        return jdbcTemplate.update(SqlRequest.SQL_DELETE_NEWS, newsId) > 0;
     }
 
     @Override
@@ -76,19 +76,10 @@ public class NewsDaoImpl implements NewsDao {
     }
 
     @Override
-    public List<News> getEntityBySearchCriteria(Long authorId, List<Long> tagsId) {
-        String forTag= "";
-        String forAuthor = "";
+    public List<News> getEntityBySearchCriteria(String sql) {
 
-        if (authorId != null){
-            forAuthor = "on news_id = id ";
-        }
-        if (tagsId != null){
-            forTag = "join news_tag on news_tag.news_id = id where tag_id in (" + tagsId.stream().map(Object::toString).collect(Collectors.joining(",")) + ")";
-        }
-        return jdbcTemplate.query("select id, title, short_text, full_text, creation_date, modification_date from news " +
-                "join news_author " + forAuthor + " " + forTag + " and author_id = " + authorId.toString() +
-                " group by news.id, author_id", new NewsRowMapper());
+
+        return jdbcTemplate.query(sql, new NewsRowMapper());
     }
 
     @Override

@@ -30,7 +30,7 @@ public class NewsController {
     }
 
     @GetMapping("/search")
-    public List<NewsDto> getNewsByCriteria(@RequestBody NewsSearchCriteria newsSearchCriteria){
+    public List<NewsDto> getNewsByCriteria(@ModelAttribute NewsSearchCriteria newsSearchCriteria){
         return newsService.searchByCriteria(newsSearchCriteria);
     }
 

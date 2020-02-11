@@ -21,7 +21,8 @@ public class AuthorDaoImpl implements AuthorDao {
 
     @Override
     public Author getEntityById(Long authorId) {
-        return jdbcTemplate.query(SqlRequest.SQL_FIND_AUTHOR_BY_ID, new Object[] { authorId }, new AuthorRowMapper()).stream().findAny().orElse(null);
+        return jdbcTemplate.query(SqlRequest.SQL_FIND_AUTHOR_BY_ID, new Object[] {authorId},
+                new AuthorRowMapper()).stream().findAny().orElse(null);
     }
 
     @Override
