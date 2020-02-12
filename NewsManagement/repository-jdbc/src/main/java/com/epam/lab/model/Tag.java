@@ -10,6 +10,18 @@ public class Tag extends AbstractEntity {
     private Long tagId;
     private String tagName;
 
+    public Tag() {
+    }
+
+    public Tag(String tagName) {
+        this.tagName = tagName;
+    }
+
+    public Tag(Long tagId, String tagName) {
+        this.tagId = tagId;
+        this.tagName = tagName;
+    }
+
     @Id
     @GeneratedValue
     public Long getTagId() {

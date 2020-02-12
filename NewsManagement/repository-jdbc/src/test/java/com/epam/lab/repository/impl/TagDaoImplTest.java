@@ -18,9 +18,7 @@ import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.
 
 public class TagDaoImplTest {
     private EmbeddedDatabase embeddedDatabase;
-    @Autowired
     private JdbcTemplate jdbcTemplate;
-    @Autowired
     private TagDao tagDao;
 
     @BeforeEach

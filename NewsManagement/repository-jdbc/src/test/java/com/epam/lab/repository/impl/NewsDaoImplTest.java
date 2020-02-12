@@ -6,7 +6,6 @@ import com.epam.lab.repository.NewsDao;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -20,9 +19,7 @@ import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.
 
 public class NewsDaoImplTest {
     private EmbeddedDatabase embeddedDatabase;
-    @Autowired
     private JdbcTemplate jdbcTemplate;
-    @Autowired
     private NewsDao newsDao;
 
     @BeforeEach

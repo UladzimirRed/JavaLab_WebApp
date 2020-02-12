@@ -5,7 +5,6 @@ import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorDao;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.junit.jupiter.api.Test;
@@ -18,9 +17,7 @@ import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.
 
 public class AuthorDaoImplTest {
     private EmbeddedDatabase embeddedDatabase;
-    @Autowired
     private JdbcTemplate jdbcTemplate;
-    @Autowired
     private AuthorDao authorDao;
 
     @BeforeEach

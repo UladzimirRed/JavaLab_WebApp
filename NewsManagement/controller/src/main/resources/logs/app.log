@@ -171,3 +171,9 @@
 12328ms INFO  servlet.DispatcherServlet - Completed initialization in 2001 ms
 8942ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
 10795ms INFO  servlet.DispatcherServlet - Completed initialization in 1847 ms
+67606ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+70287ms INFO  servlet.DispatcherServlet - Completed initialization in 2670 ms
+13235ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+15256ms INFO  servlet.DispatcherServlet - Completed initialization in 2011 ms
+11017ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+13617ms INFO  servlet.DispatcherServlet - Completed initialization in 2586 ms

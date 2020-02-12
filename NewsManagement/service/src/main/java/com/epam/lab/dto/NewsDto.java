@@ -15,6 +15,17 @@ public class NewsDto {
     private AuthorDto authorDto;
     private List<Tag> tags;
 
+    public NewsDto() {
+    }
+
+    public NewsDto(String title, String shortText, String fullText, Timestamp creationDate, Timestamp modificationDate) {
+        this.title = title;
+        this.shortText = shortText;
+        this.fullText = fullText;
+        this.creationDate = creationDate;
+        this.modificationDate = modificationDate;
+    }
+
     public Long getNewsId() {
         return newsId;
     }

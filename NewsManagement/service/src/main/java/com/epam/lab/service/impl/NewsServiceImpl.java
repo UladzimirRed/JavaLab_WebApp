@@ -24,8 +24,9 @@ import java.util.stream.Collectors;
 public class NewsServiceImpl implements NewsService {
     private NewsDao newsDao;
     private AuthorDao authorDao;
-    private ModelMapper modelMapper;
     private TagDao tagDao;
+    private ModelMapper modelMapper;
+
 
     @Autowired
     public NewsServiceImpl(NewsDao newsDao, AuthorDao authorDao, TagDao tagDao, ModelMapper modelMapper) {
@@ -83,19 +84,19 @@ public class NewsServiceImpl implements NewsService {
     @Transactional
     public NewsDto editNews(NewsDto newsDto) throws ServiceException {
         News news = modelMapper.map(newsDto, News.class);
-        boolean a = true;
-        boolean b = true;
-        boolean c = true;
+        boolean isTitleEdited = true;
+        boolean isShortTextEdited = true;
+        boolean isFullTextEdited = true;
         if (news.getTitle() != null) {
-            a = newsDao.updateTitle(newsDto.getTitle(), newsDto.getNewsId());
+            isTitleEdited = newsDao.updateTitle(newsDto.getTitle(), newsDto.getNewsId());
         }
         if (news.getShortText() != null){
-            b = newsDao.updateShortText(newsDto.getShortText(), newsDto.getNewsId());
+            isShortTextEdited = newsDao.updateShortText(newsDto.getShortText(), newsDto.getNewsId());
         }
         if (news.getFullText() != null){
-            c = newsDao.updateFullText(newsDto.getFullText(), newsDto.getNewsId());
+            isFullTextEdited = newsDao.updateFullText(newsDto.getFullText(), newsDto.getNewsId());
         }
-        if (a&b&c){
+        if (isTitleEdited & isShortTextEdited & isFullTextEdited){
             return modelMapper.map(newsDao.getEntityById(newsDto.getNewsId()), NewsDto.class);
         } else {
             throw new ServiceException("Entity was not updated");
@@ -139,14 +140,16 @@ public class NewsServiceImpl implements NewsService {
         return newsDtos;
     }
 
-    public void assignTagsForNews(NewsDto newsDto) {
+    public boolean assignTagsForNews(NewsDto newsDto) {
         List<Tag> tags = tagDao.getTagsByNewsId(newsDto.getNewsId());
         newsDto.setTags(tags);
+        return true;
     }
 
-    public void assignAuthorForNews(NewsDto newsDto){
+    public boolean assignAuthorForNews(NewsDto newsDto){
         AuthorDto authorDto = modelMapper.map(authorDao.getAuthorByNewsId(newsDto.getNewsId()), AuthorDto.class);
         newsDto.setAuthorDto(authorDto);
+        return true;
     }
 }
 
