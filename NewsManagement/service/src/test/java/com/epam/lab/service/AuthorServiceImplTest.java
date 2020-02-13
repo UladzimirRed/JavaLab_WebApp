@@ -32,17 +32,7 @@ public class AuthorServiceImplTest {
     }
 
     @Test
-    void showAuthorById() {
-        String authorName = "Ben";
-        String authorSurname = "Glen";
-        when(authorDao.getEntityById(1L)).thenReturn(new Author(authorName, authorSurname));
-        AuthorDto authorDto = authorService.showAuthorById(1L);
-        assertEquals(authorName, authorDto.getAuthorName());
-        assertEquals(authorSurname, authorDto.getAuthorSurname());
-    }
-
-    @Test
-    void showAllAuthors() {
+    void showAllDto() {
         List<Author> authors = new ArrayList<>();
         Author author = new Author("Lukas", "Scarsi" );
         Author author2 = new Author("Albert", "Oneill");
@@ -53,13 +43,23 @@ public class AuthorServiceImplTest {
         Integer expectedListSize = 3;
 
         when(authorDao.getAllEntities()).thenReturn(authors);
-        List<AuthorDto> authorDtos = authorService.showAllAuthors();
+        List<AuthorDto> authorDtos = authorService.showAllDto();
 
         assertEquals(expectedListSize, authorDtos.size());
     }
 
     @Test
-    void saveAuthor() {
+    void showDtoById() {
+        String authorName = "Ben";
+        String authorSurname = "Glen";
+        when(authorDao.getEntityById(1L)).thenReturn(new Author(authorName, authorSurname));
+        AuthorDto authorDto = authorService.showDtoById(1L);
+        assertEquals(authorName, authorDto.getAuthorName());
+        assertEquals(authorSurname, authorDto.getAuthorSurname());
+    }
+
+    @Test
+    void saveDto() {
         String authorName = "Stacy";
         String authorSurname = "Mcmahon";
         AuthorDto authorDto = new AuthorDto();
@@ -71,25 +71,13 @@ public class AuthorServiceImplTest {
         author.setAuthorSurname(authorSurname);
 
         when(authorDao.createEntity(author)).thenReturn(true);
-        assertTrue(authorService.saveAuthor(authorDto));
+        assertTrue(authorService.saveDto(authorDto));
     }
 
     @Test
-    void editAuthor() {
-        String authorName = "editedName";
-        String authorSurname = "editedSurname";
-        AuthorDto authorDto = new AuthorDto();
-        authorDto.setAuthorName(authorName);
-        authorDto.setAuthorSurname(authorSurname);
-
-        when(authorDao.updateEntity(new Author(authorName, authorSurname))).thenReturn(true);
-        assertTrue(authorService.editAuthor(authorDto));
-    }
-
-    @Test
-    void removeAuthor() {
+    void removeDto() {
         Long authorId = 1L;
         when(authorDao.deleteEntity(authorId)).thenReturn(true);
-        assertTrue(authorService.removeAuthor(authorId));
+        assertTrue(authorService.removeDto(authorId));
     }
 }

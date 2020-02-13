@@ -1,6 +1,7 @@
 package com.epam.lab.controller;
 
 import com.epam.lab.dto.TagDto;
+import com.epam.lab.exception.ServiceException;
 import com.epam.lab.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,26 +20,26 @@ public class TagController {
 
     @PostMapping
     public boolean createTag(@RequestBody TagDto tagDto) {
-        return tagService.saveTag(tagDto);
+        return tagService.saveDto(tagDto);
     }
 
     @GetMapping(value = "/{id}")
     public TagDto getTag(@PathVariable("id") Long tagId) {
-        return tagService.showTagById(tagId);
+        return tagService.showDtoById(tagId);
     }
 
     @GetMapping()
     public List<TagDto> getAllTags() {
-        return tagService.showAllTags();
+        return tagService.showAllDto();
     }
 
     @PutMapping(value = "{id}")
-    public boolean updateTag(@RequestBody TagDto tagDto) {
-        return tagService.editTag(tagDto);
+    public TagDto updateTag(@RequestBody TagDto tagDto) throws ServiceException {
+        return tagService.editDto(tagDto);
     }
 
     @DeleteMapping(value = "{id}")
     public boolean deleteTag(@PathVariable("id") Long tagId) {
-        return tagService.removeTag(tagId);
+        return tagService.removeDto(tagId);
     }
 }

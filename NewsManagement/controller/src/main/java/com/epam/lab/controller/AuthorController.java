@@ -1,6 +1,7 @@
 package com.epam.lab.controller;
 
 import com.epam.lab.dto.AuthorDto;
+import com.epam.lab.exception.ServiceException;
 import com.epam.lab.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,26 +21,26 @@ public class AuthorController {
 
     @PostMapping
     public boolean createAuthor(@RequestBody AuthorDto authorDto) {
-        return authorService.saveAuthor(authorDto);
+        return authorService.saveDto(authorDto);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public AuthorDto getAuthor(@PathVariable("id") Long id) {
-        return authorService.showAuthorById(id);
+        return authorService.showDtoById(id);
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<AuthorDto> getAllAuthors() {
-        return authorService.showAllAuthors();
+        return authorService.showAllDto();
     }
 
     @PutMapping(value = "{id}")
-    public boolean updateAuthor(@RequestBody AuthorDto authorDto) {
-        return authorService.editAuthor(authorDto);
+    public AuthorDto updateAuthor(@RequestBody AuthorDto authorDto) throws ServiceException {
+        return authorService.editDto(authorDto);
     }
 
     @DeleteMapping(value = "{id}")
     public boolean deleteAuthor(@PathVariable("id") Long id) {
-        return authorService.removeAuthor(id);
+        return authorService.removeDto(id);
     }
 }

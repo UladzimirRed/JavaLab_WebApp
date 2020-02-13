@@ -38,9 +38,9 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     @Transactional
-    public List<NewsDto> showAllNews() {
+    public List<NewsDto> showAllDto() {
         List<News> news = newsDao.getAllEntities();
-        List<NewsDto> newsDtos = news.stream().map(source -> modelMapper.map(source, NewsDto.class)).collect(Collectors.toList());
+        List<NewsDto> newsDtos = news.stream().map(this::convertToDto).collect(Collectors.toList());
         newsDtos.forEach(newsDto -> {
             assignAuthorForNews(newsDto);
             assignTagsForNews(newsDto);
@@ -50,9 +50,9 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     @Transactional
-    public NewsDto showNewsById(Long newsId) {
+    public NewsDto showDtoById(Long newsId) {
         News news = newsDao.getEntityById(newsId);
-        NewsDto newsDto = modelMapper.map(news, NewsDto.class);
+        NewsDto newsDto = convertToDto(news);
         assignAuthorForNews(newsDto);
         assignTagsForNews(newsDto);
         return newsDto;
@@ -60,52 +60,66 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     @Transactional
-    public boolean saveNews(NewsDto newsDto) {
-        boolean isCreated = newsDao.createEntity(modelMapper.map(newsDto, News.class));
-        Long authorId = newsDto.getAuthorDto().getAuthorId();
-        Author author = authorDao.getEntityById(authorId);
-        if (author == null) {
-            AuthorDto authorDto = newsDto.getAuthorDto();
-            authorDao.createEntity(modelMapper.map(authorDto, Author.class));
-        }
-        newsDao.linkAuthorWithNews(authorId, newsDto.getNewsId());
+    public boolean saveDto(NewsDto newsDto) {
+        News news = convertToEntity(newsDto);
+        boolean isCreated = newsDao.createEntity(news);
+        AuthorDto authorDto = newsDto.getAuthorDto();
+        connectAuthorWithNews(authorDto, newsDto);
         List<Tag> tags = newsDto.getTags();
-        tags.forEach(tag -> {
-            Tag exitsTag = tagDao.getEntityById(tag.getTagId());
-            if (exitsTag == null) {
-                tagDao.createEntity(tag);
-            }
-            newsDao.linkTagWithNews(tag.getTagId(), newsDto.getNewsId());
-        });
+        tags.forEach(tag -> connectTagWithNews(tag, newsDto));
         return isCreated;
     }
 
-    @Override
     @Transactional
-    public NewsDto editNews(NewsDto newsDto) throws ServiceException {
-        News news = modelMapper.map(newsDto, News.class);
-        boolean isTitleEdited = true;
-        boolean isShortTextEdited = true;
-        boolean isFullTextEdited = true;
-        if (news.getTitle() != null) {
-            isTitleEdited = newsDao.updateTitle(newsDto.getTitle(), newsDto.getNewsId());
+    private void connectAuthorWithNews(AuthorDto authorDto, NewsDto newsDto){
+        Author author = authorDao.getEntityById(authorDto.getAuthorId());
+        if (author == null) {
+            authorDao.createEntity(modelMapper.map(authorDto, Author.class));
         }
-        if (news.getShortText() != null){
-            isShortTextEdited = newsDao.updateShortText(newsDto.getShortText(), newsDto.getNewsId());
+        newsDao.linkAuthorWithNews(authorDto.getAuthorId(), newsDto.getNewsId());
+    }
+
+    @Transactional
+    private void connectTagWithNews(Tag tag, NewsDto newsDto){
+        Tag exitsTag = tagDao.getEntityById(tag.getTagId());
+        if (exitsTag == null) {
+            tagDao.createEntity(tag);
         }
-        if (news.getFullText() != null){
-            isFullTextEdited = newsDao.updateFullText(newsDto.getFullText(), newsDto.getNewsId());
-        }
-        if (isTitleEdited & isShortTextEdited & isFullTextEdited){
-            return modelMapper.map(newsDao.getEntityById(newsDto.getNewsId()), NewsDto.class);
-        } else {
-            throw new ServiceException("Entity was not updated");
-        }
+        newsDao.linkTagWithNews(tag.getTagId(), newsDto.getNewsId());
     }
 
     @Override
     @Transactional
-    public boolean removeNews(Long newsId) {
+    public NewsDto editDto(NewsDto newsDto) throws ServiceException {
+        News news = convertToEntity(newsDto);
+        boolean isTitleEdited = editTitle(news);
+        boolean isShortTextEdited = editShortText(news);
+        boolean isFullTextEdited = editFullText(news);
+        if (isTitleEdited & isShortTextEdited & isFullTextEdited){
+            return convertToDto(newsDao.getEntityById(newsDto.getNewsId()));
+        } else {
+            throw new ServiceException("News was not updated");
+        }
+    }
+
+    @Override
+    public boolean editTitle(News news){
+        return newsDao.updateTitle(news.getTitle(), news.getNewsId());
+    }
+
+    @Override
+    public boolean editShortText(News news){
+        return newsDao.updateShortText(news.getShortText(), news.getNewsId());
+    }
+
+    @Override
+    public boolean editFullText(News news){
+        return newsDao.updateFullText(news.getFullText(), news.getNewsId());
+    }
+
+    @Override
+    @Transactional
+    public boolean removeDto(Long newsId) {
         newsDao.unlinkAuthorIdFromNewsId(newsId);
         newsDao.unlinkTagIdFromNewsId(newsId);
         return newsDao.deleteEntity(newsId);
@@ -114,42 +128,59 @@ public class NewsServiceImpl implements NewsService {
     @Override
     @Transactional
     public List<NewsDto> searchByCriteria(NewsSearchCriteria newsSearchCriteria){
-        Long authorId = newsSearchCriteria.getAuthorId();
-        List<Long> tagsId = newsSearchCriteria.getTagsId();
-        String forTag= "";
-        String havingForTags = "";
-        String forAuthor = "";
-        if (authorId != null){
-            forAuthor = "and author_id = " + authorId.toString();
-        }
-        if (tagsId != null){
-            forTag = " join news_tag on news_tag.news_id = id where tag_id in (" + tagsId.stream().map(Object::toString).collect(Collectors.joining(",")) + ") ";
-            havingForTags = " having count(tag_id) = " + tagsId.size();
-        }
-        String sql = "select id, title, short_text, full_text, creation_date, modification_date from news " +
-                "join news_author on news_id = id " + forTag + forAuthor +
-                " group by news.id, author_id" + havingForTags;
-        List<News> news = newsDao.getEntityBySearchCriteria(sql);
-        List<NewsDto> newsDtos = news.stream().map(source -> modelMapper.map(source, NewsDto.class)).collect(Collectors.toList());
+        String requestForCurrentCriteria = makeRequestForCurrentCriteria(newsSearchCriteria);
+
+        List<News> news = newsDao.getEntityBySearchCriteria(requestForCurrentCriteria);
+        List<NewsDto> newsDtos = news.stream().map(this::convertToDto).collect(Collectors.toList());
+
         if(newsSearchCriteria.getAuthorId() != null) {
-            newsDtos.forEach(newsDto -> newsDto.setAuthorDto(modelMapper.map(authorDao.getEntityById(newsSearchCriteria.getAuthorId()), AuthorDto.class)));
+            newsDtos.forEach(this::assignAuthorForNews);
         }
         if (newsSearchCriteria.getTagsId() != null) {
-            newsDtos.forEach(newsDto -> newsDto.setTags(tagDao.getTagsByNewsId(newsDto.getNewsId())));
+            newsDtos.forEach(this::assignTagsForNews);
         }
         return newsDtos;
     }
 
-    public boolean assignTagsForNews(NewsDto newsDto) {
-        List<Tag> tags = tagDao.getTagsByNewsId(newsDto.getNewsId());
-        newsDto.setTags(tags);
-        return true;
+
+    private String makeRequestForCurrentCriteria(NewsSearchCriteria newsSearchCriteria){
+        Long authorId = newsSearchCriteria.getAuthorId();
+        List<Long> tagsId = newsSearchCriteria.getTagsId();
+
+        String partForTag= "";
+        String havingPartForTags = "";
+        String partForAuthor = "";
+
+
+        if (authorId != null){
+            partForAuthor = "and author_id = " + authorId.toString();
+        }
+        if (tagsId != null){
+            partForTag = " join news_tag on news_tag.news_id = id where tag_id in (" + tagsId.stream().map(Object::toString)
+                    .collect(Collectors.joining(",")) + ") ";
+            havingPartForTags = " having count(tag_id) = " + tagsId.size();
+        }
+        return "select id, title, short_text, full_text, creation_date, modification_date from news " +
+                "join news_author on news_id = id " + partForTag + partForAuthor +
+                " group by news.id, author_id" + havingPartForTags;
     }
 
-    public boolean assignAuthorForNews(NewsDto newsDto){
+    private void assignTagsForNews(NewsDto newsDto) {
+        List<Tag> tags = tagDao.getTagsByNewsId(newsDto.getNewsId());
+        newsDto.setTags(tags);
+    }
+
+    private void assignAuthorForNews(NewsDto newsDto){
         AuthorDto authorDto = modelMapper.map(authorDao.getAuthorByNewsId(newsDto.getNewsId()), AuthorDto.class);
         newsDto.setAuthorDto(authorDto);
-        return true;
+    }
+
+    private News convertToEntity(NewsDto newsDto){
+        return modelMapper.map(newsDto, News.class);
+    }
+
+    private NewsDto convertToDto(News news){
+        return modelMapper.map(news, NewsDto.class);
     }
 }
 

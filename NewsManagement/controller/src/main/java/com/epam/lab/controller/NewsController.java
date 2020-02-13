@@ -21,12 +21,12 @@ public class NewsController {
 
     @PostMapping
     public boolean createNews(@RequestBody NewsDto newsDto){
-        return newsService.saveNews(newsDto);
+        return newsService.saveDto(newsDto);
     }
 
     @GetMapping
     public List<NewsDto> getAllNews(){
-        return newsService.showAllNews();
+        return newsService.showAllDto();
     }
 
     @GetMapping("/search")
@@ -36,16 +36,16 @@ public class NewsController {
 
     @PutMapping(value = "{id}")
     public NewsDto updateNews(@RequestBody NewsDto newsDto) throws ServiceException {
-        return newsService.editNews(newsDto);
+        return newsService.editDto(newsDto);
     }
 
     @GetMapping(value = "/{id}")
     public NewsDto getNews(@PathVariable("id") Long id){
-        return newsService.showNewsById(id);
+        return newsService.showDtoById(id);
     }
 
     @DeleteMapping(value = "{id}")
     public boolean deleteNews(@PathVariable("id") Long id){
-        return newsService.removeNews(id);
+        return newsService.removeDto(id);
     }
 }

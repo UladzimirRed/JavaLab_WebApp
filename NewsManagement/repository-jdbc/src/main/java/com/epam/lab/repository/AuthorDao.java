@@ -10,5 +10,6 @@ public interface AuthorDao extends BaseDao<Author>{
     boolean deleteEntity(Long authorId);
     boolean updateEntity(Author author);
     boolean createEntity(Author author);
+
     Author getAuthorByNewsId(Long newsId);
 }

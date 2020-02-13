@@ -1,12 +1,14 @@
 package com.epam.lab.service.impl;
 
 import com.epam.lab.dto.AuthorDto;
+import com.epam.lab.exception.ServiceException;
 import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorDao;
 import com.epam.lab.service.AuthorService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,27 +25,44 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<AuthorDto> showAllAuthors() {
-        return authorDao.getAllEntities().stream().map(author -> modelMapper.map(author, AuthorDto.class)).collect(Collectors.toList());
+    public List<AuthorDto> showAllDto() {
+        List<Author> authors = authorDao.getAllEntities();
+        return authors.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
     @Override
-    public AuthorDto showAuthorById(Long authorId) {
-        return modelMapper.map(authorDao.getEntityById(authorId), AuthorDto.class);
+    public AuthorDto showDtoById(Long authorId) {
+        Author author = authorDao.getEntityById(authorId);
+        return convertToDto(author);
     }
 
     @Override
-    public boolean saveAuthor(AuthorDto authorDto) {
-        return authorDao.createEntity(modelMapper.map(authorDto, Author.class));
+    public boolean saveDto(AuthorDto authorDto) {
+        Author author = convertToEntity(authorDto);
+        return authorDao.createEntity(author);
     }
 
     @Override
-    public boolean editAuthor(AuthorDto authorDto) {
-        return authorDao.updateEntity(modelMapper.map(authorDto, Author.class));
+    @Transactional
+    public AuthorDto editDto(AuthorDto authorDto) throws ServiceException {
+        Author author = convertToEntity(authorDto);
+        if (authorDao.updateEntity(author)){
+            return convertToDto(authorDao.getEntityById(author.getAuthorId()));
+        } else {
+            throw new ServiceException("Author was not updated");
+        }
     }
 
     @Override
-    public boolean removeAuthor(Long authorId) {
+    public boolean removeDto(Long authorId) {
         return authorDao.deleteEntity(authorId);
+    }
+
+    public Author convertToEntity (AuthorDto authorDto){
+        return modelMapper.map(authorDto, Author.class);
+    }
+
+    public AuthorDto convertToDto (Author author){
+        return modelMapper.map(author, AuthorDto.class);
     }
 }

@@ -32,15 +32,7 @@ public class TagServiceImplTest {
     }
 
     @Test
-    void showTagById() {
-        String tagName = "world";
-        when(tagDao.getEntityById(1L)).thenReturn(new Tag(tagName));
-        TagDto tagDto = tagService.showTagById(1L);
-        assertEquals(tagName, tagDto.getTagName());
-    }
-
-    @Test
-    void showAllTags() {
+    void showAllDto() {
         List<Tag> tags = new ArrayList<>();
         Tag tag = new Tag("politics");
         Tag tag2 = new Tag("world");
@@ -51,13 +43,21 @@ public class TagServiceImplTest {
         Integer expectedListSize = 3;
 
         when(tagDao.getAllEntities()).thenReturn(tags);
-        List<TagDto> tagDtos = tagService.showAllTags();
+        List<TagDto> tagDtos = tagService.showAllDto();
 
         assertEquals(expectedListSize, tagDtos.size());
     }
 
     @Test
-    void saveTag() {
+    void showDtoById() {
+        String tagName = "world";
+        when(tagDao.getEntityById(1L)).thenReturn(new Tag(tagName));
+        TagDto tagDto = tagService.showDtoById(1L);
+        assertEquals(tagName, tagDto.getTagName());
+    }
+
+    @Test
+    void saveDto() {
         String tagName = "space";
         TagDto tagDto = new TagDto();
         tagDto.setTagName(tagName);
@@ -66,23 +66,13 @@ public class TagServiceImplTest {
         tag.setTagName(tagName);
 
         when(tagDao.createEntity(tag)).thenReturn(true);
-        assertTrue(tagService.saveTag(tagDto));
+        assertTrue(tagService.saveDto(tagDto));
     }
 
     @Test
-    void editTag() {
-        String tagName = "editedTag";
-        TagDto tagDto = new TagDto();
-        tagDto.setTagName(tagName);
-
-        when(tagDao.updateEntity(new Tag(tagName))).thenReturn(true);
-        assertTrue(tagService.editTag(tagDto));
-    }
-
-    @Test
-    void removeTag() {
+    void removeDto() {
         Long tagId = 1L;
         when(tagDao.deleteEntity(tagId)).thenReturn(true);
-        assertTrue(tagService.removeTag(tagId));
+        assertTrue(tagService.removeDto(tagId));
     }
 }

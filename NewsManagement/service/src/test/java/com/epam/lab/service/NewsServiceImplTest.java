@@ -39,7 +39,7 @@ public class NewsServiceImplTest {
     }
 
     @Test
-    void saveNews() {
+    void saveDto() {
         NewsDto newsDto = new NewsDto();
         AuthorDto authorDto = new AuthorDto();
         List<Tag> tags = new ArrayList<>();
@@ -49,13 +49,52 @@ public class NewsServiceImplTest {
         News news = new News();
 
         when(newsDao.createEntity(news)).thenReturn(true);
-        assertTrue(newsService.saveNews(newsDto));
+        assertTrue(newsService.saveDto(newsDto));
     }
 
     @Test
-    void removeNews() {
+    void editTitle(){
+        Long newsId = 1L;
+        String title = "newTitle";
+
+        News news = new News();
+        news.setNewsId(newsId);
+        news.setTitle(title);
+
+        when(newsDao.updateTitle(title, newsId)).thenReturn(true);
+        assertTrue(newsService.editTitle(news));
+    }
+
+    @Test
+    void editShortText(){
+        Long newsId = 1L;
+        String shortText = "newShortText";
+
+        News news = new News();
+        news.setNewsId(newsId);
+        news.setShortText(shortText);
+
+        when(newsDao.updateShortText(shortText, newsId)).thenReturn(true);
+        assertTrue(newsService.editShortText(news));
+    }
+
+    @Test
+    void editFullText(){
+        Long newsId = 1L;
+        String fullText = "newFullText";
+
+        News news = new News();
+        news.setNewsId(newsId);
+        news.setFullText(fullText);
+
+        when(newsDao.updateFullText(fullText, newsId)).thenReturn(true);
+        assertTrue(newsService.editFullText(news));
+    }
+
+    @Test
+    void removeDto() {
         Long newsId = 1L;
         when(newsDao.deleteEntity(newsId)).thenReturn(true);
-        assertTrue(newsService.removeNews(newsId));
+        assertTrue(newsService.removeDto(newsId));
     }
 }
