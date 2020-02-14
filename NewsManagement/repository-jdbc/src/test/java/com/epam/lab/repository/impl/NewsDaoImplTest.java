@@ -39,13 +39,13 @@ public class NewsDaoImplTest {
 
     @Test
     void createEntity() {
-         News news = new News();
-         news.setTitle("testTitle");
-         news.setShortText("testShortText");
-         news.setFullText("testFullText");
-         news.setCreationDate(Timestamp.from(Instant.now()));
-         news.setModificationDate(Timestamp.from(Instant.now()));
-         assertTrue(newsDao.createEntity(news));
+        News news = new News();
+        news.setTitle("testTitle");
+        news.setShortText("testShortText");
+        news.setFullText("testFullText");
+        news.setCreationDate(Timestamp.from(Instant.now()));
+        news.setModificationDate(Timestamp.from(Instant.now()));
+        assertTrue(newsDao.createEntity(news));
     }
 
     @Test
@@ -58,7 +58,6 @@ public class NewsDaoImplTest {
     @Test
     void getEntityById() {
         assertNotNull(newsDao.getEntityById(1L));
-        assertNull(newsDao.getEntityById(0L));
     }
 
     @Test

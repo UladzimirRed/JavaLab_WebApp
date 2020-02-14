@@ -1,6 +1,6 @@
 package com.epam.lab.dto;
 
-public class TagDto extends AbstractDto{
+public class TagDto extends AbstractDto {
     private Long tagId;
     private String tagName;
 

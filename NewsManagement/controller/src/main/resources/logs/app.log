@@ -1,199 +1,76 @@
-9699ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12124ms INFO  servlet.DispatcherServlet - Completed initialization in 2376 ms
-11796ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-14097ms INFO  servlet.DispatcherServlet - Completed initialization in 2292 ms
-11089ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13185ms INFO  servlet.DispatcherServlet - Completed initialization in 2084 ms
-23248ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 10, column: 10]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 10, column: 10]
- at [Source: (PushbackInputStream); line: 9, column: 23] (through reference chain: com.epam.lab.dto.NewsDto["authorDto"])]
+1736820ms ERROR exception.DaoException - Exception : 
+com.epam.lab.exception.DataNotFoundException: Author with id: 100 was not founded
+	at com.epam.lab.repository.impl.AuthorDaoImpl.getEntityById(AuthorDaoImpl.java:29) ~[classes/:?]
+	at com.epam.lab.service.impl.AuthorServiceImpl.showDtoById(AuthorServiceImpl.java:35) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_241]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_241]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_241]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_241]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205) ~[spring-aop-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at com.sun.proxy.$Proxy70.showDtoById(Unknown Source) ~[?:?]
+	at com.epam.lab.controller.AuthorController.getAuthor(AuthorController.java:29) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_241]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_241]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_241]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_241]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_241]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_241]
+13805ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+16559ms INFO  servlet.DispatcherServlet - Completed initialization in 2746 ms
+11477ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+13608ms INFO  servlet.DispatcherServlet - Completed initialization in 2123 ms
+13993ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+16079ms INFO  servlet.DispatcherServlet - Completed initialization in 2078 ms
+13959ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+16152ms INFO  servlet.DispatcherServlet - Completed initialization in 2187 ms
+14491ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+16278ms INFO  servlet.DispatcherServlet - Completed initialization in 1779 ms
+12510ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+14761ms INFO  servlet.DispatcherServlet - Completed initialization in 2240 ms
+12031ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+13638ms INFO  servlet.DispatcherServlet - Completed initialization in 1599 ms
+13006ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+14670ms INFO  servlet.DispatcherServlet - Completed initialization in 1657 ms
+14557ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+16527ms INFO  servlet.DispatcherServlet - Completed initialization in 1962 ms
+12285ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+15007ms INFO  servlet.DispatcherServlet - Completed initialization in 2713 ms
 9668ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11601ms INFO  servlet.DispatcherServlet - Completed initialization in 1927 ms
-19470ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-22229ms INFO  servlet.DispatcherServlet - Completed initialization in 2751 ms
-8630ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-10525ms INFO  servlet.DispatcherServlet - Completed initialization in 1888 ms
-12160ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13687ms INFO  servlet.DispatcherServlet - Completed initialization in 1520 ms
-78904ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 6, column: 10]]
-92556ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 6, column: 10]]
-115777ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 7, column: 10]]
-11234ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13196ms INFO  servlet.DispatcherServlet - Completed initialization in 1952 ms
-717635ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 7, column: 10]]
-9573ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11186ms INFO  servlet.DispatcherServlet - Completed initialization in 1607 ms
-16695ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-19798ms INFO  servlet.DispatcherServlet - Completed initialization in 3094 ms
-59062ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 9] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-62510ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 9] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-78878ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.util.ArrayList` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 9] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"])]
-111533ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.util.ArrayList` out of VALUE_NUMBER_INT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList` out of VALUE_NUMBER_INT token
- at [Source: (PushbackInputStream); line: 2, column: 12] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"])]
-179966ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tagsId'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tagsId')
- at [Source: (PushbackInputStream); line: 1, column: 1]]
-187708ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tagsId'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tagsId')
- at [Source: (PushbackInputStream); line: 1, column: 1]]
-204312ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tagsId'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tagsId')
- at [Source: (PushbackInputStream); line: 1, column: 1]]
-243943ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 3, column: 13] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-256099ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.util.ArrayList` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 2, column: 12] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"])]
-290523ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 3, column: 3] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-330616ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `com.epam.lab.dto.NewsSearchCriteria` out of START_ARRAY token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `com.epam.lab.dto.NewsSearchCriteria` out of START_ARRAY token
- at [Source: (PushbackInputStream); line: 1, column: 1]]
-338224ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `com.epam.lab.dto.NewsSearchCriteria` out of START_ARRAY token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `com.epam.lab.dto.NewsSearchCriteria` out of START_ARRAY token
- at [Source: (PushbackInputStream); line: 1, column: 1]]
-347085ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `com.epam.lab.dto.NewsSearchCriteria` out of START_ARRAY token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `com.epam.lab.dto.NewsSearchCriteria` out of START_ARRAY token
- at [Source: (PushbackInputStream); line: 1, column: 1]]
-386480ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tags'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tags')
- at [Source: (PushbackInputStream); line: 1, column: 9]]
-400313ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tagsId'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.epam.lab.dto.NewsSearchCriteria` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('tagsId')
- at [Source: (PushbackInputStream); line: 1, column: 9]]
-427316ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 9] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-436724ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 9] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-452827ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 4, column: 2]]
-494590ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 9] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-653371ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.util.ArrayList` out of VALUE_NUMBER_INT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList` out of VALUE_NUMBER_INT token
- at [Source: (PushbackInputStream); line: 2, column: 12] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"])]
-658265ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.util.ArrayList` out of VALUE_NUMBER_INT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList` out of VALUE_NUMBER_INT token
- at [Source: (PushbackInputStream); line: 2, column: 12] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"])]
-958640ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 6] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-1007992ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 6] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-1018839ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 6] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-1023942ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 4, column: 6] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-10832ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13188ms INFO  servlet.DispatcherServlet - Completed initialization in 2347 ms
-14428ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required Long parameter 'authorId' is not present]
-10551ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13079ms INFO  servlet.DispatcherServlet - Completed initialization in 2517 ms
-13471ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 3, column: 16] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-11114ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13749ms INFO  servlet.DispatcherServlet - Completed initialization in 2626 ms
-15292ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('1' (code 49)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 3, column: 18]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('1' (code 49)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 3, column: 18]
- at [Source: (PushbackInputStream); line: 3, column: 16] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-24758ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('1' (code 49)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 3, column: 18]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('1' (code 49)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 3, column: 18]
- at [Source: (PushbackInputStream); line: 3, column: 16] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-287581ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('1' (code 49)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 2, column: 18]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('1' (code 49)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 2, column: 18]
- at [Source: (PushbackInputStream); line: 2, column: 16] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-315133ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('2' (code 50)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 2, column: 18]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('2' (code 50)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 2, column: 18]
- at [Source: (PushbackInputStream); line: 2, column: 16] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["tagsId"]->java.util.ArrayList[0])]
-9931ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12491ms INFO  servlet.DispatcherServlet - Completed initialization in 2551 ms
-14054ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('a' (code 97)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('a' (code 97)): was expecting double-quote to start field name
- at [Source: (PushbackInputStream); line: 2, column: 3]]
-37681ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 3, column: 6]]
-222221ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character (',' (code 44)): expected a value; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character (',' (code 44)): expected a value
- at [Source: (PushbackInputStream); line: 2, column: 15]]
-234122ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "tagsId": not a valid Long value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Long` from String "tagsId": not a valid Long value
- at [Source: (PushbackInputStream); line: 3, column: 5] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["authorId"])]
-311089ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 3, column: 6]]
-10183ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12253ms INFO  servlet.DispatcherServlet - Completed initialization in 2061 ms
-161758ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 2, column: 13] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["authorId"])]
-166264ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.Long` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 2, column: 13] (through reference chain: com.epam.lab.dto.NewsSearchCriteria["authorId"])]
-15836ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-18408ms INFO  servlet.DispatcherServlet - Completed initialization in 2564 ms
-13523ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-16094ms INFO  servlet.DispatcherServlet - Completed initialization in 2563 ms
-13846ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15688ms INFO  servlet.DispatcherServlet - Completed initialization in 1834 ms
-33736ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 3, column: 6]]
-10897ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13192ms INFO  servlet.DispatcherServlet - Completed initialization in 2286 ms
-14206ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15934ms INFO  servlet.DispatcherServlet - Completed initialization in 1718 ms
-22072ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotWritableException: No converter found for return value of type: class java.util.ArrayList]
-49602ms WARN  support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotWritableException: No converter found for return value of type: class java.util.ArrayList]
-9929ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11880ms INFO  servlet.DispatcherServlet - Completed initialization in 1942 ms
-10293ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12244ms INFO  servlet.DispatcherServlet - Completed initialization in 1942 ms
-10340ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12508ms INFO  servlet.DispatcherServlet - Completed initialization in 2155 ms
-10703ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13253ms INFO  servlet.DispatcherServlet - Completed initialization in 2542 ms
-12630ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-14583ms INFO  servlet.DispatcherServlet - Completed initialization in 1944 ms
-10365ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12424ms INFO  servlet.DispatcherServlet - Completed initialization in 2051 ms
-14492ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-17007ms INFO  servlet.DispatcherServlet - Completed initialization in 2506 ms
-13361ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15516ms INFO  servlet.DispatcherServlet - Completed initialization in 2146 ms
-15564ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-18313ms INFO  servlet.DispatcherServlet - Completed initialization in 2740 ms
-13188ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15739ms INFO  servlet.DispatcherServlet - Completed initialization in 2542 ms
-14458ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-16635ms INFO  servlet.DispatcherServlet - Completed initialization in 2168 ms
-16661ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-18694ms INFO  servlet.DispatcherServlet - Completed initialization in 2020 ms
-13419ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15857ms INFO  servlet.DispatcherServlet - Completed initialization in 2429 ms
-13650ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15656ms INFO  servlet.DispatcherServlet - Completed initialization in 1997 ms
-9109ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-10783ms INFO  servlet.DispatcherServlet - Completed initialization in 1667 ms
-10309ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12328ms INFO  servlet.DispatcherServlet - Completed initialization in 2001 ms
-8942ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-10795ms INFO  servlet.DispatcherServlet - Completed initialization in 1847 ms
-67606ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-70287ms INFO  servlet.DispatcherServlet - Completed initialization in 2670 ms
-13235ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15256ms INFO  servlet.DispatcherServlet - Completed initialization in 2011 ms
-11017ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13617ms INFO  servlet.DispatcherServlet - Completed initialization in 2586 ms
-13643ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-16018ms INFO  servlet.DispatcherServlet - Completed initialization in 2367 ms
-11846ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13582ms INFO  servlet.DispatcherServlet - Completed initialization in 1729 ms
-9719ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11425ms INFO  servlet.DispatcherServlet - Completed initialization in 1699 ms
-9209ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-10939ms INFO  servlet.DispatcherServlet - Completed initialization in 1721 ms
-9603ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11410ms INFO  servlet.DispatcherServlet - Completed initialization in 1800 ms
-10945ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12782ms INFO  servlet.DispatcherServlet - Completed initialization in 1834 ms
+11488ms INFO  servlet.DispatcherServlet - Completed initialization in 1810 ms
+10105ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+12799ms INFO  servlet.DispatcherServlet - Completed initialization in 2683 ms
 8992ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-10719ms INFO  servlet.DispatcherServlet - Completed initialization in 1720 ms
-9140ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11017ms INFO  servlet.DispatcherServlet - Completed initialization in 1870 ms
-9604ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11349ms INFO  servlet.DispatcherServlet - Completed initialization in 1733 ms
-10097ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11851ms INFO  servlet.DispatcherServlet - Completed initialization in 1746 ms
+10608ms INFO  servlet.DispatcherServlet - Completed initialization in 1610 ms
+12628ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+14762ms INFO  servlet.DispatcherServlet - Completed initialization in 2125 ms

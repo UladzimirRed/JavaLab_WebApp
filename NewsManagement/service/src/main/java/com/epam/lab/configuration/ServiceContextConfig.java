@@ -18,7 +18,7 @@ public class ServiceContextConfig {
     }
 
     @Bean
-    public DataSourceTransactionManager txManager(DataSource dataSource){
+    public DataSourceTransactionManager txManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 }

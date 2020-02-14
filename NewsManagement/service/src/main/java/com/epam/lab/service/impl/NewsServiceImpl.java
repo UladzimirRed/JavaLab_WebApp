@@ -71,7 +71,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Transactional
-    private void connectAuthorWithNews(AuthorDto authorDto, NewsDto newsDto){
+    private void connectAuthorWithNews(AuthorDto authorDto, NewsDto newsDto) {
         Author author = authorDao.getEntityById(authorDto.getAuthorId());
         if (author == null) {
             authorDao.createEntity(modelMapper.map(authorDto, Author.class));
@@ -80,7 +80,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Transactional
-    private void connectTagWithNews(Tag tag, NewsDto newsDto){
+    private void connectTagWithNews(Tag tag, NewsDto newsDto) {
         Tag exitsTag = tagDao.getEntityById(tag.getTagId());
         if (exitsTag == null) {
             tagDao.createEntity(tag);
@@ -95,7 +95,7 @@ public class NewsServiceImpl implements NewsService {
         boolean isTitleEdited = editTitle(news);
         boolean isShortTextEdited = editShortText(news);
         boolean isFullTextEdited = editFullText(news);
-        if (isTitleEdited & isShortTextEdited & isFullTextEdited){
+        if (isTitleEdited & isShortTextEdited & isFullTextEdited) {
             return convertToDto(newsDao.getEntityById(newsDto.getNewsId()));
         } else {
             throw new ServiceException("News was not updated");
@@ -103,17 +103,17 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public boolean editTitle(News news){
+    public boolean editTitle(News news) {
         return newsDao.updateTitle(news.getTitle(), news.getNewsId());
     }
 
     @Override
-    public boolean editShortText(News news){
+    public boolean editShortText(News news) {
         return newsDao.updateShortText(news.getShortText(), news.getNewsId());
     }
 
     @Override
-    public boolean editFullText(News news){
+    public boolean editFullText(News news) {
         return newsDao.updateFullText(news.getFullText(), news.getNewsId());
     }
 
@@ -127,13 +127,13 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     @Transactional
-    public List<NewsDto> searchByCriteria(NewsSearchCriteria newsSearchCriteria){
+    public List<NewsDto> searchByCriteria(NewsSearchCriteria newsSearchCriteria) {
         String requestForCurrentCriteria = makeRequestForCurrentCriteria(newsSearchCriteria);
 
         List<News> news = newsDao.getEntityBySearchCriteria(requestForCurrentCriteria);
         List<NewsDto> newsDtos = news.stream().map(this::convertToDto).collect(Collectors.toList());
 
-        if(newsSearchCriteria.getAuthorId() != null) {
+        if (newsSearchCriteria.getAuthorId() != null) {
             newsDtos.forEach(this::assignAuthorForNews);
         }
         if (newsSearchCriteria.getTagsId() != null) {
@@ -143,19 +143,18 @@ public class NewsServiceImpl implements NewsService {
     }
 
 
-    private String makeRequestForCurrentCriteria(NewsSearchCriteria newsSearchCriteria){
+    private String makeRequestForCurrentCriteria(NewsSearchCriteria newsSearchCriteria) {
         Long authorId = newsSearchCriteria.getAuthorId();
         List<Long> tagsId = newsSearchCriteria.getTagsId();
 
-        String partForTag= "";
+        String partForTag = "";
         String havingPartForTags = "";
         String partForAuthor = "";
 
-
-        if (authorId != null){
+        if (authorId != null) {
             partForAuthor = "and author_id = " + authorId.toString();
         }
-        if (tagsId != null){
+        if (tagsId != null) {
             partForTag = " join news_tag on news_tag.news_id = id where tag_id in (" + tagsId.stream().map(Object::toString)
                     .collect(Collectors.joining(",")) + ") ";
             havingPartForTags = " having count(tag_id) = " + tagsId.size();
@@ -170,16 +169,16 @@ public class NewsServiceImpl implements NewsService {
         newsDto.setTags(tags);
     }
 
-    private void assignAuthorForNews(NewsDto newsDto){
+    private void assignAuthorForNews(NewsDto newsDto) {
         AuthorDto authorDto = modelMapper.map(authorDao.getAuthorByNewsId(newsDto.getNewsId()), AuthorDto.class);
         newsDto.setAuthorDto(authorDto);
     }
 
-    private News convertToEntity(NewsDto newsDto){
+    private News convertToEntity(NewsDto newsDto) {
         return modelMapper.map(newsDto, News.class);
     }
 
-    private NewsDto convertToDto(News news){
+    private NewsDto convertToDto(News news) {
         return modelMapper.map(news, NewsDto.class);
     }
 }

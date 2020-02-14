@@ -7,8 +7,12 @@ import java.util.List;
 
 public interface BaseDao<T extends AbstractEntity> {
     T getEntityById(Long id);
+
     List<T> getAllEntities();
+
     boolean deleteEntity(Long id);
+
     boolean updateEntity(T t);
+
     boolean createEntity(T t);
 }

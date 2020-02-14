@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 
 @Entity
-public class Author extends AbstractEntity{
+public class Author extends AbstractEntity {
     private Long authorId;
     private String authorName;
     private String authorSurname;

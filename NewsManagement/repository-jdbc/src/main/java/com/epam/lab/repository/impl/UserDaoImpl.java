@@ -17,13 +17,13 @@ public class UserDaoImpl implements UserDao {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public UserDaoImpl(DataSource dataSource){
-        jdbcTemplate= new JdbcTemplate(dataSource);
+    public UserDaoImpl(DataSource dataSource) {
+        jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @Override
     public User getEntityById(Long id) {
-        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_USER_BY_ID, new Object[] {id}, new UserRowMapper());
+        return jdbcTemplate.queryForObject(SqlRequest.SQL_FIND_USER_BY_ID, new Object[]{id}, new UserRowMapper());
     }
 
     @Override

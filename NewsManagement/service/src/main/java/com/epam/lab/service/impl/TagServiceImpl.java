@@ -45,7 +45,7 @@ public class TagServiceImpl implements TagService {
     @Transactional
     public TagDto editDto(TagDto tagDto) throws ServiceException {
         Tag tag = convertToEntity(tagDto);
-        if (tagDao.updateEntity(tag)){
+        if (tagDao.updateEntity(tag)) {
             return convertToDto(tagDao.getEntityById(tag.getTagId()));
         } else {
             throw new ServiceException("Tag was not updated");
@@ -57,11 +57,11 @@ public class TagServiceImpl implements TagService {
         return tagDao.deleteEntity(tagId);
     }
 
-    public Tag convertToEntity(TagDto tagDto){
+    public Tag convertToEntity(TagDto tagDto) {
         return modelMapper.map(tagDto, Tag.class);
     }
 
-    public TagDto convertToDto(Tag tag){
+    public TagDto convertToDto(Tag tag) {
         return modelMapper.map(tag, TagDto.class);
     }
 }

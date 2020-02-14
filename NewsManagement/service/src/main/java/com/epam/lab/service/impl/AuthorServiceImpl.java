@@ -46,7 +46,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Transactional
     public AuthorDto editDto(AuthorDto authorDto) throws ServiceException {
         Author author = convertToEntity(authorDto);
-        if (authorDao.updateEntity(author)){
+        if (authorDao.updateEntity(author)) {
             return convertToDto(authorDao.getEntityById(author.getAuthorId()));
         } else {
             throw new ServiceException("Author was not updated");
@@ -58,11 +58,11 @@ public class AuthorServiceImpl implements AuthorService {
         return authorDao.deleteEntity(authorId);
     }
 
-    public Author convertToEntity (AuthorDto authorDto){
+    public Author convertToEntity(AuthorDto authorDto) {
         return modelMapper.map(authorDto, Author.class);
     }
 
-    public AuthorDto convertToDto (Author author){
+    public AuthorDto convertToDto(Author author) {
         return modelMapper.map(author, AuthorDto.class);
     }
 }

@@ -53,7 +53,6 @@ public class AuthorDaoImplTest {
     @Test
     void getEntityById() {
         assertNotNull(authorDao.getEntityById(1L));
-        assertNull(authorDao.getEntityById(0L));
     }
 
     @Test

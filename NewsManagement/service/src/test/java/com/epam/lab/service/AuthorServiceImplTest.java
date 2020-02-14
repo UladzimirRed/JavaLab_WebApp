@@ -34,7 +34,7 @@ public class AuthorServiceImplTest {
     @Test
     void showAllDto() {
         List<Author> authors = new ArrayList<>();
-        Author author = new Author("Lukas", "Scarsi" );
+        Author author = new Author("Lukas", "Scarsitto");
         Author author2 = new Author("Albert", "Oneill");
         Author author3 = new Author("Wayne", "Wall");
         authors.add(author);

@@ -6,7 +6,6 @@ import com.epam.lab.repository.TagDao;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -54,7 +53,6 @@ public class TagDaoImplTest {
     @Test
     void getEntityById() {
         assertNotNull(tagDao.getEntityById(1L));
-        assertNull(tagDao.getEntityById(0L));
     }
 
     @Test

@@ -5,7 +5,7 @@ import com.epam.lab.model.Tag;
 import java.sql.Timestamp;
 import java.util.List;
 
-public class NewsDto extends AbstractDto{
+public class NewsDto extends AbstractDto {
     private Long newsId;
     private String title;
     private String shortText;

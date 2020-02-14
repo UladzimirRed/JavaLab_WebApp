@@ -1,6 +1,6 @@
 package com.epam.lab.dto;
 
-public class AuthorDto extends AbstractDto{
+public class AuthorDto extends AbstractDto {
     private Long authorId;
     private String authorName;
     private String authorSurname;

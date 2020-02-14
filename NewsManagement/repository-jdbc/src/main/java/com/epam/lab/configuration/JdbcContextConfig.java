@@ -24,12 +24,12 @@ public class JdbcContextConfig {
     private final String PASSWORD = "dbPassword";
 
     @Bean
-    public JdbcTemplate jdbcTemplate(){
+    public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(dataSource());
     }
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(environment.getProperty(URL));
         config.setUsername(environment.getProperty(USER));

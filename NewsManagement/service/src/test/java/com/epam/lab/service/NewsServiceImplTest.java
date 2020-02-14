@@ -53,7 +53,7 @@ public class NewsServiceImplTest {
     }
 
     @Test
-    void editTitle(){
+    void editTitle() {
         Long newsId = 1L;
         String title = "newTitle";
 
@@ -66,7 +66,7 @@ public class NewsServiceImplTest {
     }
 
     @Test
-    void editShortText(){
+    void editShortText() {
         Long newsId = 1L;
         String shortText = "newShortText";
 
@@ -79,7 +79,7 @@ public class NewsServiceImplTest {
     }
 
     @Test
-    void editFullText(){
+    void editFullText() {
         Long newsId = 1L;
         String fullText = "newFullText";
 
