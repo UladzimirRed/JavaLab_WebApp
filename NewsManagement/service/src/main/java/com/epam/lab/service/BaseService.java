@@ -12,7 +12,7 @@ public interface BaseService<T extends AbstractDto> {
 
     boolean saveDto(T t);
 
-    T editDto(T t) throws ServiceException;
+    T editDto(T t);
 
     boolean removeDto(Long id);
 }

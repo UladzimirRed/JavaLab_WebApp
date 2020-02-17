@@ -3,8 +3,8 @@ package com.epam.lab.dto;
 import java.util.List;
 
 public class NewsSearchCriteria {
-    Long authorId;
-    List<Long> tagsId;
+    private Long authorId;
+    private List<Long> tagsId;
 
     public Long getAuthorId() {
         return authorId;

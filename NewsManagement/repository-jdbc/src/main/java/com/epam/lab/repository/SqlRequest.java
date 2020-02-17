@@ -1,6 +1,10 @@
 package com.epam.lab.repository;
 
 public class SqlRequest {
+
+    private SqlRequest() {
+    }
+
     public static final String SQL_FIND_AUTHOR_BY_ID = "select * from authors where id = ?";
     public static final String SQL_FIND_ALL_AUTHORS = "select * from authors";
     public static final String SQL_UPDATE_AUTHOR = "update authors set author_name = ?, author_surname = ? where id = ?";

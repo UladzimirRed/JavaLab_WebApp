@@ -5,15 +5,6 @@ import com.epam.lab.model.News;
 import java.util.List;
 
 public interface NewsDao extends BaseDao<News> {
-    News getEntityById(Long newsId);
-
-    List<News> getAllEntities();
-
-    boolean deleteEntity(Long newsId);
-
-    boolean updateEntity(News news);
-
-    boolean createEntity(News news);
 
     boolean updateTitle(String title, Long newsId);
 

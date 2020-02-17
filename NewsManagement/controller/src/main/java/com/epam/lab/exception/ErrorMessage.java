@@ -4,9 +4,6 @@ public class ErrorMessage {
     private int errorStatus;
     private String message;
 
-    public ErrorMessage() {
-    }
-
     public ErrorMessage(int errorStatus, String message) {
         this.errorStatus = errorStatus;
         this.message = message;

@@ -6,7 +6,6 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class NewsDto extends AbstractDto {
-    private Long newsId;
     private String title;
     private String shortText;
     private String fullText;
@@ -15,24 +14,6 @@ public class NewsDto extends AbstractDto {
     private AuthorDto authorDto;
     private List<Tag> tags;
 
-    public NewsDto() {
-    }
-
-    public NewsDto(String title, String shortText, String fullText, Timestamp creationDate, Timestamp modificationDate) {
-        this.title = title;
-        this.shortText = shortText;
-        this.fullText = fullText;
-        this.creationDate = creationDate;
-        this.modificationDate = modificationDate;
-    }
-
-    public Long getNewsId() {
-        return newsId;
-    }
-
-    public void setNewsId(Long newsId) {
-        this.newsId = newsId;
-    }
 
     public String getTitle() {
         return title;
@@ -97,26 +78,22 @@ public class NewsDto extends AbstractDto {
 
         NewsDto newsDto = (NewsDto) o;
 
-        if (newsId != null ? !newsId.equals(newsDto.newsId) : newsDto.newsId != null) return false;
-        if (title != null ? !title.equals(newsDto.title) : newsDto.title != null) return false;
-        if (shortText != null ? !shortText.equals(newsDto.shortText) : newsDto.shortText != null) return false;
-        if (fullText != null ? !fullText.equals(newsDto.fullText) : newsDto.fullText != null) return false;
-        if (creationDate != null ? !creationDate.equals(newsDto.creationDate) : newsDto.creationDate != null)
-            return false;
-        if (modificationDate != null ? !modificationDate.equals(newsDto.modificationDate) : newsDto.modificationDate != null)
-            return false;
+        if (!title.equals(newsDto.title)) return false;
+        if (!shortText.equals(newsDto.shortText)) return false;
+        if (!fullText.equals(newsDto.fullText)) return false;
+        if (!creationDate.equals(newsDto.creationDate)) return false;
+        if (!modificationDate.equals(newsDto.modificationDate)) return false;
         if (authorDto != null ? !authorDto.equals(newsDto.authorDto) : newsDto.authorDto != null) return false;
         return tags != null ? tags.equals(newsDto.tags) : newsDto.tags == null;
     }
 
     @Override
     public int hashCode() {
-        int result = newsId != null ? newsId.hashCode() : 0;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (shortText != null ? shortText.hashCode() : 0);
-        result = 31 * result + (fullText != null ? fullText.hashCode() : 0);
-        result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
-        result = 31 * result + (modificationDate != null ? modificationDate.hashCode() : 0);
+        int result = title.hashCode();
+        result = 31 * result + shortText.hashCode();
+        result = 31 * result + fullText.hashCode();
+        result = 31 * result + creationDate.hashCode();
+        result = 31 * result + modificationDate.hashCode();
         result = 31 * result + (authorDto != null ? authorDto.hashCode() : 0);
         result = 31 * result + (tags != null ? tags.hashCode() : 0);
         return result;

@@ -5,15 +5,6 @@ import com.epam.lab.model.Tag;
 import java.util.List;
 
 public interface TagDao extends BaseDao<Tag> {
-    Tag getEntityById(Long tagId);
-
-    List<Tag> getAllEntities();
-
-    boolean deleteEntity(Long tagId);
-
-    boolean updateEntity(Tag tag);
-
-    boolean createEntity(Tag tag);
 
     List<Tag> getTagsByNewsId(Long newsId);
 }

@@ -11,7 +11,7 @@ public class NewsRowMapper implements RowMapper<News> {
     @Override
     public News mapRow(ResultSet resultSet, int i) throws SQLException {
         News news = new News();
-        news.setNewsId(resultSet.getLong("id"));
+        news.setId(resultSet.getLong("id"));
         news.setTitle(resultSet.getString("title"));
         news.setShortText(resultSet.getString("short_text"));
         news.setFullText(resultSet.getString("full_text"));

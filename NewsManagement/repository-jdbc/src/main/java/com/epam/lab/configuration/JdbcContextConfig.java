@@ -18,10 +18,10 @@ public class JdbcContextConfig {
     @Autowired
     Environment environment;
 
-    private final String URL = "url";
-    private final String USER = "dbUser";
-    private final String DRIVER = "driver";
-    private final String PASSWORD = "dbPassword";
+    private static final String URL = "url";
+    private static final String USER = "dbUser";
+    private static final String DRIVER = "driver";
+    private static final String PASSWORD = "dbPassword";
 
     @Bean
     public JdbcTemplate jdbcTemplate() {

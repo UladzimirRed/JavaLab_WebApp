@@ -12,6 +12,9 @@ import java.security.NoSuchAlgorithmException;
 public class EncryptPassword {
     private static Logger logger = LogManager.getLogger();
 
+    private EncryptPassword() {
+    }
+
     public static String encrypt(String password) {
 
         String encryptPassword = null;

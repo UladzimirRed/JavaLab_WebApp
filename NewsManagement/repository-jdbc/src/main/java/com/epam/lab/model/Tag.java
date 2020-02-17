@@ -2,12 +2,9 @@ package com.epam.lab.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
 public class Tag extends AbstractEntity {
-    private Long tagId;
     private String tagName;
 
     public Tag() {
@@ -17,20 +14,6 @@ public class Tag extends AbstractEntity {
         this.tagName = tagName;
     }
 
-    public Tag(Long tagId, String tagName) {
-        this.tagId = tagId;
-        this.tagName = tagName;
-    }
-
-    @Id
-    @GeneratedValue
-    public Long getTagId() {
-        return tagId;
-    }
-
-    public void setTagId(Long tagId) {
-        this.tagId = tagId;
-    }
 
     @Column(nullable = false)
     public String getTagName() {
@@ -48,21 +31,18 @@ public class Tag extends AbstractEntity {
 
         Tag tag = (Tag) o;
 
-        if (tagId != tag.tagId) return false;
-        return tagName != null ? tagName.equals(tag.tagName) : tag.tagName == null;
+        return tagName.equals(tag.tagName);
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (tagId ^ (tagId >>> 32));
-        result = 31 * result + (tagName != null ? tagName.hashCode() : 0);
-        return result;
+        return tagName.hashCode();
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Tag{");
-        sb.append("tag id=").append(tagId);
+        sb.append("tag id=").append(super.getId());
         sb.append(", tag name='").append(tagName).append('\'');
         sb.append('}');
         return sb.toString();

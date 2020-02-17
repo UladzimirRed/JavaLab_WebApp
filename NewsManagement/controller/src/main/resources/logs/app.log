@@ -1,76 +1,18 @@
-1736820ms ERROR exception.DaoException - Exception : 
-com.epam.lab.exception.DataNotFoundException: Author with id: 100 was not founded
-	at com.epam.lab.repository.impl.AuthorDaoImpl.getEntityById(AuthorDaoImpl.java:29) ~[classes/:?]
-	at com.epam.lab.service.impl.AuthorServiceImpl.showDtoById(AuthorServiceImpl.java:35) ~[classes/:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_241]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_241]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_241]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_241]
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205) ~[spring-aop-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at com.sun.proxy.$Proxy70.showDtoById(Unknown Source) ~[?:?]
-	at com.epam.lab.controller.AuthorController.getAuthor(AuthorController.java:29) ~[classes/:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_241]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_241]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_241]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_241]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_241]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_241]
-	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_241]
-13805ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-16559ms INFO  servlet.DispatcherServlet - Completed initialization in 2746 ms
-11477ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13608ms INFO  servlet.DispatcherServlet - Completed initialization in 2123 ms
-13993ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-16079ms INFO  servlet.DispatcherServlet - Completed initialization in 2078 ms
-13959ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-16152ms INFO  servlet.DispatcherServlet - Completed initialization in 2187 ms
-14491ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-16278ms INFO  servlet.DispatcherServlet - Completed initialization in 1779 ms
-12510ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-14761ms INFO  servlet.DispatcherServlet - Completed initialization in 2240 ms
-12031ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13638ms INFO  servlet.DispatcherServlet - Completed initialization in 1599 ms
-13006ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-14670ms INFO  servlet.DispatcherServlet - Completed initialization in 1657 ms
-14557ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-16527ms INFO  servlet.DispatcherServlet - Completed initialization in 1962 ms
-12285ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15007ms INFO  servlet.DispatcherServlet - Completed initialization in 2713 ms
-9668ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11488ms INFO  servlet.DispatcherServlet - Completed initialization in 1810 ms
-10105ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12799ms INFO  servlet.DispatcherServlet - Completed initialization in 2683 ms
-8992ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-10608ms INFO  servlet.DispatcherServlet - Completed initialization in 1610 ms
-12628ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-14762ms INFO  servlet.DispatcherServlet - Completed initialization in 2125 ms
+13514ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+16273ms INFO  servlet.DispatcherServlet - Completed initialization in 2719 ms
+13999ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+15652ms INFO  servlet.DispatcherServlet - Completed initialization in 1647 ms
+10950ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+12472ms INFO  servlet.DispatcherServlet - Completed initialization in 1516 ms
+10930ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+12644ms INFO  servlet.DispatcherServlet - Completed initialization in 1708 ms
+11326ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+12934ms INFO  servlet.DispatcherServlet - Completed initialization in 1601 ms
+9940ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+11839ms INFO  servlet.DispatcherServlet - Completed initialization in 1892 ms
+12483ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+14409ms INFO  servlet.DispatcherServlet - Completed initialization in 1919 ms
+11286ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+12889ms INFO  servlet.DispatcherServlet - Completed initialization in 1596 ms
+10956ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+12524ms INFO  servlet.DispatcherServlet - Completed initialization in 1561 ms

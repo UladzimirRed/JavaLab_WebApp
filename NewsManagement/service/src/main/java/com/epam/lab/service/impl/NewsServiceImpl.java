@@ -40,6 +40,9 @@ public class NewsServiceImpl implements NewsService {
     @Transactional
     public List<NewsDto> showAllDto() {
         List<News> news = newsDao.getAllEntities();
+        if (news.stream().findAny().orElse(null) == null) {
+            throw new ServiceException("List of news was not founded");
+        }
         List<NewsDto> newsDtos = news.stream().map(this::convertToDto).collect(Collectors.toList());
         newsDtos.forEach(newsDto -> {
             assignAuthorForNews(newsDto);
@@ -52,40 +55,47 @@ public class NewsServiceImpl implements NewsService {
     @Transactional
     public NewsDto showDtoById(Long newsId) {
         News news = newsDao.getEntityById(newsId);
-        NewsDto newsDto = convertToDto(news);
-        assignAuthorForNews(newsDto);
-        assignTagsForNews(newsDto);
-        return newsDto;
+        if (news == null) {
+            throw new ServiceException("News with ID: " + newsId + " was not found");
+        } else {
+            NewsDto newsDto = convertToDto(news);
+            assignAuthorForNews(newsDto);
+            assignTagsForNews(newsDto);
+            return newsDto;
+        }
     }
 
     @Override
     @Transactional
     public boolean saveDto(NewsDto newsDto) {
         News news = convertToEntity(newsDto);
-        boolean isCreated = newsDao.createEntity(news);
-        AuthorDto authorDto = newsDto.getAuthorDto();
-        connectAuthorWithNews(authorDto, newsDto);
-        List<Tag> tags = newsDto.getTags();
-        tags.forEach(tag -> connectTagWithNews(tag, newsDto));
-        return isCreated;
+        if (newsDao.createEntity(news)) {
+            AuthorDto authorDto = newsDto.getAuthorDto();
+            connectAuthorWithNews(authorDto, newsDto);
+            List<Tag> tags = newsDto.getTags();
+            tags.forEach(tag -> connectTagWithNews(tag, newsDto));
+            return true;
+        } else {
+            throw new ServiceException("News was not create");
+        }
     }
 
     @Transactional
-    private void connectAuthorWithNews(AuthorDto authorDto, NewsDto newsDto) {
-        Author author = authorDao.getEntityById(authorDto.getAuthorId());
+    public void connectAuthorWithNews(AuthorDto authorDto, NewsDto newsDto) {
+        Author author = authorDao.getEntityById(authorDto.getId());
         if (author == null) {
             authorDao.createEntity(modelMapper.map(authorDto, Author.class));
         }
-        newsDao.linkAuthorWithNews(authorDto.getAuthorId(), newsDto.getNewsId());
+        newsDao.linkAuthorWithNews(authorDto.getId(), newsDto.getId());
     }
 
     @Transactional
-    private void connectTagWithNews(Tag tag, NewsDto newsDto) {
-        Tag exitsTag = tagDao.getEntityById(tag.getTagId());
+    public void connectTagWithNews(Tag tag, NewsDto newsDto) {
+        Tag exitsTag = tagDao.getEntityById(tag.getId());
         if (exitsTag == null) {
             tagDao.createEntity(tag);
         }
-        newsDao.linkTagWithNews(tag.getTagId(), newsDto.getNewsId());
+        newsDao.linkTagWithNews(tag.getId(), newsDto.getId());
     }
 
     @Override
@@ -95,8 +105,8 @@ public class NewsServiceImpl implements NewsService {
         boolean isTitleEdited = editTitle(news);
         boolean isShortTextEdited = editShortText(news);
         boolean isFullTextEdited = editFullText(news);
-        if (isTitleEdited & isShortTextEdited & isFullTextEdited) {
-            return convertToDto(newsDao.getEntityById(newsDto.getNewsId()));
+        if (isTitleEdited && isShortTextEdited && isFullTextEdited) {
+            return convertToDto(newsDao.getEntityById(newsDto.getId()));
         } else {
             throw new ServiceException("News was not updated");
         }
@@ -104,17 +114,23 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public boolean editTitle(News news) {
-        return newsDao.updateTitle(news.getTitle(), news.getNewsId());
+        if (newsDao.updateTitle(news.getTitle(), news.getId())) {
+            return true;
+        } else throw new ServiceException("Title of news with ID " + news.getId() + " was not updated");
     }
 
     @Override
     public boolean editShortText(News news) {
-        return newsDao.updateShortText(news.getShortText(), news.getNewsId());
+        if (newsDao.updateShortText(news.getShortText(), news.getId())) {
+            return true;
+        } else throw new ServiceException("Short text of news with ID " + news.getId() + " was not updated");
     }
 
     @Override
     public boolean editFullText(News news) {
-        return newsDao.updateFullText(news.getFullText(), news.getNewsId());
+        if (newsDao.updateFullText(news.getFullText(), news.getId())) {
+            return true;
+        } else throw new ServiceException("Full text of news with ID " + news.getId() + " was not updated");
     }
 
     @Override
@@ -122,7 +138,9 @@ public class NewsServiceImpl implements NewsService {
     public boolean removeDto(Long newsId) {
         newsDao.unlinkAuthorIdFromNewsId(newsId);
         newsDao.unlinkTagIdFromNewsId(newsId);
-        return newsDao.deleteEntity(newsId);
+        if (newsDao.deleteEntity(newsId)) {
+            return true;
+        } else throw new ServiceException("News with ID: " + newsId + " was not delete");
     }
 
     @Override
@@ -131,6 +149,9 @@ public class NewsServiceImpl implements NewsService {
         String requestForCurrentCriteria = makeRequestForCurrentCriteria(newsSearchCriteria);
 
         List<News> news = newsDao.getEntityBySearchCriteria(requestForCurrentCriteria);
+        if (news.stream().findAny().orElse(null) == null) {
+            throw new ServiceException("No entities were found by this criterion");
+        }
         List<NewsDto> newsDtos = news.stream().map(this::convertToDto).collect(Collectors.toList());
 
         if (newsSearchCriteria.getAuthorId() != null) {
@@ -165,20 +186,28 @@ public class NewsServiceImpl implements NewsService {
     }
 
     private void assignTagsForNews(NewsDto newsDto) {
-        List<Tag> tags = tagDao.getTagsByNewsId(newsDto.getNewsId());
-        newsDto.setTags(tags);
+        List<Tag> tags = tagDao.getTagsByNewsId(newsDto.getId());
+        if (tags.stream().findAny().orElse(null) == null) {
+            throw new ServiceException("The tags of news with ID: " + newsDto.getId() + " were not found");
+        } else {
+            newsDto.setTags(tags);
+        }
     }
 
     private void assignAuthorForNews(NewsDto newsDto) {
-        AuthorDto authorDto = modelMapper.map(authorDao.getAuthorByNewsId(newsDto.getNewsId()), AuthorDto.class);
-        newsDto.setAuthorDto(authorDto);
+        AuthorDto authorDto = modelMapper.map(authorDao.getAuthorByNewsId(newsDto.getId()), AuthorDto.class);
+        if (authorDto == null) {
+            throw new ServiceException("The author of news with ID: " + newsDto.getId() + " were not found");
+        } else {
+            newsDto.setAuthorDto(authorDto);
+        }
     }
 
-    private News convertToEntity(NewsDto newsDto) {
+    public News convertToEntity(NewsDto newsDto) {
         return modelMapper.map(newsDto, News.class);
     }
 
-    private NewsDto convertToDto(News news) {
+    public NewsDto convertToDto(News news) {
         return modelMapper.map(news, NewsDto.class);
     }
 }

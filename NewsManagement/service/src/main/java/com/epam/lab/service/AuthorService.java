@@ -1,18 +1,11 @@
 package com.epam.lab.service;
 
 import com.epam.lab.dto.AuthorDto;
-import com.epam.lab.exception.ServiceException;
+import com.epam.lab.model.Author;
 
-import java.util.List;
 
 public interface AuthorService extends BaseService<AuthorDto> {
-    List<AuthorDto> showAllDto();
+    Author convertToEntity(AuthorDto authorDto);
 
-    AuthorDto showDtoById(Long authorId);
-
-    boolean saveDto(AuthorDto authorDto);
-
-    AuthorDto editDto(AuthorDto authorDto) throws ServiceException;
-
-    boolean removeDto(Long authorId);
+    AuthorDto convertToDto(Author author);
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,41 +27,52 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public List<TagDto> showAllDto() {
-        return tagDao.getAllEntities().stream().map(this::convertToDto).collect(Collectors.toList());
+        List<Tag> tags = new ArrayList<>(tagDao.getAllEntities());
+        if (tags.stream().findAny().orElse(null) == null) {
+            throw new ServiceException("List of tags was not found");
+        }
+        return tags.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
     @Override
     public TagDto showDtoById(Long tagId) {
         Tag tag = tagDao.getEntityById(tagId);
+        if (tag == null) {
+            throw new ServiceException("Tag with ID: " + tagId + " was not found");
+        }
         return convertToDto(tag);
     }
 
     @Override
     public boolean saveDto(TagDto tagDto) {
         Tag tag = convertToEntity(tagDto);
-        return tagDao.createEntity(tag);
+        if (tagDao.createEntity(tag)) {
+            return true;
+        } else throw new ServiceException("Tag was not create");
     }
 
     @Override
     @Transactional
-    public TagDto editDto(TagDto tagDto) throws ServiceException {
+    public TagDto editDto(TagDto tagDto) {
         Tag tag = convertToEntity(tagDto);
         if (tagDao.updateEntity(tag)) {
-            return convertToDto(tagDao.getEntityById(tag.getTagId()));
-        } else {
-            throw new ServiceException("Tag was not updated");
-        }
+            return convertToDto(tagDao.getEntityById(tag.getId()));
+        } else throw new ServiceException("Tag was not updated");
     }
 
     @Override
     public boolean removeDto(Long tagId) {
-        return tagDao.deleteEntity(tagId);
+        if (tagDao.deleteEntity(tagId)) {
+            return true;
+        } else throw new ServiceException("Tag with id: " + tagId + " was not delete");
     }
 
+    @Override
     public Tag convertToEntity(TagDto tagDto) {
         return modelMapper.map(tagDto, Tag.class);
     }
 
+    @Override
     public TagDto convertToDto(Tag tag) {
         return modelMapper.map(tag, TagDto.class);
     }

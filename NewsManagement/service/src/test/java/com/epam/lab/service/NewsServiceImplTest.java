@@ -58,7 +58,7 @@ public class NewsServiceImplTest {
         String title = "newTitle";
 
         News news = new News();
-        news.setNewsId(newsId);
+        news.setId(newsId);
         news.setTitle(title);
 
         when(newsDao.updateTitle(title, newsId)).thenReturn(true);
@@ -71,7 +71,7 @@ public class NewsServiceImplTest {
         String shortText = "newShortText";
 
         News news = new News();
-        news.setNewsId(newsId);
+        news.setId(newsId);
         news.setShortText(shortText);
 
         when(newsDao.updateShortText(shortText, newsId)).thenReturn(true);
@@ -84,7 +84,7 @@ public class NewsServiceImplTest {
         String fullText = "newFullText";
 
         News news = new News();
-        news.setNewsId(newsId);
+        news.setId(newsId);
         news.setFullText(fullText);
 
         when(newsDao.updateFullText(fullText, newsId)).thenReturn(true);
