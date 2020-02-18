@@ -16,3 +16,17 @@
 12889ms INFO  servlet.DispatcherServlet - Completed initialization in 1596 ms
 10956ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
 12524ms INFO  servlet.DispatcherServlet - Completed initialization in 1561 ms
+10702ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+12271ms INFO  servlet.DispatcherServlet - Completed initialization in 1562 ms
+11735ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+14336ms INFO  servlet.DispatcherServlet - Completed initialization in 2594 ms
+13789ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+15852ms INFO  servlet.DispatcherServlet - Completed initialization in 2055 ms
+13344ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+15734ms INFO  servlet.DispatcherServlet - Completed initialization in 2381 ms
+13957ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+17700ms INFO  servlet.DispatcherServlet - Completed initialization in 3733 ms
+13131ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+15521ms INFO  servlet.DispatcherServlet - Completed initialization in 2382 ms
+9724ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+11494ms INFO  servlet.DispatcherServlet - Completed initialization in 1764 ms
