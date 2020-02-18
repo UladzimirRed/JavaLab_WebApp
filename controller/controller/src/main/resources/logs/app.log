@@ -1,0 +1,3 @@
+47512ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+50963ms INFO  servlet.DispatcherServlet - Completed initialization in 3390 ms
+803136ms WARN  servlet.PageNotFound - No mapping for GET /nManagement/
