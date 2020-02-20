@@ -1,10 +1,10 @@
-package com.epam.lab.service;
+package com.epam.lab.jpaservice;
 
 import com.epam.lab.dto.AbstractDto;
 
 import java.util.List;
 
-public interface BaseService<T extends AbstractDto> {
+public interface BaseService <T extends AbstractDto> {
     List<T> showAllDto();
 
     T showDtoById(Long id);
@@ -15,3 +15,4 @@ public interface BaseService<T extends AbstractDto> {
 
     boolean removeDto(Long id);
 }
+

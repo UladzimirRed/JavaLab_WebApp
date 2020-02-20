@@ -1,10 +1,7 @@
 package com.epam.lab.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import java.sql.Timestamp;
 
-@Entity
 public class News extends AbstractEntity {
     private String title;
     private String shortText;
@@ -12,7 +9,6 @@ public class News extends AbstractEntity {
     private Timestamp creationDate;
     private Timestamp modificationDate;
 
-    @Column(nullable = false)
     public String getTitle() {
         return title;
     }
@@ -21,7 +17,6 @@ public class News extends AbstractEntity {
         this.title = title;
     }
 
-    @Column(nullable = false)
     public String getShortText() {
         return shortText;
     }
@@ -30,7 +25,6 @@ public class News extends AbstractEntity {
         this.shortText = shortText;
     }
 
-    @Column(nullable = false)
     public String getFullText() {
         return fullText;
     }
@@ -39,7 +33,6 @@ public class News extends AbstractEntity {
         this.fullText = fullText;
     }
 
-    @Column(nullable = false)
     public Timestamp getCreationDate() {
         return creationDate;
     }
@@ -48,7 +41,6 @@ public class News extends AbstractEntity {
         this.creationDate = creationDate;
     }
 
-    @Column(nullable = false)
     public Timestamp getModificationDate() {
         return modificationDate;
     }

@@ -1,16 +1,11 @@
 package com.epam.lab.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-
-@Entity
 public class User extends AbstractEntity {
     private String userName;
     private String userSurname;
     private String login;
     private String password;
 
-    @Column(nullable = false)
     public String getUserName() {
         return userName;
     }
@@ -19,7 +14,6 @@ public class User extends AbstractEntity {
         this.userName = userName;
     }
 
-    @Column(nullable = false)
     public String getUserSurname() {
         return userSurname;
     }
@@ -28,7 +22,6 @@ public class User extends AbstractEntity {
         this.userSurname = userSurname;
     }
 
-    @Column(nullable = false)
     public String getLogin() {
         return login;
     }
@@ -37,7 +30,6 @@ public class User extends AbstractEntity {
         this.login = login;
     }
 
-    @Column(nullable = false)
     public String getPassword() {
         return password;
     }

@@ -1,9 +1,5 @@
 package com.epam.lab.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-
-@Entity
 public class Tag extends AbstractEntity {
     private String tagName;
 
@@ -15,7 +11,6 @@ public class Tag extends AbstractEntity {
     }
 
 
-    @Column(nullable = false)
     public String getTagName() {
         return tagName;
     }

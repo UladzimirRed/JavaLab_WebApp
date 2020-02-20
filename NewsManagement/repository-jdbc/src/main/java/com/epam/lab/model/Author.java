@@ -1,9 +1,5 @@
 package com.epam.lab.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-
-@Entity
 public class Author extends AbstractEntity {
     private String authorName;
     private String authorSurname;
@@ -16,7 +12,6 @@ public class Author extends AbstractEntity {
         this.authorSurname = authorSurname;
     }
 
-    @Column(nullable = false)
     public String getAuthorName() {
         return authorName;
     }
@@ -25,7 +20,6 @@ public class Author extends AbstractEntity {
         this.authorName = authorName;
     }
 
-    @Column(nullable = false)
     public String getAuthorSurname() {
         return authorSurname;
     }
