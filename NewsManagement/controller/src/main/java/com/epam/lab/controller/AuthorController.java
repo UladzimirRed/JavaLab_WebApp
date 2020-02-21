@@ -1,7 +1,7 @@
 package com.epam.lab.controller;
 
 import com.epam.lab.dto.AuthorDto;
-import com.epam.lab.service.AuthorService;
+import com.epam.lab.jpaservice.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

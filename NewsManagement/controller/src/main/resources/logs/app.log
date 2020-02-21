@@ -1,34 +1,96 @@
-13514ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-16273ms INFO  servlet.DispatcherServlet - Completed initialization in 2719 ms
-13999ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15652ms INFO  servlet.DispatcherServlet - Completed initialization in 1647 ms
-10950ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12472ms INFO  servlet.DispatcherServlet - Completed initialization in 1516 ms
-10930ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12644ms INFO  servlet.DispatcherServlet - Completed initialization in 1708 ms
-11326ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12934ms INFO  servlet.DispatcherServlet - Completed initialization in 1601 ms
-9940ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11839ms INFO  servlet.DispatcherServlet - Completed initialization in 1892 ms
-12483ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-14409ms INFO  servlet.DispatcherServlet - Completed initialization in 1919 ms
-11286ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12889ms INFO  servlet.DispatcherServlet - Completed initialization in 1596 ms
-10956ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12524ms INFO  servlet.DispatcherServlet - Completed initialization in 1561 ms
-10702ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-12271ms INFO  servlet.DispatcherServlet - Completed initialization in 1562 ms
-11735ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-14336ms INFO  servlet.DispatcherServlet - Completed initialization in 2594 ms
-13789ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15852ms INFO  servlet.DispatcherServlet - Completed initialization in 2055 ms
-13344ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15734ms INFO  servlet.DispatcherServlet - Completed initialization in 2381 ms
-13957ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-17700ms INFO  servlet.DispatcherServlet - Completed initialization in 3733 ms
-13131ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-15521ms INFO  servlet.DispatcherServlet - Completed initialization in 2382 ms
-9724ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-11494ms INFO  servlet.DispatcherServlet - Completed initialization in 1764 ms
-8116ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-9400ms INFO  servlet.DispatcherServlet - Completed initialization in 1278 ms
+8945ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+9924ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+10011ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+10013ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+10136ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10355ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10505ms INFO  internal.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10515ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@61a5b3c
+10788ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11613ms INFO  servlet.DispatcherServlet - Completed initialization in 2655 ms
+9060ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+10120ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+10224ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+10227ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+10356ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10651ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10807ms INFO  internal.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10815ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@c854dfb
+11140ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11944ms INFO  servlet.DispatcherServlet - Completed initialization in 2879 ms
+8786ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+9686ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+9784ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+9786ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+9897ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10145ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10280ms INFO  internal.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10287ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@20e83cc0
+10566ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11323ms INFO  servlet.DispatcherServlet - Completed initialization in 2531 ms
+8955ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+9949ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+10038ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+10040ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+10143ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10344ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10472ms INFO  internal.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10478ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@2b9a7685
+10692ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11309ms INFO  servlet.DispatcherServlet - Completed initialization in 2348 ms
+8863ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+9837ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+9919ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+9921ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+10016ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10212ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10341ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+10351ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7a9ee0f2
+10545ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11108ms INFO  servlet.DispatcherServlet - Completed initialization in 2240 ms
+9165ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+10144ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+10250ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+10252ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+10383ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10781ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10916ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+10925ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59deccd8
+11188ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11871ms INFO  servlet.DispatcherServlet - Completed initialization in 2701 ms
+9736ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+10659ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+10747ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+10749ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+10859ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+11074ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+11214ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+11228ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@afb29cf
+11490ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12100ms INFO  servlet.DispatcherServlet - Completed initialization in 2359 ms
+12595ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+13845ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+13939ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+13941ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+14045ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+14283ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+14408ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+14417ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@5406390f
+14625ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15423ms INFO  servlet.DispatcherServlet - Completed initialization in 2818 ms

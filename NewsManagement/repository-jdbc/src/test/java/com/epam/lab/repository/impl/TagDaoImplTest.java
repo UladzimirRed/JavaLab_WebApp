@@ -35,7 +35,7 @@ public class TagDaoImplTest {
         embeddedDatabase.shutdown();
     }
 
-    @Test
+    @Test()
     void createEntity() {
         Tag tag = new Tag();
         tag.setTagName("politics");

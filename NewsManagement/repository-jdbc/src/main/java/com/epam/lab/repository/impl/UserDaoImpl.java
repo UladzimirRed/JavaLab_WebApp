@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.util.List;
 
-@Repository
+//@Repository
 public class UserDaoImpl implements UserDao {
     private JdbcTemplate jdbcTemplate;
 

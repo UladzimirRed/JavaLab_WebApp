@@ -1,6 +1,7 @@
 package com.epam.lab.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tags")
@@ -8,12 +9,8 @@ public class Tag extends AbstractEntity {
     @Column (name = "tag_name", nullable = false)
     private String tagName;
 
-    public Tag() {
-    }
-
-    public Tag(String tagName) {
-        this.tagName = tagName;
-    }
+    @ManyToMany(mappedBy = "tags")
+    private List<News> news;
 
     public String getTagName() {
         return tagName;

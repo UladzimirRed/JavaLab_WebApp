@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+//@Service
 public class TagServiceImpl implements TagService {
     private TagDao tagDao;
     private ModelMapper modelMapper;

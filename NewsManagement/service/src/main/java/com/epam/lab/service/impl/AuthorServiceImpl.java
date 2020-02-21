@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+//@Service
 public class AuthorServiceImpl implements AuthorService {
     private AuthorDao authorDao;
     private ModelMapper modelMapper;

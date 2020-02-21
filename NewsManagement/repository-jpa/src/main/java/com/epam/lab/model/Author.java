@@ -10,14 +10,6 @@ public class Author extends AbstractEntity {
     @Column (name = "author_surname", nullable = false)
     private String authorSurname;
 
-    public Author() {
-    }
-
-    public Author(String authorName, String authorSurname) {
-        this.authorName = authorName;
-        this.authorSurname = authorSurname;
-    }
-
     public String getAuthorName() {
         return authorName;
     }

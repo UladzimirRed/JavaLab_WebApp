@@ -2,22 +2,29 @@ package com.epam.lab.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "news")
 public class News extends AbstractEntity {
-    @Column (name = "title", nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
-    @Column (name = "short_text", nullable = false)
+    @Column(name = "short_text", nullable = false)
     private String shortText;
-    @Column (name = "full_text", nullable = false)
+    @Column(name = "full_text", nullable = false)
     private String fullText;
-    @Column (name = "creation_date", nullable = false)
+    @Column(name = "creation_date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate;
-    @Column (name = "modification_date", nullable = false)
+    @Column(name = "modification_date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp modificationDate;
+    @ManyToMany
+    @JoinTable(name = "news_tag",
+            joinColumns = @JoinColumn(name = "news_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id")
+    )
+    private List<Tag> tags;
 
     public String getTitle() {
         return title;
@@ -59,6 +66,14 @@ public class News extends AbstractEntity {
         this.modificationDate = modificationDate;
     }
 
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,7 +85,9 @@ public class News extends AbstractEntity {
         if (shortText != null ? !shortText.equals(news.shortText) : news.shortText != null) return false;
         if (fullText != null ? !fullText.equals(news.fullText) : news.fullText != null) return false;
         if (creationDate != null ? !creationDate.equals(news.creationDate) : news.creationDate != null) return false;
-        return modificationDate != null ? modificationDate.equals(news.modificationDate) : news.modificationDate == null;
+        if (modificationDate != null ? !modificationDate.equals(news.modificationDate) : news.modificationDate != null)
+            return false;
+        return tags != null ? tags.equals(news.tags) : news.tags == null;
     }
 
     @Override
@@ -80,6 +97,7 @@ public class News extends AbstractEntity {
         result = 31 * result + (fullText != null ? fullText.hashCode() : 0);
         result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
         result = 31 * result + (modificationDate != null ? modificationDate.hashCode() : 0);
+        result = 31 * result + (tags != null ? tags.hashCode() : 0);
         return result;
     }
 
