@@ -1,6 +1,8 @@
 package com.epam.lab.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "authors")
@@ -9,6 +11,16 @@ public class Author extends AbstractEntity {
     private String authorName;
     @Column (name = "author_surname", nullable = false)
     private String authorSurname;
+    @ManyToMany(mappedBy = "authors")
+    private List<News> news = new ArrayList<>();
+
+    public Author() {
+    }
+
+    public Author(String authorName, String authorSurname) {
+        this.authorName = authorName;
+        this.authorSurname = authorSurname;
+    }
 
     public String getAuthorName() {
         return authorName;

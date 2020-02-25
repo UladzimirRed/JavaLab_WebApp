@@ -17,7 +17,6 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan("com.epam.lab")
 @EnableTransactionManagement
 public class HibernateConfiguration {
 
@@ -35,10 +34,9 @@ public class HibernateConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.epam.lab");
+        em.setPackagesToScan("com/epam/lab/model");
         em.setJpaVendorAdapter(vendorAdapter());
         em.setJpaProperties(hibernateProperties());
-
         return em;
     }
 
@@ -51,7 +49,6 @@ public class HibernateConfiguration {
     private Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL92Dialect");
-//        spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults = false;
         hibernateProperties.setProperty(Environment.NON_CONTEXTUAL_LOB_CREATION, "true");
         hibernateProperties.setProperty(Environment.GLOBALLY_QUOTED_IDENTIFIERS, "true");
         hibernateProperties.setProperty(Environment.SHOW_SQL, "true");

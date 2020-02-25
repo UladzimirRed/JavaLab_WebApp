@@ -2,19 +2,19 @@ package com.epam.lab.controller;
 
 import com.epam.lab.dto.NewsDto;
 import com.epam.lab.dto.NewsSearchCriteria;
-import com.epam.lab.service.NewsService;
+import com.epam.lab.jpaservice.impl.NewsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@RestController
+@RestController
 @RequestMapping("/news")
 public class NewsController {
-    private NewsService newsService;
+    private NewsServiceImpl newsService;
 
     @Autowired
-    public NewsController(NewsService newsService) {
+    public NewsController(NewsServiceImpl newsService) {
         this.newsService = newsService;
     }
 
@@ -36,7 +36,6 @@ public class NewsController {
     @GetMapping("/search")
     public List<NewsDto> getNewsByCriteria(@ModelAttribute NewsSearchCriteria newsSearchCriteria) {
         return newsService.searchByCriteria(newsSearchCriteria);
-
     }
 
     @PutMapping(value = "{id}")

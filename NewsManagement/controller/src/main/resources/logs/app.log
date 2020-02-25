@@ -1,96 +1,159 @@
-8945ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-9924ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+9064ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+9982ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-10011ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-10013ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-10136ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10355ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10505ms INFO  internal.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
-10515ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@61a5b3c
-10788ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-11613ms INFO  servlet.DispatcherServlet - Completed initialization in 2655 ms
-9060ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-10120ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+10084ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+10086ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+10206ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10438ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10568ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+10577ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@28d657fc
+11331ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12154ms INFO  servlet.DispatcherServlet - Completed initialization in 3078 ms
+17516ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+8775ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+9712ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-10224ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-10227ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-10356ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10651ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10807ms INFO  internal.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
-10815ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@c854dfb
-11140ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-11944ms INFO  servlet.DispatcherServlet - Completed initialization in 2879 ms
-8786ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-9686ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-9784ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-9786ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-9897ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10145ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10280ms INFO  internal.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
-10287ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@20e83cc0
-10566ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-11323ms INFO  servlet.DispatcherServlet - Completed initialization in 2531 ms
-8955ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+9796ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+9798ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+9911ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10108ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10227ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+10243ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@20e21071
+10942ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11697ms INFO  servlet.DispatcherServlet - Completed initialization in 2916 ms
+16931ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+9095ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
 9949ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-10038ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-10040ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-10143ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10344ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10472ms INFO  internal.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
-10478ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@2b9a7685
-10692ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-11309ms INFO  servlet.DispatcherServlet - Completed initialization in 2348 ms
-8863ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-9837ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+10043ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+10045ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+10167ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10426ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10562ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+10575ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@eb45618
+10762ms WARN  support.AnnotationConfigWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
+10783ms ERROR servlet.DispatcherServlet - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:578) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:160) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1280) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1091) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:5176) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5460) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_241]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_241]
+Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
+	at org.hibernate.cfg.annotations.SimpleValueBinder.setType(SimpleValueBinder.java:189) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.annotations.PropertyBinder.makePropertyAndValue(PropertyBinder.java:185) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.annotations.PropertyBinder.makePropertyValueAndBind(PropertyBinder.java:205) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:2247) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:972) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:799) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:250) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:231) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:274) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:904) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	... 25 more
+276716ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+276843ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-9919ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-9921ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-10016ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10212ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10341ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
-10351ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7a9ee0f2
-10545ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-11108ms INFO  servlet.DispatcherServlet - Completed initialization in 2240 ms
-9165ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-10144ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+276849ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+276934ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+276934ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@eb45618
+276940ms WARN  support.AnnotationConfigWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
+277008ms ERROR servlet.DispatcherServlet - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:578) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:160) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1280) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:885) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:136) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_241]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_241]
+Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
+	at org.hibernate.cfg.annotations.SimpleValueBinder.setType(SimpleValueBinder.java:189) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.annotations.PropertyBinder.makePropertyAndValue(PropertyBinder.java:185) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.annotations.PropertyBinder.makePropertyValueAndBind(PropertyBinder.java:205) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:2247) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:972) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:799) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:250) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:231) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:274) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:904) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935) ~[hibernate-core-5.3.2.Final.jar:5.3.2.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	... 30 more
+8866ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+9731ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-10250ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-10252ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-10383ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10781ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10916ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
-10925ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59deccd8
-11188ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-11871ms INFO  servlet.DispatcherServlet - Completed initialization in 2701 ms
-9736ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-10659ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-10747ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-10749ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-10859ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-11074ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-11214ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
-11228ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@afb29cf
-11490ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12100ms INFO  servlet.DispatcherServlet - Completed initialization in 2359 ms
-12595ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-13845ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-13939ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-13941ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-14045ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-14283ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-14408ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
-14417ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@5406390f
-14625ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-15423ms INFO  servlet.DispatcherServlet - Completed initialization in 2818 ms
+9840ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+9842ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+9961ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+10222ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+10375ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+10384ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@5a4bd770
+11217ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12004ms INFO  servlet.DispatcherServlet - Completed initialization in 3132 ms
+21421ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory

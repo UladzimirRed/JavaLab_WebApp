@@ -20,27 +20,44 @@ public class AuthorRepositoryImpl implements AuthorRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
+
     @Autowired
     public AuthorRepositoryImpl(EntityManagerFactory entityManagerFactory) {
         this.entityManager = entityManagerFactory.createEntityManager();
     }
 
     @Override
-    public Author findById(Long id) {
-
-        return null;
+    public Author getEntityById(Long id) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Author> criteriaQuery = criteriaBuilder.createQuery(Author.class);
+        Root<Author> author = criteriaQuery.from(Author.class);
+        criteriaQuery.where(criteriaBuilder.equal(author.get("id"), id));
+        TypedQuery<Author> query = entityManager.createQuery(criteriaQuery);
+        return query.getSingleResult();
     }
 
     @Override
-    public List<Author> findAll() {
+    public List<Author> getAllEntities() {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Author> query = cb.createQuery(Author.class);
-        Root<Author> authorRoot = query.from(Author.class);
-        query.select(authorRoot);
-        TypedQuery<Author> typedQuery = entityManager.createQuery(query);
-        List<Author> resultList = typedQuery.getResultList();
-        entityManager.close();
-        return resultList;
+        CriteriaQuery<Author> cq = cb.createQuery(Author.class);
+        Root<Author> rootEntry = cq.from(Author.class);
+        CriteriaQuery<Author> all = cq.select(rootEntry);
+        TypedQuery<Author> allQuery = entityManager.createQuery(all);
+        return allQuery.getResultList();
+    }
 
+    @Override
+    public boolean deleteEntity(Long id) {
+        return false;
+    }
+
+    @Override
+    public boolean updateEntity(Author author) {
+        return false;
+    }
+
+    @Override
+    public boolean createEntity(Author author) {
+        return false;
     }
 }

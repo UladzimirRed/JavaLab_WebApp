@@ -1,6 +1,7 @@
 package com.epam.lab.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,7 +11,15 @@ public class Tag extends AbstractEntity {
     private String tagName;
 
     @ManyToMany(mappedBy = "tags")
-    private List<News> news;
+    private List<News> news = new ArrayList<>();
+
+    public Tag() {
+    }
+
+    public Tag(String tagName) {
+        this.tagName = tagName;
+
+    }
 
     public String getTagName() {
         return tagName;

@@ -6,6 +6,7 @@ import java.io.Serializable;
 @MappedSuperclass
 public abstract class AbstractEntity implements Serializable, Cloneable {
     @Id
+    @Column (name = "id")
     @GeneratedValue
     private Long id;
 

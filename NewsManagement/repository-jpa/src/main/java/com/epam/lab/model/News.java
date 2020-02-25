@@ -2,6 +2,7 @@ package com.epam.lab.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,17 +15,24 @@ public class News extends AbstractEntity {
     @Column(name = "full_text", nullable = false)
     private String fullText;
     @Column(name = "creation_date", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+//    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate;
     @Column(name = "modification_date", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+//    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp modificationDate;
     @ManyToMany
     @JoinTable(name = "news_tag",
             joinColumns = @JoinColumn(name = "news_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id")
     )
-    private List<Tag> tags;
+    private List<Tag> tags = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "news_author",
+            joinColumns = @JoinColumn(name = "news_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id")
+    )
+    private List<Author> authors;
 
     public String getTitle() {
         return title;

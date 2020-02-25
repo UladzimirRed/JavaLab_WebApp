@@ -7,7 +7,6 @@ import com.epam.lab.model.News;
 import java.util.List;
 
 public interface NewsService extends BaseService<NewsDto> {
-    List<NewsDto> showAllDto();
 
     List<NewsDto> searchByCriteria(NewsSearchCriteria searchCriteria);
 
