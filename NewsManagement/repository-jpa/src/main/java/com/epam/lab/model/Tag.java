@@ -1,25 +1,14 @@
 package com.epam.lab.model;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tags")
 public class Tag extends AbstractEntity {
-    @Column (name = "tag_name", nullable = false)
+    @Column(name = "tag_name", nullable = false)
     private String tagName;
-
-    @ManyToMany(mappedBy = "tags")
-    private List<News> news = new ArrayList<>();
-
-    public Tag() {
-    }
-
-    public Tag(String tagName) {
-        this.tagName = tagName;
-
-    }
 
     public String getTagName() {
         return tagName;

@@ -1,41 +1,15 @@
-9064ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-9982ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+9494ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+11230ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-10084ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-10086ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-10206ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10438ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10568ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
-10577ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@28d657fc
-11331ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12154ms INFO  servlet.DispatcherServlet - Completed initialization in 3078 ms
-17516ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
-8775ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-9712ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-9796ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-9798ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-9911ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10108ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10227ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
-10243ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@20e21071
-10942ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-11697ms INFO  servlet.DispatcherServlet - Completed initialization in 2916 ms
-16931ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
-9095ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-9949ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-10043ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-10045ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-10167ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10426ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10562ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
-10575ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@eb45618
-10762ms WARN  support.AnnotationConfigWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
-10783ms ERROR servlet.DispatcherServlet - Context initialization failed
+11497ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+11505ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+11776ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+12137ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+12277ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+12298ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@41f016d9
+12571ms WARN  support.AnnotationConfigWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
+12588ms ERROR servlet.DispatcherServlet - Context initialization failed
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
@@ -59,7 +33,8 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) [tomcat-embed-core-7.0.47.jar:7.0.47]
 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559) [tomcat-embed-core-7.0.47.jar:7.0.47]
 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549) [tomcat-embed-core-7.0.47.jar:7.0.47]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_241]
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) [?:1.8.0_241]
+	at java.util.concurrent.FutureTask.run(FutureTask.java) [?:1.8.0_241]
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_241]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_241]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_241]
@@ -82,16 +57,16 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.1.6.RELEASE.jar:5.1.6.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	... 25 more
-276716ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-276843ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	... 26 more
+21522ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
+21613ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-276849ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-276934ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
-276934ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@eb45618
-276940ms WARN  support.AnnotationConfigWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
-277008ms ERROR servlet.DispatcherServlet - Context initialization failed
+21621ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
+21679ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+21680ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@41f016d9
+21685ms WARN  support.AnnotationConfigWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
+21691ms ERROR servlet.DispatcherServlet - Context initialization failed
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [com/epam/lab/configuration/HibernateConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: com.epam.lab.model.News.creationDate
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
@@ -144,16 +119,3 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
 	... 30 more
-8866ms INFO  servlet.DispatcherServlet - Initializing Servlet 'SpringDispatcher'
-9731ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-9840ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
-9842ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
-9961ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-10222ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL92Dialect
-10375ms INFO  internal.LobCreatorBuilderImpl - HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
-10384ms INFO  type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@5a4bd770
-11217ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12004ms INFO  servlet.DispatcherServlet - Completed initialization in 3132 ms
-21421ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory

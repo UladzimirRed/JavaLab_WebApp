@@ -2,8 +2,7 @@ package com.epam.lab.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "news")
@@ -25,14 +24,14 @@ public class News extends AbstractEntity {
             joinColumns = @JoinColumn(name = "news_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id")
     )
-    private List<Tag> tags = new ArrayList<>();
+    private Set<Tag> tags;
 
     @ManyToMany
     @JoinTable(name = "news_author",
             joinColumns = @JoinColumn(name = "news_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id")
     )
-    private List<Author> authors;
+    private Set<Author> authors;
 
     public String getTitle() {
         return title;
@@ -74,11 +73,11 @@ public class News extends AbstractEntity {
         this.modificationDate = modificationDate;
     }
 
-    public List<Tag> getTags() {
+    public Set<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List<Tag> tags) {
+    public void setTags(Set<Tag> tags) {
         this.tags = tags;
     }
 

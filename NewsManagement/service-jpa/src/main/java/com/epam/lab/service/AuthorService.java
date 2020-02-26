@@ -1,8 +1,10 @@
-package com.epam.lab.jpaservice;
+package com.epam.lab.service;
 
 import com.epam.lab.dto.AuthorDto;
 import com.epam.lab.model.Author;
-import com.epam.lab.repository.BaseRepository;
 
 public interface AuthorService extends BaseService<AuthorDto> {
+    Author convertToEntity(AuthorDto authorDto);
+
+    AuthorDto convertToDto(Author author);
 }

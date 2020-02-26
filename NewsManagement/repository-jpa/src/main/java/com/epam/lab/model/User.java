@@ -1,17 +1,19 @@
 package com.epam.lab.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
 public class User extends AbstractEntity {
-    @Column (name = "user_name", nullable = false)
+    @Column(name = "user_name", nullable = false)
     private String userName;
-    @Column (name = "user_surname", nullable = false)
+    @Column(name = "user_surname", nullable = false)
     private String userSurname;
-    @Column (name = "login", nullable = false)
+    @Column(name = "login", nullable = false)
     private String login;
-    @Column (name = "password", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     public String getUserName() {

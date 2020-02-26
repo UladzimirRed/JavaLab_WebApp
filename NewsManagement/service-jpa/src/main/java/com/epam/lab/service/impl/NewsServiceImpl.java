@@ -1,11 +1,11 @@
-package com.epam.lab.jpaservice.impl;
+package com.epam.lab.service.impl;
 
 import com.epam.lab.dto.NewsDto;
 import com.epam.lab.dto.NewsSearchCriteria;
 import com.epam.lab.exception.EntityNotFoundException;
-import com.epam.lab.jpaservice.NewsService;
 import com.epam.lab.model.News;
 import com.epam.lab.repository.NewsRepository;
+import com.epam.lab.service.NewsService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class NewsServiceImpl implements NewsService {
     private ModelMapper modelMapper;
 
     @Autowired
-    public NewsServiceImpl(NewsRepository newsRepository, ModelMapper modelMapper){
+    public NewsServiceImpl(NewsRepository newsRepository, ModelMapper modelMapper) {
         this.newsRepository = newsRepository;
         this.modelMapper = modelMapper;
     }
@@ -34,7 +34,7 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public NewsDto showDtoById(Long id) {
         News news = newsRepository.getEntityById(id);
-        if (news != null){
+        if (news != null) {
             return modelMapper.map(news, NewsDto.class);
         } else {
             throw new EntityNotFoundException("No news exist for given id");
@@ -61,11 +61,26 @@ public class NewsServiceImpl implements NewsService {
         return null;
     }
 
-    public News convertToEntity(NewsDto newsDto){
+    @Override
+    public boolean editTitle(News news) {
+        return false;
+    }
+
+    @Override
+    public boolean editShortText(News news) {
+        return false;
+    }
+
+    @Override
+    public boolean editFullText(News news) {
+        return false;
+    }
+
+    public News convertToEntity(NewsDto newsDto) {
         return modelMapper.map(newsDto, News.class);
     }
 
-    public NewsDto convertToDto(News news){
+    public NewsDto convertToDto(News news) {
         return modelMapper.map(news, NewsDto.class);
     }
 

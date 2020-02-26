@@ -1,8 +1,8 @@
 package com.epam.lab.repository.impl;
 
 import com.epam.lab.exception.DaoException;
-import com.epam.lab.model.Author;
 import com.epam.lab.mapper.AuthorRowMapper;
+import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorDao;
 import com.epam.lab.repository.SqlRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//@Repository
+@Repository
 public class AuthorDaoImpl implements AuthorDao {
     private JdbcTemplate jdbcTemplate;
 

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-//@Configuration
+@Configuration
 @PropertySource("classpath:database.properties")
 public class JdbcContextConfig {
 

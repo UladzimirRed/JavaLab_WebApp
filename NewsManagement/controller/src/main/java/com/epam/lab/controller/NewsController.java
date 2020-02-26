@@ -2,7 +2,7 @@ package com.epam.lab.controller;
 
 import com.epam.lab.dto.NewsDto;
 import com.epam.lab.dto.NewsSearchCriteria;
-import com.epam.lab.jpaservice.impl.NewsServiceImpl;
+import com.epam.lab.service.impl.NewsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

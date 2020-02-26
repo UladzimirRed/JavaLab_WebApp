@@ -13,6 +13,7 @@
         <module>repository-jdbc</module>
         <module>service</module>
         <module>repository-jpa</module>
+        <module>service-jpa</module>
     </modules>
 
     <name>NewsManagement Maven Webapp</name>

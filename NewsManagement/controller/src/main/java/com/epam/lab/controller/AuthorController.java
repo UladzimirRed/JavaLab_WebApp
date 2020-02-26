@@ -1,7 +1,8 @@
 package com.epam.lab.controller;
 
 import com.epam.lab.dto.AuthorDto;
-import com.epam.lab.jpaservice.impl.AuthorServiceImpl;
+
+import com.epam.lab.service.impl.AuthorServiceJpaImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/authors")
 public class AuthorController {
-    private AuthorServiceImpl authorService;
+    private AuthorServiceJpaImpl authorService;
 
     @Autowired
-    public AuthorController(AuthorServiceImpl authorService) {
+    public AuthorController(AuthorServiceJpaImpl authorService) {
         this.authorService = authorService;
     }
 
@@ -33,7 +34,7 @@ public class AuthorController {
         return authorService.showAllDto();
     }
 
-    @PutMapping(value = "{id}")
+    @PutMapping(value = "{authorId}")
     public AuthorDto updateAuthor(@RequestBody AuthorDto authorDto) {
         return authorService.editDto(authorDto);
     }

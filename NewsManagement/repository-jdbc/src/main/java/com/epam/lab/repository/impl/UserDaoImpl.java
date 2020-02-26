@@ -1,7 +1,7 @@
 package com.epam.lab.repository.impl;
 
-import com.epam.lab.model.User;
 import com.epam.lab.mapper.UserRowMapper;
+import com.epam.lab.model.User;
 import com.epam.lab.repository.SqlRequest;
 import com.epam.lab.repository.UserDao;
 import com.epam.lab.util.EncryptPassword;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.util.List;
 
-//@Repository
+@Repository
 public class UserDaoImpl implements UserDao {
     private JdbcTemplate jdbcTemplate;
 

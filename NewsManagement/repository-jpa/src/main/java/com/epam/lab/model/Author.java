@@ -1,26 +1,16 @@
 package com.epam.lab.model;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "authors")
 public class Author extends AbstractEntity {
-    @Column (name = "author_name", nullable = false)
+    @Column(name = "author_name", nullable = false)
     private String authorName;
-    @Column (name = "author_surname", nullable = false)
+    @Column(name = "author_surname", nullable = false)
     private String authorSurname;
-    @ManyToMany(mappedBy = "authors")
-    private List<News> news = new ArrayList<>();
-
-    public Author() {
-    }
-
-    public Author(String authorName, String authorSurname) {
-        this.authorName = authorName;
-        this.authorSurname = authorSurname;
-    }
 
     public String getAuthorName() {
         return authorName;

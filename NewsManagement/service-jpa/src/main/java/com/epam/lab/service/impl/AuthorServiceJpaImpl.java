@@ -1,32 +1,32 @@
 package com.epam.lab.service.impl;
 
 import com.epam.lab.dto.AuthorDto;
+import com.epam.lab.exception.EntityNotFoundException;
 import com.epam.lab.exception.ServiceException;
 import com.epam.lab.model.Author;
-import com.epam.lab.repository.AuthorDao;
+import com.epam.lab.repository.AuthorRepository;
 import com.epam.lab.service.AuthorService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class AuthorServiceImpl implements AuthorService {
-    private AuthorDao authorDao;
+public class AuthorServiceJpaImpl implements AuthorService {
+    private AuthorRepository authorRepository;
     private ModelMapper modelMapper;
 
     @Autowired
-    public AuthorServiceImpl(AuthorDao authorDao, ModelMapper modelMapper) {
-        this.authorDao = authorDao;
+    public AuthorServiceJpaImpl(AuthorRepository authorRepository, ModelMapper modelMapper) {
+        this.authorRepository = authorRepository;
         this.modelMapper = modelMapper;
     }
 
     @Override
     public List<AuthorDto> showAllDto() {
-        List<Author> authors = authorDao.getAllEntities();
+        List<Author> authors = authorRepository.getAllEntities();
         if (authors.stream().findAny().orElse(null) == null) {
             throw new ServiceException("List of authors was not founded");
         }
@@ -35,33 +35,33 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public AuthorDto showDtoById(Long authorId) {
-        Author author = authorDao.getEntityById(authorId);
-        if (author == null) {
-            throw new ServiceException("Author with ID: " + authorId + " was not found");
+        Author author = authorRepository.getEntityById(authorId);
+        if (author != null) {
+            return modelMapper.map(author, AuthorDto.class);
+        } else {
+            throw new EntityNotFoundException("Author with ID: " + authorId + " was not found");
         }
-        return convertToDto(author);
     }
 
     @Override
     public boolean saveDto(AuthorDto authorDto) {
         Author author = convertToEntity(authorDto);
-        if (authorDao.createEntity(author)) {
+        if (authorRepository.createEntity(author)) {
             return true;
         } else throw new ServiceException("Author was not create");
     }
 
     @Override
-    @Transactional
     public AuthorDto editDto(AuthorDto authorDto) {
         Author author = convertToEntity(authorDto);
-        if (authorDao.updateEntity(author)) {
-            return convertToDto(authorDao.getEntityById(authorDto.getId()));
+        if (authorRepository.updateEntity(author)) {
+            return convertToDto(authorRepository.getEntityById(authorDto.getId()));
         } else throw new ServiceException("Author was not updated");
     }
 
     @Override
     public boolean removeDto(Long authorId) {
-        if (authorDao.deleteEntity(authorId)) {
+        if (authorRepository.deleteEntity(authorId)) {
             return true;
         } else throw new ServiceException("Author with ID: " + authorId + " was not delete");
     }

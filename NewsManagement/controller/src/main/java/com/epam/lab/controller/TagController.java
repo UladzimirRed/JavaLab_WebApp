@@ -1,19 +1,19 @@
 package com.epam.lab.controller;
 
 import com.epam.lab.dto.TagDto;
-import com.epam.lab.service.TagService;
+import com.epam.lab.service.impl.TagServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@RestController
+@RestController
 @RequestMapping("/tags")
 public class TagController {
-    private TagService tagService;
+    private TagServiceImpl tagService;
 
     @Autowired
-    public TagController(TagService tagService) {
+    public TagController(TagServiceImpl tagService) {
         this.tagService = tagService;
     }
 
@@ -41,6 +41,5 @@ public class TagController {
     public boolean deleteTag(@PathVariable("id") Long tagId) {
         return tagService.removeDto(tagId);
     }
-
 
 }
