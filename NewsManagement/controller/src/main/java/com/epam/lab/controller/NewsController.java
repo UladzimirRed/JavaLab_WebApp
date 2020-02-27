@@ -2,7 +2,7 @@ package com.epam.lab.controller;
 
 import com.epam.lab.dto.NewsDto;
 import com.epam.lab.dto.NewsSearchCriteria;
-import com.epam.lab.service.impl.NewsServiceImpl;
+import com.epam.lab.service.impl.NewsServiceJpaImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/news")
 public class NewsController {
-    private NewsServiceImpl newsService;
+    private NewsServiceJpaImpl newsService;
 
     @Autowired
-    public NewsController(NewsServiceImpl newsService) {
+    public NewsController(NewsServiceJpaImpl newsService) {
         this.newsService = newsService;
     }
 

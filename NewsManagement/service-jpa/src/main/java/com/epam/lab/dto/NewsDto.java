@@ -1,9 +1,12 @@
 package com.epam.lab.dto;
 
+import com.epam.lab.model.Author;
 import com.epam.lab.model.Tag;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class NewsDto extends AbstractDto {
     private String title;
@@ -11,9 +14,8 @@ public class NewsDto extends AbstractDto {
     private String fullText;
     private Timestamp creationDate;
     private Timestamp modificationDate;
-    private AuthorDto authorDto;
-    private List<Tag> tags;
-
+    private Set<Tag> tags;
+    private Set<Author> author;
 
     public String getTitle() {
         return title;
@@ -55,20 +57,20 @@ public class NewsDto extends AbstractDto {
         this.modificationDate = modificationDate;
     }
 
-    public AuthorDto getAuthorDto() {
-        return authorDto;
-    }
-
-    public void setAuthorDto(AuthorDto authorDto) {
-        this.authorDto = authorDto;
-    }
-
-    public List<Tag> getTags() {
+    public Set<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List<Tag> tags) {
+    public void setTags(Set<Tag> tags) {
         this.tags = tags;
+    }
+
+    public Set<Author> getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Set<Author> author) {
+        this.author = author;
     }
 
     @Override
@@ -78,24 +80,26 @@ public class NewsDto extends AbstractDto {
 
         NewsDto newsDto = (NewsDto) o;
 
-        if (!title.equals(newsDto.title)) return false;
-        if (!shortText.equals(newsDto.shortText)) return false;
-        if (!fullText.equals(newsDto.fullText)) return false;
-        if (!creationDate.equals(newsDto.creationDate)) return false;
-        if (!modificationDate.equals(newsDto.modificationDate)) return false;
-        if (authorDto != null ? !authorDto.equals(newsDto.authorDto) : newsDto.authorDto != null) return false;
-        return tags != null ? tags.equals(newsDto.tags) : newsDto.tags == null;
+        if (title != null ? !title.equals(newsDto.title) : newsDto.title != null) return false;
+        if (shortText != null ? !shortText.equals(newsDto.shortText) : newsDto.shortText != null) return false;
+        if (fullText != null ? !fullText.equals(newsDto.fullText) : newsDto.fullText != null) return false;
+        if (creationDate != null ? !creationDate.equals(newsDto.creationDate) : newsDto.creationDate != null)
+            return false;
+        if (modificationDate != null ? !modificationDate.equals(newsDto.modificationDate) : newsDto.modificationDate != null)
+            return false;
+        if (tags != null ? !tags.equals(newsDto.tags) : newsDto.tags != null) return false;
+        return author != null ? author.equals(newsDto.author) : newsDto.author == null;
     }
 
     @Override
     public int hashCode() {
-        int result = title.hashCode();
-        result = 31 * result + shortText.hashCode();
-        result = 31 * result + fullText.hashCode();
-        result = 31 * result + creationDate.hashCode();
-        result = 31 * result + modificationDate.hashCode();
-        result = 31 * result + (authorDto != null ? authorDto.hashCode() : 0);
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (shortText != null ? shortText.hashCode() : 0);
+        result = 31 * result + (fullText != null ? fullText.hashCode() : 0);
+        result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
+        result = 31 * result + (modificationDate != null ? modificationDate.hashCode() : 0);
         result = 31 * result + (tags != null ? tags.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
         return result;
     }
 }

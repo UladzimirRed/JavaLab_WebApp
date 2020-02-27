@@ -30,8 +30,8 @@ public class AuthorRepositoryImpl implements AuthorRepository {
         try {
             CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Author> criteriaQuery = criteriaBuilder.createQuery(Author.class);
-            Root<Author> author = criteriaQuery.from(Author.class);
-            criteriaQuery.where(criteriaBuilder.equal(author.get("id"), id));
+            Root<Author> authorRoot = criteriaQuery.from(Author.class);
+            criteriaQuery.where(criteriaBuilder.equal(authorRoot.get(AUTHOR_ID), id));
             TypedQuery<Author> query = entityManager.createQuery(criteriaQuery);
             return query.getSingleResult();
         } catch (Exception ex) {
@@ -46,8 +46,8 @@ public class AuthorRepositoryImpl implements AuthorRepository {
         try {
             CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Author> criteriaQuery = criteriaBuilder.createQuery(Author.class);
-            Root<Author> author = criteriaQuery.from(Author.class);
-            criteriaQuery.select(author);
+            Root<Author> authorRoot = criteriaQuery.from(Author.class);
+            criteriaQuery.select(authorRoot);
             TypedQuery<Author> query = entityManager.createQuery(criteriaQuery);
             return query.getResultList();
         } catch (Exception ex) {
@@ -63,8 +63,8 @@ public class AuthorRepositoryImpl implements AuthorRepository {
         try {
             CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
             CriteriaDelete<Author> criteriaDelete = criteriaBuilder.createCriteriaDelete(Author.class);
-            Root<Author> author = criteriaDelete.from(Author.class);
-            criteriaDelete.where(criteriaBuilder.equal(author.get(AUTHOR_ID), id));
+            Root<Author> authorRoot = criteriaDelete.from(Author.class);
+            criteriaDelete.where(criteriaBuilder.equal(authorRoot.get(AUTHOR_ID), id));
             return entityManager.createQuery(criteriaDelete).executeUpdate() > 0;
         } catch (Exception ex) {
             throw new DaoException(ex);
@@ -76,17 +76,24 @@ public class AuthorRepositoryImpl implements AuthorRepository {
     @Override
     @Transactional
     public boolean updateEntity(Author author) {
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaUpdate<Author> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Author.class);
-        Root<Author> authorRoot = criteriaUpdate.from(Author.class);
-        if (author.getAuthorName() != null) {
-            criteriaUpdate.set(AUTHOR_FIRST_NAME, author.getAuthorName());
+        try {
+            CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+            CriteriaUpdate<Author> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Author.class);
+            Root<Author> authorRoot = criteriaUpdate.from(Author.class);
+            if (author.getAuthorName() != null) {
+                criteriaUpdate.set(AUTHOR_FIRST_NAME, author.getAuthorName());
+            }
+            if (author.getAuthorSurname() != null) {
+                criteriaUpdate.set(AUTHOR_LAST_NAME, author.getAuthorSurname());
+            }
+            criteriaUpdate.where(criteriaBuilder.equal(authorRoot.get(AUTHOR_ID), author.getId()));
+            return entityManager.createQuery(criteriaUpdate).executeUpdate() > 0;
+        } catch (Exception ex) {
+            throw new DaoException(ex);
+        } finally {
+            entityManager.close();
         }
-        if (author.getAuthorSurname() != null) {
-            criteriaUpdate.set(AUTHOR_LAST_NAME, author.getAuthorSurname());
-        }
-        criteriaUpdate.where(criteriaBuilder.equal(authorRoot.get(AUTHOR_ID), author.getId()));
-        return entityManager.createQuery(criteriaUpdate).executeUpdate() > 0;
+
     }
 
     @Override

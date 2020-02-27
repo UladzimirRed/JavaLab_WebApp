@@ -1,5 +1,8 @@
 package com.epam.lab.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Set;
@@ -20,6 +23,7 @@ public class News extends AbstractEntity {
 //    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp modificationDate;
     @ManyToMany
+    @LazyCollection(LazyCollectionOption.FALSE)
     @JoinTable(name = "news_tag",
             joinColumns = @JoinColumn(name = "news_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id")
@@ -27,11 +31,12 @@ public class News extends AbstractEntity {
     private Set<Tag> tags;
 
     @ManyToMany
+    @LazyCollection(LazyCollectionOption.FALSE)
     @JoinTable(name = "news_author",
             joinColumns = @JoinColumn(name = "news_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id")
     )
-    private Set<Author> authors;
+    private Set<Author> author;
 
     public String getTitle() {
         return title;
@@ -81,6 +86,14 @@ public class News extends AbstractEntity {
         this.tags = tags;
     }
 
+    public Set<Author> getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Set<Author> author) {
+        this.author = author;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,7 +107,8 @@ public class News extends AbstractEntity {
         if (creationDate != null ? !creationDate.equals(news.creationDate) : news.creationDate != null) return false;
         if (modificationDate != null ? !modificationDate.equals(news.modificationDate) : news.modificationDate != null)
             return false;
-        return tags != null ? tags.equals(news.tags) : news.tags == null;
+        if (tags != null ? !tags.equals(news.tags) : news.tags != null) return false;
+        return author != null ? author.equals(news.author) : news.author == null;
     }
 
     @Override
@@ -105,18 +119,20 @@ public class News extends AbstractEntity {
         result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
         result = 31 * result + (modificationDate != null ? modificationDate.hashCode() : 0);
         result = 31 * result + (tags != null ? tags.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("News{");
-        sb.append("news id=").append(super.getId());
-        sb.append(", \ntitle='").append(title).append('\'');
-        sb.append(", \nshortText='").append(shortText).append('\'');
-        sb.append(", \nfullText='").append(fullText).append('\'');
-        sb.append(", \ncreationDate=").append(creationDate);
-        sb.append(", \nmodificationDate=").append(modificationDate);
+        sb.append("title='").append(title).append('\'');
+        sb.append(", shortText='").append(shortText).append('\'');
+        sb.append(", fullText='").append(fullText).append('\'');
+        sb.append(", creationDate=").append(creationDate);
+        sb.append(", modificationDate=").append(modificationDate);
+        sb.append(", tags=").append(tags);
+        sb.append(", authors=").append(author);
         sb.append('}');
         return sb.toString();
     }
