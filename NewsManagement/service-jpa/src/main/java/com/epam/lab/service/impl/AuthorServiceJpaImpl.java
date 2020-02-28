@@ -10,7 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,12 +25,12 @@ public class AuthorServiceJpaImpl implements AuthorService {
     }
 
     @Override
-    public List<AuthorDto> showAllDto() {
-        List<Author> authors = authorRepository.getAllEntities();
+    public Set<AuthorDto> showAllDto() {
+        Set<Author> authors = authorRepository.getAllEntities();
         if (authors.stream().findAny().orElse(null) == null) {
             throw new ServiceException("List of authors was not founded");
         }
-        return authors.stream().map(this::convertToDto).collect(Collectors.toList());
+        return authors.stream().map(this::convertToDto).collect(Collectors.toSet());
     }
 
     @Override

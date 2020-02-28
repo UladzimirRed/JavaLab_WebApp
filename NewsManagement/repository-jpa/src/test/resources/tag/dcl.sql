@@ -1,0 +1,10 @@
+INSERT INTO tags (tag_name) VALUES ('politics');
+INSERT INTO tags (tag_name) VALUES ('world');
+INSERT INTO tags (tag_name) VALUES ('lightning');
+INSERT INTO tags (tag_name) VALUES ('culture');
+INSERT INTO tags (tag_name) VALUES ('breaking news');
+INSERT INTO tags (tag_name) VALUES ('health');
+INSERT INTO tags (tag_name) VALUES ('sport');
+INSERT INTO tags (tag_name) VALUES ('travel');
+INSERT INTO tags (tag_name) VALUES ('business');
+INSERT INTO tags (tag_name) VALUES ('technology');

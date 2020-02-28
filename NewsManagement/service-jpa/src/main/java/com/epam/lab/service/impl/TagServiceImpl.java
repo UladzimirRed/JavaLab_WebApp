@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,12 +26,12 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public List<TagDto> showAllDto() {
+    public Set<TagDto> showAllDto() {
         List<Tag> tags = new ArrayList<>(tagRepository.getAllEntities());
         if (tags.stream().findAny().orElse(null) == null) {
             throw new ServiceException("List of tags was not found");
         }
-        return tags.stream().map(this::convertToDto).collect(Collectors.toList());
+        return tags.stream().map(this::convertToDto).collect(Collectors.toSet());
     }
 
     @Override

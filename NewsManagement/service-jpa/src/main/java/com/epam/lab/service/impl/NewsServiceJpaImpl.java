@@ -1,7 +1,7 @@
 package com.epam.lab.service.impl;
 
 import com.epam.lab.dto.NewsDto;
-import com.epam.lab.dto.NewsSearchCriteria;
+import com.epam.lab.model.NewsSearchCriteria;
 import com.epam.lab.exception.EntityNotFoundException;
 import com.epam.lab.exception.ServiceException;
 import com.epam.lab.model.News;
@@ -10,8 +10,9 @@ import com.epam.lab.service.NewsService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,12 +28,12 @@ public class NewsServiceJpaImpl implements NewsService {
 
 
     @Override
-    public List<NewsDto> showAllDto() {
-        List<News> news = newsRepository.getAllEntities();
+    public Set<NewsDto> showAllDto() {
+        Set<News> news = newsRepository.getAllEntities();
         if (news.stream().findAny().orElse(null) == null) {
-            throw new ServiceException("List of news was not founded");
+            throw new ServiceException("Set of news was not founded");
         }
-        return news.stream().map(this::convertToDto).collect(Collectors.toList());
+        return news.stream().map(this::convertToDto).collect(Collectors.toSet());
     }
 
     @Override
@@ -48,50 +49,49 @@ public class NewsServiceJpaImpl implements NewsService {
     @Override
     public boolean saveDto(NewsDto newsDto) {
         News news = convertToEntity(newsDto);
-        return newsRepository.createEntity(news);
+        if (newsRepository.createEntity(news)) {
+            return true;
+        } else {
+            throw new ServiceException("News was not create");
+        }
     }
 
     @Override
+    @Transactional
     public NewsDto editDto(NewsDto newsDto) {
-        return null;
+        News news = convertToEntity(newsDto);
+        if (newsRepository.updateEntity(news)) {
+            return convertToDto(newsRepository.getEntityById(newsDto.getId()));
+        } else {
+            throw new ServiceException("News was not updated");
+        }
     }
 
     @Override
     public boolean removeDto(Long id) {
         if (newsRepository.deleteEntity(id)) {
             return true;
-        } else throw new ServiceException("Author with ID: " + id + " was not delete");
+        } else throw new ServiceException("News with ID: " + id + " was not delete");
     }
 
     @Override
-    public List<NewsDto> searchByCriteria(NewsSearchCriteria searchCriteria) {
-        return null;
-    }
-
-    @Override
-    public boolean editTitle(News news) {
-        return false;
-    }
-
-    @Override
-    public boolean editShortText(News news) {
-        return false;
-    }
-
-    @Override
-    public boolean editFullText(News news) {
-        return false;
+    public Set<NewsDto> searchByCriteria(NewsSearchCriteria searchCriteria) {
+        Set<News> newsBySearchCriteria = newsRepository.getEntityBySearchCriteria(searchCriteria);
+        if (newsBySearchCriteria.stream().findAny().orElse(null) == null) {
+            throw new ServiceException("Set of news was not founded");
+        }
+        return newsBySearchCriteria.stream().map(this::convertToDto).collect(Collectors.toSet());
     }
 
     public News convertToEntity(NewsDto newsDto) {
         News news = modelMapper.map(newsDto, News.class);
-        news.setAuthor(newsDto.getAuthor());
+        news.setAuthors(newsDto.getAuthor());
         return news;
     }
 
     public NewsDto convertToDto(News news) {
         NewsDto newsDto = modelMapper.map(news, NewsDto.class);
-        newsDto.setAuthor(news.getAuthor());
+        newsDto.setAuthor(news.getAuthors());
         return newsDto;
     }
 }

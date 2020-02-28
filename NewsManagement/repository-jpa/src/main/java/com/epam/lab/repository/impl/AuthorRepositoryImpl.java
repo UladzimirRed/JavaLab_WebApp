@@ -9,7 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import javax.persistence.criteria.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Repository
 public class AuthorRepositoryImpl implements AuthorRepository {
@@ -42,14 +45,14 @@ public class AuthorRepositoryImpl implements AuthorRepository {
     }
 
     @Override
-    public List<Author> getAllEntities() {
+    public Set<Author> getAllEntities() {
         try {
             CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Author> criteriaQuery = criteriaBuilder.createQuery(Author.class);
             Root<Author> authorRoot = criteriaQuery.from(Author.class);
             criteriaQuery.select(authorRoot);
             TypedQuery<Author> query = entityManager.createQuery(criteriaQuery);
-            return query.getResultList();
+            return new HashSet<>(query.getResultList());
         } catch (Exception ex) {
             throw new DaoException(ex);
         } finally {

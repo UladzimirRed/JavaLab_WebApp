@@ -5,7 +5,9 @@ import com.epam.lab.service.impl.TagServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/tags")
@@ -28,7 +30,7 @@ public class TagController {
     }
 
     @GetMapping()
-    public List<TagDto> getAllTags() {
+    public Collection<TagDto> getAllTags() {
         return tagService.showAllDto();
     }
 

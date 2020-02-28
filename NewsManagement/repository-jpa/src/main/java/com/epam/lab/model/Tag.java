@@ -10,6 +10,13 @@ public class Tag extends AbstractEntity {
     @Column(name = "tag_name", nullable = false)
     private String tagName;
 
+    public Tag(String tagName) {
+        this.tagName = tagName;
+    }
+
+    public Tag() {
+    }
+
     public String getTagName() {
         return tagName;
     }

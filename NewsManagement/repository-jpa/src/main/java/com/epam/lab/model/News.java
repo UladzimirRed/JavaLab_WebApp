@@ -36,7 +36,7 @@ public class News extends AbstractEntity {
             joinColumns = @JoinColumn(name = "news_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id")
     )
-    private Set<Author> author;
+    private Set<Author> authors;
 
     public String getTitle() {
         return title;
@@ -86,12 +86,12 @@ public class News extends AbstractEntity {
         this.tags = tags;
     }
 
-    public Set<Author> getAuthor() {
-        return author;
+    public Set<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(Set<Author> author) {
-        this.author = author;
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class News extends AbstractEntity {
         if (modificationDate != null ? !modificationDate.equals(news.modificationDate) : news.modificationDate != null)
             return false;
         if (tags != null ? !tags.equals(news.tags) : news.tags != null) return false;
-        return author != null ? author.equals(news.author) : news.author == null;
+        return authors != null ? authors.equals(news.authors) : news.authors == null;
     }
 
     @Override
@@ -119,7 +119,7 @@ public class News extends AbstractEntity {
         result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
         result = 31 * result + (modificationDate != null ? modificationDate.hashCode() : 0);
         result = 31 * result + (tags != null ? tags.hashCode() : 0);
-        result = 31 * result + (author != null ? author.hashCode() : 0);
+        result = 31 * result + (authors != null ? authors.hashCode() : 0);
         return result;
     }
 
@@ -132,7 +132,7 @@ public class News extends AbstractEntity {
         sb.append(", creationDate=").append(creationDate);
         sb.append(", modificationDate=").append(modificationDate);
         sb.append(", tags=").append(tags);
-        sb.append(", authors=").append(author);
+        sb.append(", authors=").append(authors);
         sb.append('}');
         return sb.toString();
     }

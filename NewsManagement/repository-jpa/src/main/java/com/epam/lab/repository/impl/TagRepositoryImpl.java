@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import javax.persistence.criteria.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public class TagRepositoryImpl implements TagRepository {
@@ -42,14 +44,14 @@ public class TagRepositoryImpl implements TagRepository {
     }
 
     @Override
-    public List<Tag> getAllEntities() {
+    public Set<Tag> getAllEntities() {
         try {
             CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Tag> criteriaQuery = criteriaBuilder.createQuery(Tag.class);
             Root<Tag> tagRoot = criteriaQuery.from(Tag.class);
             criteriaQuery.select(tagRoot);
             TypedQuery<Tag> query = entityManager.createQuery(criteriaQuery);
-            return query.getResultList();
+            return new HashSet<>(query.getResultList());
         } catch (Exception ex) {
             throw new DaoException(ex);
         } finally {
