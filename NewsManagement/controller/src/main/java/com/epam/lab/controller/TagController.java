@@ -1,21 +1,19 @@
 package com.epam.lab.controller;
 
 import com.epam.lab.dto.TagDto;
-import com.epam.lab.service.impl.TagServiceImpl;
+import com.epam.lab.service.impl.TagServiceJpaImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/tags")
 public class TagController {
-    private TagServiceImpl tagService;
+    private TagServiceJpaImpl tagService;
 
     @Autowired
-    public TagController(TagServiceImpl tagService) {
+    public TagController(TagServiceJpaImpl tagService) {
         this.tagService = tagService;
     }
 

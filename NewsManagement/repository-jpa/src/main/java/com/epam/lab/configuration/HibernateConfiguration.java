@@ -4,8 +4,10 @@ package com.epam.lab.configuration;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.hibernate.cfg.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -16,15 +18,24 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
+@PropertySource("classpath:database.properties")
 public class HibernateConfiguration {
+
+    @Autowired
+    org.springframework.core.env.Environment environment;
+
+    private static final String URL = "url";
+    private static final String USER = "dbUser";
+    private static final String DRIVER = "driver";
+    private static final String PASSWORD = "dbPassword";
 
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {
         HikariConfig config = new HikariConfig();
-        config.setDriverClassName("org.postgresql.Driver");
-        config.setJdbcUrl("jdbc:postgresql://localhost:5432/postgres");
-        config.setUsername("postgres");
-        config.setPassword("1256");
+        config.setJdbcUrl(environment.getProperty(URL));
+        config.setUsername(environment.getProperty(USER));
+        config.setPassword(environment.getProperty(PASSWORD));
+        config.setDriverClassName(environment.getProperty(DRIVER));
         return new HikariDataSource(config);
     }
 
@@ -32,7 +43,7 @@ public class HibernateConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com/epam/lab/model");
+        em.setPackagesToScan("com.epam.lab.model");
         em.setJpaVendorAdapter(vendorAdapter());
         em.setJpaProperties(hibernateProperties());
         return em;

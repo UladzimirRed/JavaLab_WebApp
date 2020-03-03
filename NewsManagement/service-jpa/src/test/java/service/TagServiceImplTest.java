@@ -4,7 +4,7 @@ import com.epam.lab.dto.TagDto;
 import com.epam.lab.model.Tag;
 import com.epam.lab.repository.TagRepository;
 import com.epam.lab.service.TagService;
-import com.epam.lab.service.impl.TagServiceImpl;
+import com.epam.lab.service.impl.TagServiceJpaImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -29,7 +29,7 @@ public class TagServiceImplTest {
     void setUp() {
         MockitoAnnotations.initMocks(this);
         modelMapper = new ModelMapper();
-        tagService = new TagServiceImpl(tagDao, modelMapper);
+        tagService = new TagServiceJpaImpl(tagDao, modelMapper);
     }
 
     @Test

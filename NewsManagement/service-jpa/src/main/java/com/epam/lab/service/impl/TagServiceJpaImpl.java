@@ -15,12 +15,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class TagServiceImpl implements TagService {
+public class TagServiceJpaImpl implements TagService {
     private TagRepository tagRepository;
     private ModelMapper modelMapper;
 
     @Autowired
-    public TagServiceImpl(TagRepository tagRepository, ModelMapper modelMapper) {
+    public TagServiceJpaImpl(TagRepository tagRepository, ModelMapper modelMapper) {
         this.tagRepository = tagRepository;
         this.modelMapper = modelMapper;
     }

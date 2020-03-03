@@ -7,7 +7,7 @@
                 <Pattern>%rms %-5level %logger{2} - %msg%n</Pattern>
             </PatternLayout>
             <Policies>
-                <SizeBasedTriggeringPolicy size="42 KB"/>
+                <SizeBasedTriggeringPolicy size="442 KB"/>
             </Policies>
             <DefaultRolloverStrategy max="5"/>
         </RollingFile>

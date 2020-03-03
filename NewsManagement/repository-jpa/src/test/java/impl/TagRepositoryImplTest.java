@@ -2,63 +2,51 @@ package impl;
 
 import com.epam.lab.model.Tag;
 import com.epam.lab.repository.TagRepository;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import config.RepositoryTestConfig;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.H2;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {RepositoryTestConfig.class})
+@ComponentScan("com.epam.lab")
 public class TagRepositoryImplTest {
-    private EmbeddedDatabase embeddedDatabase;
-    private JdbcTemplate jdbcTemplate;
+    @Autowired
     private TagRepository tagRepository;
 
-    @BeforeEach
-    void setUp() {
-        embeddedDatabase = new EmbeddedDatabaseBuilder()
-                .setType(H2)
-                .addScripts("/tag/ddl.sql", "/tag/dcl.sql")
-                .build();
-    }
-
-    @AfterEach
-    void tearDown() {
-        embeddedDatabase.shutdown();
-    }
-
-//    @Test()
-    void createEntity() {
+    @Test
+    public void createEntity() {
         Tag tag = new Tag();
         tag.setTagName("politics");
-        tagRepository.createEntity(tag);
         assertTrue(tagRepository.createEntity(tag));
     }
 
-//    @Test
-    void getAllEntities() {
+    @Test
+    public void getAllEntities() {
         int countOfRowInTable = 10;
         assertNotNull(tagRepository.getAllEntities());
         assertEquals(countOfRowInTable, tagRepository.getAllEntities().size());
     }
 
-//    @Test
-    void getEntityById() {
+    @Test
+    public void getEntityById() {
         assertNotNull(tagRepository.getEntityById(1L));
     }
 
-//    @Test
-    void updateEntity() {
+    @Test
+    public void updateEntity() {
         Tag tag = tagRepository.getEntityById(1L);
         assertNotNull(tag);
         assertEquals("politics", tag.getTagName());
     }
 
-//    @Test
-    void deleteEntity() {
+    @Test
+    public void deleteEntity() {
         assertTrue(tagRepository.deleteEntity(1L));
     }
 }

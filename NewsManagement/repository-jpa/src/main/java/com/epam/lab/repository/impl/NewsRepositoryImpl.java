@@ -88,7 +88,7 @@ public class NewsRepositoryImpl implements NewsRepository {
                 criteriaUpdate.set(NEWS_TITLE, news.getTitle());
             }
             if (news.getShortText() != null) {
-                criteriaUpdate.set(NEWS_SHORT_TEXT, news.getTitle());
+                criteriaUpdate.set(NEWS_SHORT_TEXT, news.getShortText());
             }
             if (news.getFullText() != null) {
                 criteriaUpdate.set(NEWS_FULL_TEXT, news.getFullText());

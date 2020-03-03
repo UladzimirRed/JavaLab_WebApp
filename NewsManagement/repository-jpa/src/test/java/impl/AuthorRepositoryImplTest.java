@@ -2,67 +2,67 @@ package impl;
 
 import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorRepository;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import config.RepositoryTestConfig;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.H2;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {RepositoryTestConfig.class})
+@ComponentScan("com.epam.lab")
 public class AuthorRepositoryImplTest {
-    private EmbeddedDatabase embeddedDatabase;
-    private EntityManager entityManager;
+    @Autowired
     private AuthorRepository authorRepository;
 
-    @BeforeEach
-    void setUp() {
-        embeddedDatabase = new EmbeddedDatabaseBuilder()
-                .setType(H2)
-                .addScripts("/author/ddl.sql", "/author/dcl.sql")
-                .build();
-        EntityManagerFactory entityManagerFactory;
-    }
+    public static final String TEST_NAME = "Zoe";
+    public static final String TEST_SURNAME = "Roberts";
+    public static final String UPDATED_TEST_NAME = "ZoeUPD";
+    public static final String UPDATED_TEST_SURNAME = "RobertsUPD";
 
-    @AfterEach
-    void tearDown() {
-        embeddedDatabase.shutdown();
-    }
-
-//    @Test
-    void createEntity() {
+    @Test
+    public void createEntity() {
         Author author = new Author();
-        author.setAuthorName("Joan");
-        author.setAuthorSurname("Week");
+        author.setAuthorName(TEST_NAME);
+        author.setAuthorSurname(TEST_SURNAME);
         assertTrue(authorRepository.createEntity(author));
     }
 
-//    @Test
-    void getAllEntities() {
+    @Test
+    public void getAllEntities() {
         int countOfRowInTable = 10;
         assertNotNull(authorRepository.getAllEntities());
         assertEquals(countOfRowInTable, authorRepository.getAllEntities().size());
     }
 
-//    @Test
-    void getEntityById() {
-        assertNotNull(authorRepository.getEntityById(1L));
-    }
-
-//    @Test
-    void updateEntity() {
+    @Test
+    public void getEntityById() {
         Author author = authorRepository.getEntityById(1L);
         assertNotNull(author);
-        assertEquals("Zoe", author.getAuthorName());
-        assertEquals("Roberts", author.getAuthorSurname());
+        assertEquals(TEST_NAME, author.getAuthorName());
+        assertEquals(TEST_SURNAME, author.getAuthorSurname());
     }
 
-//    @Test
-    void deleteEntity() {
+    @Test
+    public void updateEntity() {
+        Author author = new Author();
+        author.setId(1L);
+        author.setAuthorName(UPDATED_TEST_NAME);
+        author.setAuthorSurname(UPDATED_TEST_SURNAME);
+        assertTrue(authorRepository.updateEntity(author));
+        Author updatedAuthor = authorRepository.getEntityById(1L);
+        assertEquals(UPDATED_TEST_NAME, updatedAuthor.getAuthorName());
+        assertEquals(UPDATED_TEST_SURNAME, updatedAuthor.getAuthorSurname());
+    }
+
+    @Test
+    public void deleteEntity() {
+        int countOfRowInTableAfterDelete = 9;
         assertTrue(authorRepository.deleteEntity(1L));
+        assertEquals(countOfRowInTableAfterDelete, authorRepository.getAllEntities().size());
     }
 }
