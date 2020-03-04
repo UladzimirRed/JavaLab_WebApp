@@ -2,7 +2,6 @@ package com.epam.lab.repository;
 
 import com.epam.lab.model.AbstractEntity;
 
-import java.util.List;
 import java.util.Set;
 
 public interface BaseRepository<T extends AbstractEntity> {

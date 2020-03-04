@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 public class AuthorServiceImplTest {
     AuthorService authorService;
     @Mock
-    AuthorRepository authorDao;
+    AuthorRepository authorRepository;
     @Mock
     ModelMapper modelMapper;
 
@@ -29,7 +29,7 @@ public class AuthorServiceImplTest {
     void setUp() {
         MockitoAnnotations.initMocks(this);
         modelMapper = new ModelMapper();
-        authorService = new AuthorServiceJpaImpl(authorDao, modelMapper);
+        authorService = new AuthorServiceJpaImpl(authorRepository, modelMapper);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class AuthorServiceImplTest {
         authors.add(author3);
         Integer expectedListSize = 3;
 
-        when(authorDao.getAllEntities()).thenReturn(authors);
+        when(authorRepository.getAllEntities()).thenReturn(authors);
         Set<AuthorDto> authorDtos = authorService.showAllDto();
 
         assertEquals(expectedListSize, authorDtos.size());
@@ -53,7 +53,7 @@ public class AuthorServiceImplTest {
     void showDtoById() {
         String authorName = "Ben";
         String authorSurname = "Glen";
-        when(authorDao.getEntityById(1L)).thenReturn(new Author(authorName, authorSurname));
+        when(authorRepository.getEntityById(1L)).thenReturn(new Author(authorName, authorSurname));
         AuthorDto authorDto = authorService.showDtoById(1L);
         assertEquals(authorName, authorDto.getAuthorName());
         assertEquals(authorSurname, authorDto.getAuthorSurname());
@@ -71,14 +71,14 @@ public class AuthorServiceImplTest {
         author.setAuthorName(authorName);
         author.setAuthorSurname(authorSurname);
 
-        when(authorDao.createEntity(author)).thenReturn(true);
+        when(authorRepository.createEntity(author)).thenReturn(true);
         assertTrue(authorService.saveDto(authorDto));
     }
 
     @Test
     void removeDto() {
         Long authorId = 1L;
-        when(authorDao.deleteEntity(authorId)).thenReturn(true);
+        when(authorRepository.deleteEntity(authorId)).thenReturn(true);
         assertTrue(authorService.removeDto(authorId));
     }
 }

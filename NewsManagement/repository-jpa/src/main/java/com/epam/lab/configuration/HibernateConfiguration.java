@@ -3,11 +3,10 @@ package com.epam.lab.configuration;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.hibernate.cfg.Environment;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.cfg.AvailableSettings;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -18,24 +17,12 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
-@PropertySource("classpath:database.properties")
+@ComponentScan("com.epam.lab")
 public class HibernateConfiguration {
-
-    @Autowired
-    org.springframework.core.env.Environment environment;
-
-    private static final String URL = "url";
-    private static final String USER = "dbUser";
-    private static final String DRIVER = "driver";
-    private static final String PASSWORD = "dbPassword";
 
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(environment.getProperty(URL));
-        config.setUsername(environment.getProperty(USER));
-        config.setPassword(environment.getProperty(PASSWORD));
-        config.setDriverClassName(environment.getProperty(DRIVER));
+        HikariConfig config = new HikariConfig("/database.properties");
         return new HikariDataSource(config);
     }
 
@@ -49,6 +36,13 @@ public class HibernateConfiguration {
         return em;
     }
 
+    @Bean
+    public JpaTransactionManager jpaTransactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        return transactionManager;
+    }
+
     private HibernateJpaVendorAdapter vendorAdapter() {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(true);
@@ -57,18 +51,11 @@ public class HibernateConfiguration {
 
     private Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL92Dialect");
-        hibernateProperties.setProperty(Environment.NON_CONTEXTUAL_LOB_CREATION, "true");
-        hibernateProperties.setProperty(Environment.GLOBALLY_QUOTED_IDENTIFIERS, "true");
-        hibernateProperties.setProperty(Environment.SHOW_SQL, "true");
-        hibernateProperties.setProperty(Environment.DEFAULT_SCHEMA, "public");
+        hibernateProperties.setProperty(AvailableSettings.DIALECT, "org.hibernate.dialect.PostgreSQL92Dialect");
+        hibernateProperties.setProperty(AvailableSettings.NON_CONTEXTUAL_LOB_CREATION, "true");
+        hibernateProperties.setProperty(AvailableSettings.GLOBALLY_QUOTED_IDENTIFIERS, "true");
+        hibernateProperties.setProperty(AvailableSettings.SHOW_SQL, "true");
+        hibernateProperties.setProperty(AvailableSettings.DEFAULT_SCHEMA, "public");
         return hibernateProperties;
-    }
-
-    @Bean
-    public JpaTransactionManager jpaTransactionManager() {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
-        return transactionManager;
     }
 }

@@ -2,7 +2,6 @@ package com.epam.lab.service;
 
 import com.epam.lab.dto.AbstractDto;
 
-import java.util.List;
 import java.util.Set;
 
 public interface BaseService<T extends AbstractDto> {

@@ -26,7 +26,6 @@ public class NewsServiceJpaImpl implements NewsService {
         this.modelMapper = modelMapper;
     }
 
-
     @Override
     public Set<NewsDto> showAllDto() {
         Set<News> news = newsRepository.getAllEntities();

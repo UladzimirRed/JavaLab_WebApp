@@ -4,8 +4,6 @@ import com.epam.lab.model.Author;
 import com.epam.lab.model.Tag;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class NewsDto extends AbstractDto {
@@ -80,26 +78,24 @@ public class NewsDto extends AbstractDto {
 
         NewsDto newsDto = (NewsDto) o;
 
-        if (title != null ? !title.equals(newsDto.title) : newsDto.title != null) return false;
-        if (shortText != null ? !shortText.equals(newsDto.shortText) : newsDto.shortText != null) return false;
-        if (fullText != null ? !fullText.equals(newsDto.fullText) : newsDto.fullText != null) return false;
-        if (creationDate != null ? !creationDate.equals(newsDto.creationDate) : newsDto.creationDate != null)
-            return false;
-        if (modificationDate != null ? !modificationDate.equals(newsDto.modificationDate) : newsDto.modificationDate != null)
-            return false;
-        if (tags != null ? !tags.equals(newsDto.tags) : newsDto.tags != null) return false;
-        return author != null ? author.equals(newsDto.author) : newsDto.author == null;
+        if (!title.equals(newsDto.title)) return false;
+        if (!shortText.equals(newsDto.shortText)) return false;
+        if (!fullText.equals(newsDto.fullText)) return false;
+        if (!creationDate.equals(newsDto.creationDate)) return false;
+        if (!modificationDate.equals(newsDto.modificationDate)) return false;
+        if (!tags.equals(newsDto.tags)) return false;
+        return author.equals(newsDto.author);
     }
 
     @Override
     public int hashCode() {
-        int result = title != null ? title.hashCode() : 0;
-        result = 31 * result + (shortText != null ? shortText.hashCode() : 0);
-        result = 31 * result + (fullText != null ? fullText.hashCode() : 0);
-        result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
-        result = 31 * result + (modificationDate != null ? modificationDate.hashCode() : 0);
-        result = 31 * result + (tags != null ? tags.hashCode() : 0);
-        result = 31 * result + (author != null ? author.hashCode() : 0);
+        int result = title.hashCode();
+        result = 31 * result + shortText.hashCode();
+        result = 31 * result + fullText.hashCode();
+        result = 31 * result + creationDate.hashCode();
+        result = 31 * result + modificationDate.hashCode();
+        result = 31 * result + tags.hashCode();
+        result = 31 * result + author.hashCode();
         return result;
     }
 }

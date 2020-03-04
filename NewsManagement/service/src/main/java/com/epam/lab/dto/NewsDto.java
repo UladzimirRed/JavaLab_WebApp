@@ -14,7 +14,6 @@ public class NewsDto extends AbstractDto {
     private AuthorDto authorDto;
     private List<Tag> tags;
 
-
     public String getTitle() {
         return title;
     }

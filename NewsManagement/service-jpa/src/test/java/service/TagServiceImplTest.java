@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 public class TagServiceImplTest {
     TagService tagService;
     @Mock
-    TagRepository tagDao;
+    TagRepository tagRepository;
     @Mock
     ModelMapper modelMapper;
 
@@ -29,7 +29,7 @@ public class TagServiceImplTest {
     void setUp() {
         MockitoAnnotations.initMocks(this);
         modelMapper = new ModelMapper();
-        tagService = new TagServiceJpaImpl(tagDao, modelMapper);
+        tagService = new TagServiceJpaImpl(tagRepository, modelMapper);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class TagServiceImplTest {
         tags.add(tag3);
         Integer expectedListSize = 3;
 
-        when(tagDao.getAllEntities()).thenReturn(tags);
+        when(tagRepository.getAllEntities()).thenReturn(tags);
         Set<TagDto> tagDtos = tagService.showAllDto();
 
         assertEquals(expectedListSize, tagDtos.size());
@@ -52,7 +52,7 @@ public class TagServiceImplTest {
     @Test
     void showDtoById() {
         String tagName = "world";
-        when(tagDao.getEntityById(1L)).thenReturn(new Tag(tagName));
+        when(tagRepository.getEntityById(1L)).thenReturn(new Tag(tagName));
         TagDto tagDto = tagService.showDtoById(1L);
         assertEquals(tagName, tagDto.getTagName());
     }
@@ -66,14 +66,14 @@ public class TagServiceImplTest {
         Tag tag = new Tag();
         tag.setTagName(tagName);
 
-        when(tagDao.createEntity(tag)).thenReturn(true);
+        when(tagRepository.createEntity(tag)).thenReturn(true);
         assertTrue(tagService.saveDto(tagDto));
     }
 
     @Test
     void removeDto() {
         Long tagId = 1L;
-        when(tagDao.deleteEntity(tagId)).thenReturn(true);
+        when(tagRepository.deleteEntity(tagId)).thenReturn(true);
         assertTrue(tagService.removeDto(tagId));
     }
 }

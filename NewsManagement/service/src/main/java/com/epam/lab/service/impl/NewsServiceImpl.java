@@ -25,7 +25,7 @@ public class NewsServiceImpl implements NewsService {
     private AuthorDao authorDao;
     private TagDao tagDao;
     private ModelMapper modelMapper;
-
+    public static final String WAS_NOT_UPDATED = " was not updated";
 
     @Autowired
     public NewsServiceImpl(NewsDao newsDao, AuthorDao authorDao, TagDao tagDao, ModelMapper modelMapper) {
@@ -99,7 +99,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     @Transactional
-    public NewsDto editDto(NewsDto newsDto) throws ServiceException {
+    public NewsDto editDto(NewsDto newsDto) {
         News news = convertToEntity(newsDto);
         boolean isTitleEdited = editTitle(news);
         boolean isShortTextEdited = editShortText(news);
@@ -115,21 +115,21 @@ public class NewsServiceImpl implements NewsService {
     public boolean editTitle(News news) {
         if (newsDao.updateTitle(news.getTitle(), news.getId())) {
             return true;
-        } else throw new ServiceException("Title of news with ID " + news.getId() + " was not updated");
+        } else throw new ServiceException("Title of news with ID " + news.getId() + WAS_NOT_UPDATED);
     }
 
     @Override
     public boolean editShortText(News news) {
         if (newsDao.updateShortText(news.getShortText(), news.getId())) {
             return true;
-        } else throw new ServiceException("Short text of news with ID " + news.getId() + " was not updated");
+        } else throw new ServiceException("Short text of news with ID " + news.getId() + WAS_NOT_UPDATED);
     }
 
     @Override
     public boolean editFullText(News news) {
         if (newsDao.updateFullText(news.getFullText(), news.getId())) {
             return true;
-        } else throw new ServiceException("Full text of news with ID " + news.getId() + " was not updated");
+        } else throw new ServiceException("Full text of news with ID " + news.getId() + WAS_NOT_UPDATED);
     }
 
     @Override

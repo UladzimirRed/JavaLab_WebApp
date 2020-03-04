@@ -1,16 +1,12 @@
 package com.epam.lab.controller;
 
 import com.epam.lab.dto.AuthorDto;
-
 import com.epam.lab.service.impl.AuthorServiceJpaImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-import java.util.function.Function;
 
 @RestController
 @RequestMapping("/authors")

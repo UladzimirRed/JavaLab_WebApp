@@ -17,10 +17,8 @@ public class News extends AbstractEntity {
     @Column(name = "full_text", nullable = false)
     private String fullText;
     @Column(name = "creation_date", nullable = false)
-//    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate;
     @Column(name = "modification_date", nullable = false)
-//    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp modificationDate;
     @ManyToMany
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -101,25 +99,24 @@ public class News extends AbstractEntity {
 
         News news = (News) o;
 
-        if (title != null ? !title.equals(news.title) : news.title != null) return false;
-        if (shortText != null ? !shortText.equals(news.shortText) : news.shortText != null) return false;
-        if (fullText != null ? !fullText.equals(news.fullText) : news.fullText != null) return false;
-        if (creationDate != null ? !creationDate.equals(news.creationDate) : news.creationDate != null) return false;
-        if (modificationDate != null ? !modificationDate.equals(news.modificationDate) : news.modificationDate != null)
-            return false;
-        if (tags != null ? !tags.equals(news.tags) : news.tags != null) return false;
-        return authors != null ? authors.equals(news.authors) : news.authors == null;
+        if (!title.equals(news.title)) return false;
+        if (!shortText.equals(news.shortText)) return false;
+        if (!fullText.equals(news.fullText)) return false;
+        if (!creationDate.equals(news.creationDate)) return false;
+        if (!modificationDate.equals(news.modificationDate)) return false;
+        if (!tags.equals(news.tags)) return false;
+        return authors.equals(news.authors);
     }
 
     @Override
     public int hashCode() {
-        int result = title != null ? title.hashCode() : 0;
-        result = 31 * result + (shortText != null ? shortText.hashCode() : 0);
-        result = 31 * result + (fullText != null ? fullText.hashCode() : 0);
-        result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
-        result = 31 * result + (modificationDate != null ? modificationDate.hashCode() : 0);
-        result = 31 * result + (tags != null ? tags.hashCode() : 0);
-        result = 31 * result + (authors != null ? authors.hashCode() : 0);
+        int result = title.hashCode();
+        result = 31 * result + shortText.hashCode();
+        result = 31 * result + fullText.hashCode();
+        result = 31 * result + creationDate.hashCode();
+        result = 31 * result + modificationDate.hashCode();
+        result = 31 * result + tags.hashCode();
+        result = 31 * result + authors.hashCode();
         return result;
     }
 
