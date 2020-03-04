@@ -1,6 +1,7 @@
 package service;
 
 import com.epam.lab.dto.AuthorDto;
+import com.epam.lab.exception.EntityNotFoundException;
 import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorRepository;
 import com.epam.lab.service.AuthorService;
@@ -14,8 +15,7 @@ import org.modelmapper.ModelMapper;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 public class AuthorServiceImplTest {
@@ -57,6 +57,12 @@ public class AuthorServiceImplTest {
         AuthorDto authorDto = authorService.showDtoById(1L);
         assertEquals(authorName, authorDto.getAuthorName());
         assertEquals(authorSurname, authorDto.getAuthorSurname());
+    }
+
+    @Test
+    public void showEntityByIdShouldReturnException() {
+        when(authorRepository.getEntityById(999L)).thenThrow(new EntityNotFoundException("Author with ID: 999 was not found"));
+        assertThrows(EntityNotFoundException.class, () -> authorService.showDtoById(999L));
     }
 
     @Test

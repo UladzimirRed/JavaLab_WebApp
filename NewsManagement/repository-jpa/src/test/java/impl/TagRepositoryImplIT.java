@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RepositoryTestConfig.class})
 @ComponentScan("com.epam.lab")
-public class TagRepositoryImplTest {
+public class TagRepositoryImplIT {
     @Autowired
     private TagRepository tagRepository;
 

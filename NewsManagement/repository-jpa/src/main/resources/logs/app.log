@@ -1,0 +1,311 @@
+2629ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2725ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@356341c9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3a70575, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5d96d434, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7283877, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@286a4c52, org.springframework.test.context.event.EventPublishingTestExecutionListener@13dd7887]
+4252ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+4802ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+4931ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+4949ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+5535ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+5902ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+7819ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+8227ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+8770ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+8772ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@d313183, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@58486032, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3be1ad3a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@463cc818, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@42855475, org.springframework.test.context.event.EventPublishingTestExecutionListener@59d7e5e7]
+8938ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+8940ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@41a33cc9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@504c8c7e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@47e96c5c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@694970c1, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@31d45c55, org.springframework.test.context.event.EventPublishingTestExecutionListener@54f096d]
+8993ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2992ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+3034ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@72cc7e6f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5afa3c9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@72035809, org.springframework.test.context.transaction.TransactionalTestExecutionListener@909217e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@18271936, org.springframework.test.context.event.EventPublishingTestExecutionListener@606e4010]
+3074ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+3087ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@496bc455, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@59402b8f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7188af83, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6be968ce, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7c37508a, org.springframework.test.context.event.EventPublishingTestExecutionListener@247310d0]
+3091ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+3093ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@303cf2ba, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@76494737, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4a003cbe, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4082ba93, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@17fc391b, org.springframework.test.context.event.EventPublishingTestExecutionListener@2b30a42c]
+4294ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+4870ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+5055ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+5058ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+5222ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+5565ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+7163ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+7680ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+1725ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1740ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7c7a06ec, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@75d4a5c2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@557caf28, org.springframework.test.context.transaction.TransactionalTestExecutionListener@408d971b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6c6cb480, org.springframework.test.context.event.EventPublishingTestExecutionListener@3c46e67a]
+2213ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2471ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2629ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2631ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2737ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2958ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+4114ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+4421ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+5243ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+1560ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1578ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7c7a06ec, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@75d4a5c2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@557caf28, org.springframework.test.context.transaction.TransactionalTestExecutionListener@408d971b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6c6cb480, org.springframework.test.context.event.EventPublishingTestExecutionListener@3c46e67a]
+2046ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2302ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2380ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2382ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2486ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2684ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3598ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+3916ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+1593ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1610ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7c7a06ec, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@75d4a5c2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@557caf28, org.springframework.test.context.transaction.TransactionalTestExecutionListener@408d971b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6c6cb480, org.springframework.test.context.event.EventPublishingTestExecutionListener@3c46e67a]
+2117ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2399ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2483ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2485ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2592ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2852ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3971ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+4329ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+4550ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+4552ms INFO  embedded.EmbeddedDatabaseFactory - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+1520ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1543ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3c41ed1d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@54d9d12d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@38425407, org.springframework.test.context.transaction.TransactionalTestExecutionListener@43bc63a3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@702657cc, org.springframework.test.context.event.EventPublishingTestExecutionListener@6a6cb05c]
+2020ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2279ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2362ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2365ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2472ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2672ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3638ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+3985ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+4221ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+4222ms INFO  embedded.EmbeddedDatabaseFactory - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+1362ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1381ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6771beb3, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@51399530, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6b2ea799, org.springframework.test.context.transaction.TransactionalTestExecutionListener@411f53a0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2b71e916, org.springframework.test.context.event.EventPublishingTestExecutionListener@36fc695d]
+1864ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2122ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2206ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2208ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2315ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2514ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3459ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+3718ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+4012ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+1314ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1329ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@175c2241, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bf0d49, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b7a5baa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@776aec5c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1d296da, org.springframework.test.context.event.EventPublishingTestExecutionListener@7c7a06ec]
+1803ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2064ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2142ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2144ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2246ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2454ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3389ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+3646ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+1459ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1477ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@175c2241, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bf0d49, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b7a5baa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@776aec5c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1d296da, org.springframework.test.context.event.EventPublishingTestExecutionListener@7c7a06ec]
+1990ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2250ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2329ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2332ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2434ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2674ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3697ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+4015ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+3701ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+3746ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7283877, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@286a4c52, org.springframework.test.context.support.DirtiesContextTestExecutionListener@13dd7887, org.springframework.test.context.transaction.TransactionalTestExecutionListener@780129bc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3e2c4d4b, org.springframework.test.context.event.EventPublishingTestExecutionListener@44de8e00]
+5465ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+6199ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+6390ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+6472ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+6950ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+7632ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+9865ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10435ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+12046ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+12048ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2c4e0bc2, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1556748e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@38d1ff78, org.springframework.test.context.transaction.TransactionalTestExecutionListener@353430e0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@69f82d9f, org.springframework.test.context.event.EventPublishingTestExecutionListener@4facd62a]
+12196ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+12199ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2f75550b, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@a53088c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@41327ce3, org.springframework.test.context.transaction.TransactionalTestExecutionListener@43ac81ac, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@467459df, org.springframework.test.context.event.EventPublishingTestExecutionListener@54f12ef5]
+1732ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1748ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@175c2241, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bf0d49, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b7a5baa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@776aec5c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1d296da, org.springframework.test.context.event.EventPublishingTestExecutionListener@7c7a06ec]
+2271ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2598ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2689ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2693ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2835ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+3088ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+4205ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+4505ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+4998ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2653ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2677ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5b7a5baa, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@776aec5c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1d296da, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7c7a06ec, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@75d4a5c2, org.springframework.test.context.event.EventPublishingTestExecutionListener@557caf28]
+3418ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+3743ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+3846ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+3849ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+3986ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+4345ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+5703ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+6022ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+6372ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+1995ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2035ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@286a4c52, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@13dd7887, org.springframework.test.context.support.DirtiesContextTestExecutionListener@780129bc, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3e2c4d4b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@44de8e00, org.springframework.test.context.event.EventPublishingTestExecutionListener@3cbfdf5c]
+2844ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+3263ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+3399ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+3402ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+3579ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+3912ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+5279ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+5853ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+6287ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+6302ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6f691b9a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4fb56267, org.springframework.test.context.support.DirtiesContextTestExecutionListener@27fba118, org.springframework.test.context.transaction.TransactionalTestExecutionListener@41e590dd, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6677e6b0, org.springframework.test.context.event.EventPublishingTestExecutionListener@2b51643]
+6919ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+6920ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@9481e14, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b25a884, org.springframework.test.context.support.DirtiesContextTestExecutionListener@38807f41, org.springframework.test.context.transaction.TransactionalTestExecutionListener@45791d5d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@c880358, org.springframework.test.context.event.EventPublishingTestExecutionListener@a6ffbc5]
+6977ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+1558ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1576ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7c7a06ec, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@75d4a5c2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@557caf28, org.springframework.test.context.transaction.TransactionalTestExecutionListener@408d971b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6c6cb480, org.springframework.test.context.event.EventPublishingTestExecutionListener@3c46e67a]
+2157ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2430ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2509ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2512ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2614ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2861ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3859ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+4156ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+4432ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+1378ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1403ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4afcd809, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@175c2241, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5bf0d49, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5b7a5baa, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@776aec5c, org.springframework.test.context.event.EventPublishingTestExecutionListener@1d296da]
+1976ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2260ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2339ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2340ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2478ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2720ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3691ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+3945ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+4238ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+4240ms INFO  embedded.EmbeddedDatabaseFactory - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+1510ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1572ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@13c9d689, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3754a4bf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@62379589, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4afcd809, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@175c2241, org.springframework.test.context.event.EventPublishingTestExecutionListener@5bf0d49]
+2054ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2313ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2398ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2399ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2507ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2712ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3692ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+3951ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+1763ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1781ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7c7a06ec, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@75d4a5c2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@557caf28, org.springframework.test.context.transaction.TransactionalTestExecutionListener@408d971b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6c6cb480, org.springframework.test.context.event.EventPublishingTestExecutionListener@3c46e67a]
+2253ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2519ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2603ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2605ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2712ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2934ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3922ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+4193ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+4490ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+1689ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1708ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@175c2241, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bf0d49, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b7a5baa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@776aec5c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1d296da, org.springframework.test.context.event.EventPublishingTestExecutionListener@7c7a06ec]
+2209ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2474ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2559ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2562ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2664ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2892ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3877ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+4133ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+1387ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1448ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7c7a06ec, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@75d4a5c2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@557caf28, org.springframework.test.context.transaction.TransactionalTestExecutionListener@408d971b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6c6cb480, org.springframework.test.context.event.EventPublishingTestExecutionListener@3c46e67a]
+1911ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2171ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2252ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2254ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2350ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2562ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3531ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+3793ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+3964ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+3965ms INFO  embedded.EmbeddedDatabaseFactory - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+1459ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1505ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7c7a06ec, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@75d4a5c2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@557caf28, org.springframework.test.context.transaction.TransactionalTestExecutionListener@408d971b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6c6cb480, org.springframework.test.context.event.EventPublishingTestExecutionListener@3c46e67a]
+2035ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2293ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2819ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2820ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2929ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+3140ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+4117ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+4386ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+4534ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+4535ms INFO  embedded.EmbeddedDatabaseFactory - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+1416ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1431ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@175c2241, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bf0d49, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b7a5baa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@776aec5c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1d296da, org.springframework.test.context.event.EventPublishingTestExecutionListener@7c7a06ec]
+1910ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2176ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2255ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2257ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2358ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2563ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3530ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+3790ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+4069ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+1380ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1395ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5b7a5baa, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@776aec5c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1d296da, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7c7a06ec, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@75d4a5c2, org.springframework.test.context.event.EventPublishingTestExecutionListener@557caf28]
+1900ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2165ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2244ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2246ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2348ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2563ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+3552ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+3873ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+1752ms INFO  support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+1768ms INFO  support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@175c2241, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bf0d49, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b7a5baa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@776aec5c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1d296da, org.springframework.test.context.event.EventPublishingTestExecutionListener@7c7a06ec]
+2410ms INFO  embedded.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2680ms INFO  util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2796ms INFO  hibernate.Version - HHH000412: Hibernate Core {5.3.2.Final}
+2820ms INFO  cfg.Environment - HHH000206: hibernate.properties not found
+2958ms INFO  common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+3839ms INFO  dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+4839ms INFO  jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+5134ms INFO  internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory

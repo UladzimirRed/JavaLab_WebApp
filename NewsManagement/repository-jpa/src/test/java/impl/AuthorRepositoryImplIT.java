@@ -1,5 +1,6 @@
 package impl;
 
+import com.epam.lab.exception.DaoException;
 import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorRepository;
 import config.RepositoryTestConfig;
@@ -15,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RepositoryTestConfig.class})
 @ComponentScan("com.epam.lab")
-public class AuthorRepositoryImplTest {
+public class AuthorRepositoryImplIT {
     @Autowired
     private AuthorRepository authorRepository;
 
@@ -32,6 +33,12 @@ public class AuthorRepositoryImplTest {
         assertTrue(authorRepository.createEntity(author));
     }
 
+    @Test(expected = DaoException.class)
+    public void createEntityThrowsException(){
+        Author author = new Author();
+        authorRepository.createEntity(author);
+    }
+
     @Test
     public void getAllEntities() {
         int countOfRowInTable = 10;
@@ -41,10 +48,16 @@ public class AuthorRepositoryImplTest {
 
     @Test
     public void getEntityById() {
+
         Author author = authorRepository.getEntityById(1L);
         assertNotNull(author);
         assertEquals(TEST_NAME, author.getAuthorName());
         assertEquals(TEST_SURNAME, author.getAuthorSurname());
+    }
+
+    @Test(expected =  DaoException.class)
+    public void getEntityByIdShouldReturnException() throws DaoException{
+        authorRepository.getEntityById(999L);
     }
 
     @Test
