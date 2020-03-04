@@ -1,5 +1,6 @@
 package impl;
 
+import com.epam.lab.exception.DaoException;
 import com.epam.lab.model.Tag;
 import com.epam.lab.repository.TagRepository;
 import config.RepositoryTestConfig;
@@ -18,12 +19,21 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TagRepositoryImplIT {
     @Autowired
     private TagRepository tagRepository;
+    private static final Long EXISTENT_ID = 1L;
+    private static final Long NONEXISTENT_ID = 999L;
+    private static final String UPDATED_TAG_NAME = "politicsUPD";
 
     @Test
     public void createEntity() {
         Tag tag = new Tag();
         tag.setTagName("politics");
         assertTrue(tagRepository.createEntity(tag));
+    }
+
+    @Test(expected = DaoException.class)
+    public void createEntityThrowsException() {
+        Tag tag = new Tag();
+        tagRepository.createEntity(tag);
     }
 
     @Test
@@ -35,18 +45,34 @@ public class TagRepositoryImplIT {
 
     @Test
     public void getEntityById() {
-        assertNotNull(tagRepository.getEntityById(1L));
+        assertNotNull(tagRepository.getEntityById(EXISTENT_ID));
+    }
+
+    @Test(expected = DaoException.class)
+    public void getEntityByIdThrowsException() throws DaoException {
+        tagRepository.getEntityById(NONEXISTENT_ID);
     }
 
     @Test
     public void updateEntity() {
-        Tag tag = tagRepository.getEntityById(1L);
-        assertNotNull(tag);
-        assertEquals("politics", tag.getTagName());
+        Tag tag = new Tag();
+        tag.setId(EXISTENT_ID);
+        tag.setTagName(UPDATED_TAG_NAME);
+        assertTrue(tagRepository.updateEntity(tag));
+        Tag updatedTag = tagRepository.getEntityById(EXISTENT_ID);
+        assertEquals(UPDATED_TAG_NAME, updatedTag.getTagName());
+    }
+
+    @Test(expected = DaoException.class)
+    public void updateEntityThrowsException() throws DaoException {
+        Tag tag = new Tag();
+        tagRepository.updateEntity(tag);
     }
 
     @Test
     public void deleteEntity() {
-        assertTrue(tagRepository.deleteEntity(1L));
+        int countOfRowInTableAfterDelete = 9;
+        assertTrue(tagRepository.deleteEntity(EXISTENT_ID));
+        assertEquals(countOfRowInTableAfterDelete, tagRepository.getAllEntities().size());
     }
 }

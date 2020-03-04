@@ -1,7 +1,7 @@
 package service;
 
 import com.epam.lab.dto.AuthorDto;
-import com.epam.lab.exception.EntityNotFoundException;
+import com.epam.lab.exception.ServiceException;
 import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorRepository;
 import com.epam.lab.service.AuthorService;
@@ -19,7 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 public class AuthorServiceImplTest {
-    AuthorService authorService;
+    private AuthorService authorService;
+    private static final Long EXISTENT_ID = 1L;
+    private static final Long NONEXISTENT_ID = 999L;
     @Mock
     AuthorRepository authorRepository;
     @Mock
@@ -50,19 +52,25 @@ public class AuthorServiceImplTest {
     }
 
     @Test
+    void showAllDtoThrowsException() {
+        when(authorRepository.getAllEntities()).thenThrow(new ServiceException());
+        assertThrows(ServiceException.class, () -> authorRepository.getAllEntities());
+    }
+
+    @Test
     void showDtoById() {
         String authorName = "Ben";
         String authorSurname = "Glen";
-        when(authorRepository.getEntityById(1L)).thenReturn(new Author(authorName, authorSurname));
-        AuthorDto authorDto = authorService.showDtoById(1L);
+        when(authorRepository.getEntityById(EXISTENT_ID)).thenReturn(new Author(authorName, authorSurname));
+        AuthorDto authorDto = authorService.showDtoById(EXISTENT_ID);
         assertEquals(authorName, authorDto.getAuthorName());
         assertEquals(authorSurname, authorDto.getAuthorSurname());
     }
 
     @Test
-    public void showEntityByIdShouldReturnException() {
-        when(authorRepository.getEntityById(999L)).thenThrow(new EntityNotFoundException("Author with ID: 999 was not found"));
-        assertThrows(EntityNotFoundException.class, () -> authorService.showDtoById(999L));
+    public void showEntityByIdThrowsException() {
+        when(authorRepository.getEntityById(NONEXISTENT_ID)).thenThrow(new ServiceException("Author with ID: 999 was not found"));
+        assertThrows(ServiceException.class, () -> authorService.showDtoById(NONEXISTENT_ID));
     }
 
     @Test
@@ -80,6 +88,31 @@ public class AuthorServiceImplTest {
         when(authorRepository.createEntity(author)).thenReturn(true);
         assertTrue(authorService.saveDto(authorDto));
     }
+
+    @Test
+    void saveDtoThrowsException() {
+        Author author = new Author();
+        AuthorDto authorDto = new AuthorDto();
+        when(authorRepository.createEntity(author)).thenReturn(true);
+        assertThrows(NullPointerException.class, () -> authorService.saveDto(authorDto));
+    }
+
+    @Test
+    void editDto() {
+        Author author = new Author();
+        author.setId(EXISTENT_ID);
+        author.setAuthorName("updName");
+        author.setAuthorSurname("updSurname");
+        AuthorDto authorDto = new AuthorDto();
+        authorDto.setId(EXISTENT_ID);
+        authorDto.setAuthorName("updName");
+        authorDto.setAuthorSurname("updSurname");
+        when(authorRepository.updateEntity(author)).thenReturn(true);
+        when(authorRepository.getEntityById(EXISTENT_ID)).thenReturn(author);
+        AuthorDto updatedAuthorDto = authorService.editDto(authorDto);
+        assertEquals("updName", updatedAuthorDto.getAuthorName());
+    }
+
 
     @Test
     void removeDto() {

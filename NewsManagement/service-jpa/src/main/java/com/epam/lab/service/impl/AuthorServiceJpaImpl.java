@@ -1,7 +1,6 @@
 package com.epam.lab.service.impl;
 
 import com.epam.lab.dto.AuthorDto;
-import com.epam.lab.exception.EntityNotFoundException;
 import com.epam.lab.exception.ServiceException;
 import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorRepository;
@@ -39,7 +38,7 @@ public class AuthorServiceJpaImpl implements AuthorService {
         if (author != null) {
             return modelMapper.map(author, AuthorDto.class);
         } else {
-            throw new EntityNotFoundException("Author with ID: " + authorId + " was not found");
+            throw new ServiceException("Author with ID: " + authorId + " was not found");
         }
     }
 

@@ -17,7 +17,6 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
-
 @Repository
 public class NewsRepositoryImpl implements NewsRepository {
     @PersistenceContext
@@ -37,7 +36,12 @@ public class NewsRepositoryImpl implements NewsRepository {
     @Override
     public News getEntityById(Long id) {
         try {
-            return entityManager.find(News.class, id);
+            CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+            CriteriaQuery<News> criteriaQuery = criteriaBuilder.createQuery(News.class);
+            Root<News> newsRoot = criteriaQuery.from(News.class);
+            criteriaQuery.where(criteriaBuilder.equal(newsRoot.get(NEWS_ID), id));
+            TypedQuery<News> query = entityManager.createQuery(criteriaQuery);
+            return query.getSingleResult();
         } catch (Exception ex) {
             throw new DaoException(ex);
         } finally {

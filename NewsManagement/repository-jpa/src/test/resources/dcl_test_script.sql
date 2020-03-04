@@ -23,5 +23,3 @@ INSERT INTO tags (tag_name) VALUES ('sport');
 INSERT INTO tags (tag_name) VALUES ('travel');
 INSERT INTO tags (tag_name) VALUES ('business');
 INSERT INTO tags (tag_name) VALUES ('technology');
-
-

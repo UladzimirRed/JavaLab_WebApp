@@ -20,10 +20,12 @@ public class AuthorRepositoryImplIT {
     @Autowired
     private AuthorRepository authorRepository;
 
-    public static final String TEST_NAME = "Zoe";
-    public static final String TEST_SURNAME = "Roberts";
-    public static final String UPDATED_TEST_NAME = "ZoeUPD";
-    public static final String UPDATED_TEST_SURNAME = "RobertsUPD";
+    private static final String TEST_NAME = "Zoe";
+    private static final String TEST_SURNAME = "Roberts";
+    private static final String UPDATED_TEST_NAME = "ZoeUPD";
+    private static final String UPDATED_TEST_SURNAME = "RobertsUPD";
+    private static final Long EXISTENT_ID = 1L;
+    private static final Long NONEXISTENT_ID = 999L;
 
     @Test
     public void createEntity() {
@@ -34,7 +36,7 @@ public class AuthorRepositoryImplIT {
     }
 
     @Test(expected = DaoException.class)
-    public void createEntityThrowsException(){
+    public void createEntityThrowsException() {
         Author author = new Author();
         authorRepository.createEntity(author);
     }
@@ -48,34 +50,39 @@ public class AuthorRepositoryImplIT {
 
     @Test
     public void getEntityById() {
-
-        Author author = authorRepository.getEntityById(1L);
+        Author author = authorRepository.getEntityById(EXISTENT_ID);
         assertNotNull(author);
         assertEquals(TEST_NAME, author.getAuthorName());
         assertEquals(TEST_SURNAME, author.getAuthorSurname());
     }
 
-    @Test(expected =  DaoException.class)
-    public void getEntityByIdShouldReturnException() throws DaoException{
-        authorRepository.getEntityById(999L);
+    @Test(expected = DaoException.class)
+    public void getEntityByIdThrowsException() throws DaoException {
+        authorRepository.getEntityById(NONEXISTENT_ID);
     }
 
     @Test
     public void updateEntity() {
         Author author = new Author();
-        author.setId(1L);
+        author.setId(EXISTENT_ID);
         author.setAuthorName(UPDATED_TEST_NAME);
         author.setAuthorSurname(UPDATED_TEST_SURNAME);
         assertTrue(authorRepository.updateEntity(author));
-        Author updatedAuthor = authorRepository.getEntityById(1L);
+        Author updatedAuthor = authorRepository.getEntityById(EXISTENT_ID);
         assertEquals(UPDATED_TEST_NAME, updatedAuthor.getAuthorName());
         assertEquals(UPDATED_TEST_SURNAME, updatedAuthor.getAuthorSurname());
+    }
+
+    @Test(expected = DaoException.class)
+    public void updateEntityThrowsException() throws DaoException {
+        Author author = new Author();
+        authorRepository.updateEntity(author);
     }
 
     @Test
     public void deleteEntity() {
         int countOfRowInTableAfterDelete = 9;
-        assertTrue(authorRepository.deleteEntity(1L));
+        assertTrue(authorRepository.deleteEntity(EXISTENT_ID));
         assertEquals(countOfRowInTableAfterDelete, authorRepository.getAllEntities().size());
     }
 }
