@@ -1,10 +1,9 @@
-package service;
+package com.epam.lab.service;
 
 import com.epam.lab.dto.AuthorDto;
 import com.epam.lab.exception.ServiceException;
 import com.epam.lab.model.Author;
 import com.epam.lab.repository.AuthorRepository;
-import com.epam.lab.service.AuthorService;
 import com.epam.lab.service.impl.AuthorServiceJpaImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,6 +21,7 @@ public class AuthorServiceImplTest {
     private AuthorService authorService;
     private static final Long EXISTENT_ID = 1L;
     private static final Long NONEXISTENT_ID = 999L;
+
     @Mock
     AuthorRepository authorRepository;
     @Mock
@@ -43,12 +43,12 @@ public class AuthorServiceImplTest {
         authors.add(author);
         authors.add(author2);
         authors.add(author3);
-        Integer expectedListSize = 3;
+        Integer expectedSetSize = 3;
 
         when(authorRepository.getAllEntities()).thenReturn(authors);
         Set<AuthorDto> authorDtos = authorService.showAllDto();
 
-        assertEquals(expectedListSize, authorDtos.size());
+        assertEquals(expectedSetSize, authorDtos.size());
     }
 
     @Test
@@ -112,7 +112,6 @@ public class AuthorServiceImplTest {
         AuthorDto updatedAuthorDto = authorService.editDto(authorDto);
         assertEquals("updName", updatedAuthorDto.getAuthorName());
     }
-
 
     @Test
     void removeDto() {

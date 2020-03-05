@@ -1,10 +1,9 @@
-package impl;
+package com.epam.lab.repository;
 
 import com.epam.lab.exception.DaoException;
 import com.epam.lab.model.News;
 import com.epam.lab.model.NewsSearchCriteria;
-import com.epam.lab.repository.NewsRepository;
-import config.RepositoryTestConfig;
+import com.epam.lab.configuration.RepositoryTestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

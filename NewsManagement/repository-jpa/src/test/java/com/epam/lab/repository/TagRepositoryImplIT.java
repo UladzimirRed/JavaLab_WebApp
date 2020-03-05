@@ -1,9 +1,8 @@
-package impl;
+package com.epam.lab.repository;
 
 import com.epam.lab.exception.DaoException;
 import com.epam.lab.model.Tag;
-import com.epam.lab.repository.TagRepository;
-import config.RepositoryTestConfig;
+import com.epam.lab.configuration.RepositoryTestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

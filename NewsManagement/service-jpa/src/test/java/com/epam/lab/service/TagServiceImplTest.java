@@ -1,9 +1,8 @@
-package service;
+package com.epam.lab.service;
 
 import com.epam.lab.dto.TagDto;
 import com.epam.lab.model.Tag;
 import com.epam.lab.repository.TagRepository;
-import com.epam.lab.service.TagService;
 import com.epam.lab.service.impl.TagServiceJpaImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 public class TagServiceImplTest {
-    TagService tagService;
+    private TagService tagService;
+    private static final Long EXISTENT_ID = 1L;
+    private static final String TAG_NAME = "politics";
+
     @Mock
     TagRepository tagRepository;
     @Mock
@@ -33,7 +35,7 @@ public class TagServiceImplTest {
     }
 
     @Test
-    void showAllDto() {
+    void showAllDtoTest() {
         Set<Tag> tags = new HashSet<>();
         Tag tag = new Tag("politics");
         Tag tag2 = new Tag("world");
@@ -50,15 +52,15 @@ public class TagServiceImplTest {
     }
 
     @Test
-    void showDtoById() {
+    void showDtoByIdTest() {
         String tagName = "world";
-        when(tagRepository.getEntityById(1L)).thenReturn(new Tag(tagName));
-        TagDto tagDto = tagService.showDtoById(1L);
+        when(tagRepository.getEntityById(EXISTENT_ID)).thenReturn(new Tag(tagName));
+        TagDto tagDto = tagService.showDtoById(EXISTENT_ID);
         assertEquals(tagName, tagDto.getTagName());
     }
 
     @Test
-    void saveDto() {
+    void saveDtoTest() {
         String tagName = "space";
         TagDto tagDto = new TagDto();
         tagDto.setTagName(tagName);
@@ -71,7 +73,21 @@ public class TagServiceImplTest {
     }
 
     @Test
-    void removeDto() {
+    void editDto() {
+        Tag tag = new Tag();
+        tag.setId(EXISTENT_ID);
+        tag.setTagName(TAG_NAME);
+        TagDto tagDto = new TagDto();
+        tagDto.setId(EXISTENT_ID);
+        tagDto.setTagName(TAG_NAME);
+        when(tagRepository.updateEntity(tag)).thenReturn(true);
+        when(tagRepository.getEntityById(EXISTENT_ID)).thenReturn(tag);
+        TagDto updatedTagDto = tagService.editDto(tagDto);
+        assertEquals(TAG_NAME, updatedTagDto.getTagName());
+    }
+
+    @Test
+    void removeDtoTest() {
         Long tagId = 1L;
         when(tagRepository.deleteEntity(tagId)).thenReturn(true);
         assertTrue(tagService.removeDto(tagId));
